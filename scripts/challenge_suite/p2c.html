@@ -1,0 +1,92 @@
+<!-- ============ S4 APP CONCEPT ============ -->
+<div class="chapter-header">
+    <div class="sec-tag">SECTION 04 // THE PRODUCT</div>
+    <div class="sec-title">PYROCHRON &mdash; The Global Burning Calendar</div>
+    <p class="sec-lede">One screen tells the whole story: twenty-five fire years in a single grid, for anywhere on Earth.</p>
+</div>
+
+<p class="body-text">PYROCHRON&rsquo;s hero artifact is the <b>Fire Calendar</b>: the user draws or selects an area of interest, and the app renders a 25&nbsp;&times;&nbsp;52 heatmap &mdash; years as rows (2000&ndash;2026), weeks-of-year as columns &mdash; where color encodes harmonized burn-activity intensity. The eye does the science instantly: fire seasons march diagonally, El&nbsp;Ni&ntilde;o years light up, a suppressed pandemic year goes dark, and the current year&rsquo;s row extends week by week. A sensor toggle lets the viewer switch between raw MODIS, raw VIIRS, and the <b>harmonized series</b> &mdash; making the 2012 seam appear and vanish on demand. That toggle is the 30-second demo moment: it shows the problem and the fix in one gesture.</p>
+
+<div class="sub-title"><span class="num">04.1</span> The Five Screens</div>
+<table>
+    <colgroup><col style="width:20%"><col style="width:44%"><col style="width:36%"></colgroup>
+    <thead><tr><th>SCREEN</th><th>WHAT IT SHOWS</th><th>USER IT SERVES</th></tr></thead>
+    <tbody>
+        <tr><td><b>1 &middot; AOI Picker</b></td><td>MapLibre globe with preset regions (Amazon, California, Australia, Siberia, Congo, Mediterranean) plus draw-your-own polygon</td><td>All four personas &mdash; 5-second onboarding</td></tr>
+        <tr><td><b>2 &middot; Fire Calendar</b></td><td>The 25&times;52 harmonized heatmap with sensor toggle, confidence ribbon, and week-hover readouts</td><td>Scientists &mdash; the citable artifact</td></tr>
+        <tr><td><b>3 &middot; Anomaly Spotlight</b></td><td>Current week vs climatology: z-score, percentile rank, and the top-5 most anomalous regions worldwide right now</td><td>Early-warning systems &mdash; the &ldquo;where is it weird&rdquo; screen</td></tr>
+        <tr><td><b>4 &middot; Season Outlook</b></td><td>Chronos-Bolt 4-week-ahead activity forecast per AOI with prediction band, plus POWER fire-weather context</td><td>Responders &amp; land managers &mdash; the actionable screen</td></tr>
+        <tr><td><b>5 &middot; Situation Briefing</b></td><td>LLM-generated plain-language report: what burned, how unusual, what the outlook says &mdash; every number traceable to a computed stat</td><td>Journalists &amp; the public &mdash; the shareable screen</td></tr>
+    </tbody>
+</table>
+
+<div class="sub-title"><span class="num">04.2</span> Demo Choreography (90 Seconds)</div>
+<p class="body-text">Open on California. The calendar fills row by row with an animated sweep &mdash; two decades of fire history in four seconds. Toggle to raw sensors: the 2012 seam splits the grid; toggle back: one continuous record. Jump to Anomaly Spotlight: the world map shows this week&rsquo;s five most unusual fire regions. Select one, open Season Outlook: the forecast curve with its band. Finish on the briefing, read one sentence aloud, close on the methodology page. Each beat maps to a judging criterion &mdash; nothing in the demo exists for decoration.</p>
+
+<!-- ============ S5 AI DIVISION ============ -->
+<div class="chapter-header">
+    <div class="sec-tag">SECTION 05 // AI DIVISION</div>
+    <div class="sec-title">Four Models, One Rule: Compute First, Narrate Second</div>
+    <p class="sec-lede">Every AI output is generated from statistics the app has already computed &mdash; never invented.</p>
+</div>
+
+<table>
+    <colgroup><col style="width:26%"><col style="width:38%"><col style="width:36%"></colgroup>
+    <thead><tr><th>MODEL (HUGGING FACE)</th><th>JOB IN PYROCHRON</th><th>GUARDRAIL</th></tr></thead>
+    <tbody>
+        <tr><td><b>Chronos-Bolt-Base</b><br><span class="mono">amazon/chronos-bolt-base</span></td><td>Zero-shot weekly fire-activity forecast per AOI (4&ndash;8 weeks ahead) with quantile bands; runs on CPU in seconds</td><td>Band displayed always; horizon capped; disclaimer that outlooks are statistical, not operational warnings</td></tr>
+        <tr><td><b>all-MiniLM-L6-v2</b></td><td>Embeds EONET event narratives + our region descriptions so users can semantic-search &ldquo;sugar cane burns in Thailand&rdquo; and land on the right AOI</td><td>Search only ranks; it never generates counts</td></tr>
+        <tr><td><b>LLM (open instruct model)</b></td><td>Writes the Situation Briefing from a structured stat pack (anomalies, trends, forecast, POWER weather) &mdash; a summarizer, not an oracle</td><td>Prompt hard-pins every number to the stat pack; output cites the figures it used</td></tr>
+        <tr><td><b>Prithvi-EO-2.0 (optional)</b></td><td>Land-cover embedding to sharpen transfer-function strata if time allows &mdash; a stretch goal, not a dependency</td><td>Feature-flagged off in the demo build until validated</td></tr>
+    </tbody>
+</table>
+
+<p class="body-text">The AI division earns the <b>Best Use of Technology</b> conversation without gambling the submission on it. Chronos-Bolt is the load-bearing model: forecasting is a genuine early-warning capability and needs no training run &mdash; the zero-shot recipe was validated in the playbook&rsquo;s model registry. The LLM briefing is deliberately narrow: it narrates computed truth. This design survives the judge question &ldquo;is the AI doing real work?&rdquo; with a yes that we can demonstrate live, and survives the harder question &ldquo;can it hallucinate?&rdquo; with a no that we can show in code.</p>
+
+<!-- ============ S6 ARCHITECTURE ============ -->
+<div class="chapter-header">
+    <div class="sec-tag">SECTION 06 // ARCHITECTURE</div>
+    <div class="sec-title">Four Layers, Pre-Built Where It Counts</div>
+    <p class="sec-lede">The TERRA SENTINEL chassis wears its fire skin: same bones, new organs.</p>
+</div>
+
+<div class="arch">
+    <div class="arch-layer">
+        <div class="arch-ltitle">LAYER 4 // EXPERIENCE &mdash; NEXT.JS 15 + TAILWIND</div>
+        <div class="arch-nodes">
+            <div class="arch-node"><div class="n">Globe &amp; AOI</div><div class="d">MapLibre GL + polygon draw</div></div>
+            <div class="arch-node"><div class="n">Fire Calendar</div><div class="d">Custom 25&times;52 grid, CSS canvas</div></div>
+            <div class="arch-node"><div class="n">Anomaly Map</div><div class="d">deck.gl HexagonLayer, z-scores</div></div>
+            <div class="arch-node"><div class="n">Briefing View</div><div class="d">Streaming report + citations</div></div>
+        </div>
+    </div>
+    <div class="arch-conn">&#9650;&#9660; REST / SSE</div>
+    <div class="arch-layer">
+        <div class="arch-ltitle">LAYER 3 // AI MICROSERVICES &mdash; FASTAPI + HUGGING FACE</div>
+        <div class="arch-nodes">
+            <div class="arch-node"><div class="n">/forecast</div><div class="d">Chronos-Bolt quantiles</div></div>
+            <div class="arch-node"><div class="n">/search</div><div class="d">MiniLM embeddings</div></div>
+            <div class="arch-node"><div class="n">/brief</div><div class="d">LLM stat-pack narrator</div></div>
+        </div>
+    </div>
+    <div class="arch-conn">&#9650;&#9660; Parquet / DuckDB</div>
+    <div class="arch-layer">
+        <div class="arch-ltitle">LAYER 2 // HARMONIZATION ENGINE &mdash; PYTHON (PRE-COMPUTED)</div>
+        <div class="arch-nodes">
+            <div class="arch-node"><div class="n">Event Clustering</div><div class="d">H3 + temporal linking</div></div>
+            <div class="arch-node"><div class="n">Transfer Functions</div><div class="d">Quantile mapping per stratum</div></div>
+            <div class="arch-node"><div class="n">Validation</div><div class="d">vs MCD64A1 burned area</div></div>
+        </div>
+    </div>
+    <div class="arch-conn">&#9650;&#9660; ingest (pre-event)</div>
+    <div class="arch-layer">
+        <div class="arch-ltitle">LAYER 1 // NASA DATA &mdash; ARCHIVED + LIVE</div>
+        <div class="arch-nodes">
+            <div class="arch-node"><div class="n">FIRMS Archive</div><div class="d">MCD14ML &middot; VNP14IMGML</div></div>
+            <div class="arch-node"><div class="n">MCD64A1 + MCD12Q1</div><div class="d">Truth + land cover</div></div>
+            <div class="arch-node"><div class="n">GIBS &middot; POWER &middot; EONET</div><div class="d">Context &middot; weather &middot; events</div></div>
+        </div>
+    </div>
+</div>
+
+<p class="body-text">The decisive architectural choice is on Layer&nbsp;2: everything heavy is <b>pre-computed before the event</b> and shipped as Parquet. The live app reads aggregates, never raw archives, which means the demo cannot be broken by a NASA bandwidth hiccup &mdash; the only live calls are GIBS tiles, the 7-day FIRMS freshness feed, and our own microservices. Layer&nbsp;3 models are cached locally in the container; the Hugging Face dependency ends at build time. This is how a data-intensive submission becomes demo-bulletproof.</p>

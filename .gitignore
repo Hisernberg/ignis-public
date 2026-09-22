@@ -1,0 +1,53 @@
+# dependencies
+/node_modules
+
+# next.js
+/.next/
+/out/
+next-env.d.ts
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dev.log
+server.log
+
+# env files
+.env*
+!.env.example
+
+# typescript
+*.tsbuildinfo
+
+# project-local, never tracked
+/scripts/models/out/
+/scripts/models/stage/
+/scripts/models/gh_stage/
+/scripts/hf_model/out/model_repo/
+/scripts/hfrepo/
+/scripts/build_rev*/
+/vault/
+/secrets/
+/db/
+/upload/
+/tool-results/
+/.hf_cache/
+/research/
+/examples/
+/skills/
+/tests/
+/mini-services/
+Caddyfile
+prisma/dev.db
+
+# internal agent artifacts (never public)
+/worklog.md
+/tool-results/

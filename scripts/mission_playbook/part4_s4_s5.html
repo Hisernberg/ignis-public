@@ -1,0 +1,83 @@
+<!-- ============ SECTION 04 ============ -->
+<div class="chapter-header">
+    <div class="sec-tag">SECTION 04 // ARSENAL</div>
+    <div class="sec-title">AI Division: Hugging Face Registry</div>
+    <p class="sec-lede">Eight curated models that turn NASA data into insight &mdash; with exact IDs, roles, and the deployment route for each.</p>
+</div>
+
+<p class="body-text">AI separates nominees from winners in the current cycle, but only when it is load-bearing: a named model with a defined input, a defined output, and a visible effect on the user experience. The registry below is engineered around that standard. It deliberately includes <span class="strong">Prithvi-EO-2.0</span> &mdash; NASA&rsquo;s own open geospatial foundation model, built with IBM &mdash; because telling judges that your project runs on NASA&rsquo;s AI on top of NASA&rsquo;s data is a narrative advantage no generic GPT wrapper can match. Every model listed is open-weight, runs free on CPU or a small GPU, and can be embedded in a hackathon build within hours.</p>
+
+<div class="sub-title"><span class="num">4.1</span> The Model Registry</div>
+<table>
+    <colgroup><col style="width:30%"><col style="width:22%"><col style="width:48%"></colgroup>
+    <thead><tr><th>MODEL (HF ID)</th><th>CLASS</th><th>MISSION ROLE</th></tr></thead>
+    <tbody>
+        <tr><td><b>Prithvi-EO-2.0-300M</b><br><span class="mono">ibm-nasa-geospatial/<br>Prithvi-EO-2.0-300M</span></td><td>EO foundation model<br>(ViT, masked autoencoder)</td><td>The flagship&rsquo;s science core. Trained by NASA and IBM on 4.2M Harmonized Landsat&ndash;Sentinel-2 time-series samples for crop type, flood, and burn-scar mapping. Use via <span class="mono">terratorch</span> fine-tuning or embeddings for event segmentation.</td></tr>
+        <tr><td><b>Chronos-Bolt-Base</b><br><span class="mono">amazon/chronos-bolt-base</span></td><td>Zero-shot time-series forecasting</td><td>Predicts the next 24&ndash;72h of fire counts, AQI, river stage, or event frequency from FIRMS/OMI history &mdash; no training loop required, 250&times; faster than the original Chronos. Feeds the Predictive Timeline feature.</td></tr>
+        <tr><td><b>SAM (ViT-B)</b><br><span class="mono">facebook/sam-vit-base</span></td><td>Promptable segmentation</td><td>Click-to-segment structures and water bodies in event imagery; fine-tune or prompt with boxes to estimate flood extent and burn-scar area in hectares, live on stage.</td></tr>
+        <tr><td><b>ClimateBERT</b><br><span class="mono">climatebert/distilroberta-<br>base-climate-detector</span></td><td>Domain text classifier</td><td>Classifies and scores climate-related text for the briefing engine: tags event reports, news, and risk language so the AI brief can cite signal strength.</td></tr>
+        <tr><td><b>all-MiniLM-L6-v2</b><br><span class="mono">sentence-transformers/<br>all-MiniLM-L6-v2</span></td><td>Embeddings / semantic search</td><td>384-dim embeddings for semantic search across event metadata, past briefings, and challenge text &mdash; the backbone of &ldquo;ask the Sentinel&rdquo; retrieval.</td></tr>
+        <tr><td><b>Whisper (base/small)</b><br><span class="mono">openai/whisper-small</span></td><td>Speech recognition</td><td>Voice ops: field observers describe conditions by voice; Whisper transcribes into structured incident reports &mdash; a strong Global Connection accessibility story.</td></tr>
+        <tr><td><b>TimesFM 2.0</b><br><span class="mono">google/timesfm-2.0-500m-pytorch</span></td><td>Time-series foundation model</td><td>Backup forecaster for longer horizons or datasets where Chronos-Bolt struggles; run A/B between the two and report validation error for Best Use of Science.</td></tr>
+        <tr><td><b>LLM of your choice</b><br><span class="mono">any instruct model via API</span></td><td>Reasoning / generation</td><td>The Mission Briefer&rsquo;s voice: composes plain-language event briefings from your pipeline outputs (structured data in, cited briefing out). Keep retrieval grounded &mdash; it narrates, it never invents numbers.</td></tr>
+    </tbody>
+</table>
+
+<div class="sub-title"><span class="num">4.2</span> Deployment Doctrine &mdash; Three Routes</div>
+<div class="grid-2">
+    <div class="card"><div class="card-tag">ROUTE A // RECOMMENDED</div><div class="card-title">HF Spaces + Gradio microservices</div><div class="card-body">Each model gets a Space that exposes one clean endpoint (JSON in, JSON out). Your Next.js backend calls them. Free CPU tier is enough for Chronos, MiniLM, and Whisper; zero infra to babysit during judging.</div></div>
+    <div class="card"><div class="card-tag">ROUTE B // FALLBACK</div><div class="card-title">Local inference server</div><div class="card-body">Run <span class="mono">transformers</span> or ONNX Runtime on one laptop serving the team&rsquo;s endpoints on the LAN. Immune to venue wifi; required only for Prithvi if you fine-tune beyond the free tier.</div></div>
+</div>
+<div class="grid-2">
+    <div class="card"><div class="card-tag">ROUTE C // STRETCH</div><div class="card-title">transformers.js in-browser</div><div class="card-body">MiniLM and small classifiers run directly in the browser via ONNX WASM. Nothing to host, instant demo, but keep heavy models server-side.</div></div>
+    <div class="card"><div class="card-tag">VALIDATION RULE</div><div class="card-title">Every AI claim gets one number</div><div class="card-body">For each model step, compute one honest validation metric on real data (e.g., forecast MAE vs. persistence baseline, segmentation IoU on a labeled tile). One number per model &mdash; this is what Best Use of Science judges probe.</div></div>
+</div>
+
+<div class="callout">
+    <div class="co-tag">AI INTEGRATION BUDGET</div>
+    Integrate at most <b>three</b> of these models during the 48 hours (recommended: Chronos-Bolt, MiniLM retrieval, LLM briefer &mdash; with Prithvi pre-wired in prep). Every additional model is a +2h cost and a new failure surface. The registry exists so you choose deliberately, not greedily.
+</div>
+
+<!-- ============ SECTION 05 ============ -->
+<div class="chapter-header">
+    <div class="sec-tag">SECTION 05 // TARGETING</div>
+    <div class="sec-title">Target Selection Framework</div>
+    <p class="sec-lede">A weighted scoring system that locks your challenge choice within two hours of release &mdash; with zero team arguments.</p>
+</div>
+
+<p class="body-text">When the challenge list drops, teams that debate ideas for six hours are already losing. The list is typically 15&ndash;20 written challenges spanning Earth science, climate, heliophysics, astrophysics, and human spaceflight, and each one is more flexible than its title suggests. Your job is not to find &ldquo;the perfect challenge&rdquo; &mdash; it is to <span class="strong">score quickly, decide, and start adapting</span>. The matrix below turns that decision into arithmetic that two to four people can execute calmly, because the criteria and weights were agreed weeks in advance.</p>
+
+<div class="sub-title"><span class="num">5.1</span> The Scoring Matrix</div>
+<p class="body-text">Score each candidate challenge 1&ndash;5 on five criteria, multiply by the weight, and sum. The weights encode what the funnel analysis in Section 01 showed: data and demo quality dominate, raw topic familiarity matters least because your stack adapts.</p>
+<table>
+    <colgroup><col style="width:26%"><col style="width:12%"><col style="width:62%"></colgroup>
+    <thead><tr><th>CRITERION</th><th>WEIGHT</th><th>SCORE 5 MEANS&hellip;</th></tr></thead>
+    <tbody>
+        <tr><td><b>Data availability</b></td><td class="mono">0.30</td><td>The challenge maps directly onto 2+ arsenal sources from Section 03 with live, queryable, spectacular data &mdash; ideally EONET/GIBS/FIRMS class.</td></tr>
+        <tr><td><b>Demo wow</b></td><td class="mono">0.25</td><td>You can picture a 30-second video that makes a stranger lean in: a globe zoom, a forecast curve, a segmentation animation.</td></tr>
+        <tr><td><b>AI leverage</b></td><td class="mono">0.20</td><td>At least two registry models from Section 04 plug in naturally (forecasting, segmentation, retrieval, briefing).</td></tr>
+        <tr><td><b>Story strength</b></td><td class="mono">0.15</td><td>One named persona with a real stakes narrative (a farmer before harvest, a city during a heat wave, a family during a storm).</td></tr>
+        <tr><td><b>Competition density</b></td><td class="mono">0.10</td><td>Challenge reads niche or technical &mdash; fewer than ~5% of teams will pick it, and judge fatigue will not work against you.</td></tr>
+    </tbody>
+</table>
+<div class="tbl-note">FORMULA: SCORE = &Sigma;(CRITERION &times; WEIGHT). DECIDE BY H+2; HIGHEST SCORE WINS UNLESS IT IS WITHIN 0.2 OF RUNNER-UP, THEN CAPTAIN TIE-BREAKS IMMEDIATELY.</div>
+
+<div class="sub-title"><span class="num">5.2</span> Challenge Archetypes &mdash; Pre-Mapped to the Arsenal</div>
+<p class="body-text">NASA recycles archetypes across years even when the wording changes. The table below pre-computes your attack plan for the six most likely archetypes, so the matrix step is mostly confirming what is already prepared. Note how many archetypes the flagship&rsquo;s chassis already serves &mdash; that is the entire point of Section 06.</p>
+<table>
+    <colgroup><col style="width:22%"><col style="width:26%"><col style="width:24%"><col style="width:28%"></colgroup>
+    <thead><tr><th>ARCHETYPE</th><th>TYPICAL FRAMING</th><th>PRIMARY DATA</th><th>AI PLAN</th></tr></thead>
+    <tbody>
+        <tr><td><b>Disaster response</b></td><td>Wildfire, flood, storm early warning</td><td>EONET + FIRMS + GIBS before/after</td><td>Chronos fire-count forecast; SAM flood extent; LLM briefings</td></tr>
+        <tr><td><b>Climate &amp; resilience</b></td><td>Heat, drought, sea-level storytelling</td><td>GIBS anomaly layers + CMR datasets</td><td>TimesFM long-horizon; ClimateBERT signal scoring</td></tr>
+        <tr><td><b>Air quality</b></td><td>Pollution exposure, smoke transport</td><td>OMI/TEMPO + FIRMS smoke plumes</td><td>Chronos AQI forecast; MiniLM city retrieval</td></tr>
+        <tr><td><b>Space weather</b></td><td>Aurora, solar storm impacts</td><td>DONKI + SDO imagery</td><td>LLM timeline narration; Whisper observation intake</td></tr>
+        <tr><td><b>Near-Earth objects</b></td><td>Asteroid tracking, planetary defense</td><td>NeoWs + JPL SSD/CNEOS</td><td>LLM approach reports; orbit visualization via Globe.gl</td></tr>
+        <tr><td><b>Exoplanets &amp; deep sky</b></td><td>Worlds explorer, discovery narrative</td><td>Exoplanet Archive + MAST/TESS</td><td>MiniLM semantic explorer; generative visuals (Art &amp; Tech)</td></tr>
+    </tbody>
+</table>
+
+<div class="callout">
+    <div class="co-tag">ADAPTATION DOCTRINE</div>
+    You are not choosing &ldquo;one true challenge.&rdquo; You are choosing where to aim a chassis that is already built. Whichever archetype wins the matrix, <b>Section 06&rsquo;s platform survives intact</b> &mdash; you re-skin the event feed, swap the AI plan column, and rename three menu items. Target selection takes two hours; the build was finished before the event started.
+</div>

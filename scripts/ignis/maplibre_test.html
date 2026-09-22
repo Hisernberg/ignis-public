@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="./maplibre-gl.css" rel="stylesheet" />
+<style>html,body,#m{width:800px;height:600px;margin:0}</style>
+</head>
+<body>
+<div id="m"></div>
+<div id="out">pending</div>
+<script type="module">
+import maplibregl from './maplibre-gl-dev.mjs';
+window.maplibregl = maplibregl;
+const map = new maplibregl.Map({
+  container: 'm',
+  style: { version: 8, sources: {}, layers: [{ id: 'bg', type: 'background', paint: { 'background-color': '#222' } }] },
+  center: [-60, -5], zoom: 4,
+});
+window.__m = map;
+map.on('load', () => {
+  map.addSource('pt', { type: 'geojson', data: { type: 'FeatureCollection', features: [{ type: 'Feature', properties: {}, geometry: { type: 'Point', coordinates: [-60, -5] } }] } });
+  map.addLayer({ id: 'pt', type: 'circle', source: 'pt', paint: { 'circle-radius': 30, 'circle-color': '#FF0000' } });
+  setTimeout(() => {
+    const r = map.queryRenderedFeatures(undefined, { layers: ['pt'] });
+    document.getElementById('out').textContent = 'RENDERED:' + r.length + ' loaded:' + map.isSourceLoaded('pt');
+  }, 3000);
+});
+</script>
+</body>
+</html>

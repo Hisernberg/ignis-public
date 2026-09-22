@@ -1,0 +1,103 @@
+<!-- ============ SECTION 02 ============ -->
+<div class="chapter-header">
+    <div class="sec-tag">SECTION 02 // INTELLIGENCE</div>
+    <div class="sec-title">Winner DNA Teardown</div>
+    <p class="sec-lede">What recent Global Winners actually built, and the six patterns you can replicate before the countdown starts.</p>
+</div>
+
+<p class="body-text">Across 2024 and 2025, the ten Global Winners each year were selected from fields of roughly ten thousand projects. The winning builds of the last two cycles &mdash; teams like <span class="strong">WMPGang</span> (Best Use of Science, 2024) and 2025&rsquo;s cohort tackling <span class="strong">commercializing low Earth orbit, meteor analysis, and space weather storytelling</span> &mdash; look very different on the surface. But beneath the domain differences, the same engineering and presentation decisions repeat almost every year. This section extracts those decisions so you can bake them in from commit one, instead of trying to retrofit polish in hour forty-four.</p>
+
+<div class="sub-title"><span class="num">2.1</span> Six Repeatable Winning Patterns</div>
+<div class="grid-2">
+    <div class="card"><div class="card-tag">PATTERN 01 // DATA DEPTH</div><div class="card-title">Real pipelines, not screenshots</div><div class="card-body">Winners process at least one <b>raw or near-real-time dataset</b> end to end &mdash; fetching, cleaning, transforming, and analyzing it live. A map tile layer is table stakes; a computed insight derived from two fused datasets is what gets nominated.</div></div>
+    <div class="card"><div class="card-tag">PATTERN 02 // AI WOVEN IN</div><div class="card-title">AI as an engine, not garnish</div><div class="card-body">Recent winners increasingly run a concrete model or LLM step inside the product &mdash; classification, forecasting, or natural-language explanation &mdash; and can name the model, its input/output, and why it fits. Vague &ldquo;we used AI&rdquo; claims score nothing.</div></div>
+    <div class="card"><div class="card-tag">PATTERN 03 // LIVE DEMO</div><div class="card-title">It must work on the first click</div><div class="card-body">Judges spend about two minutes. Winners host a <b>deployed URL</b> that loads fast, shows something visually striking in under five seconds, and never requires signup. Local fallback video protects against venue wifi failure.</div></div>
+    <div class="card"><div class="card-tag">PATTERN 04 // NARROW STORY</div><div class="card-title">One user, one problem, one outcome</div><div class="card-body">The strongest projects serve a specific persona &mdash; a coastal planner, a farmer, an astronomer &mdash; and state the outcome in one sentence. Broad &ldquo;platform for everyone&rdquo; framing consistently loses to a sharp single story told well.</div></div>
+    <div class="card"><div class="card-tag">PATTERN 05 // SCIENCE VISIBLE</div><div class="card-title">Method on the page</div><div class="card-body">Best Use of Science winners document assumptions, formulas, and validation right on the project page. Cite the exact dataset names and versions. Make a judge able to verify one claim in sixty seconds.</div></div>
+    <div class="card"><div class="card-tag">PATTERN 06 // DELIGHT</div><div class="card-title">A moment people screenshot</div><div class="card-body">Community Choice and storytelling awards go to builds with one unforgettable moment: a cinematic globe zoom, a narrated replay, a generated image of tomorrow&rsquo;s sky. Plan and protect this moment; it is a feature, not decoration.</div></div>
+</div>
+
+<div class="sub-title"><span class="num">2.2</span> The Anti-Pattern Table &mdash; How Good Teams Get Cut</div>
+<table>
+    <colgroup><col style="width:34%"><col style="width:66%"></colgroup>
+    <thead><tr><th>ELIMINATION TRIGGER</th><th>COUNTERMEASURE IN THIS PLAN</th></tr></thead>
+    <tbody>
+        <tr><td>Demo link dead or slow at judging time</td><td>Deploy by hour 36; static fallback + recorded video embedded on project page (Sec 08, Phase 5)</td></tr>
+        <tr><td>No visible NASA data &mdash; project could exist without it</td><td>Every screen names its data source; attribution panel baked into UI (Sec 06)</td></tr>
+        <tr><td>Feature zoo &mdash; ten half-working ideas</td><td>One flagship, five features, strict triage ladder after hour 24 (Sec 08)</td></tr>
+        <tr><td>&ldquo;AI&rdquo; is a thin ChatGPT wrapper with no domain logic</td><td>Named HF models with real inputs/outputs: Prithvi-EO-2.0, Chronos-Bolt, SAM (Sec 04)</td></tr>
+        <tr><td>Video is 3 minutes of slides, no product</td><td>30-second video doctrine: hook, live demo, impact &mdash; scripted in Sec 09</td></tr>
+        <tr><td>Team burned out before submission window</td><td>48-hour plan hard-stops features at hour 40 and reserves a submission buffer (Sec 08)</td></tr>
+    </tbody>
+</table>
+
+<div class="callout">
+    <div class="co-tag">TEARDOWN DIRECTIVE</div>
+    Before the event, spend one hour reading the current Global Winners pages on spaceappschallenge.org and watch their videos. Judge each one against the six patterns above. You are calibrating your own taste to the actual standard &mdash; the single highest-leverage hour of prep.
+</div>
+
+<!-- ============ SECTION 03 ============ -->
+<div class="chapter-header">
+    <div class="sec-tag">SECTION 03 // ARSENAL</div>
+    <div class="sec-title">The Arsenal: APIs &amp; Data Catalog</div>
+    <p class="sec-lede">Every NASA data source worth carrying into battle, the geospatial library stack that processes it, and the thirty-minute key setup drill.</p>
+</div>
+
+<p class="body-text">NASA operates one of the largest open data estates on Earth &mdash; petabytes spanning Earth observation, heliophysics, planetary science, and astrophysics. You cannot use all of it, and you should not try. The catalog below is filtered down to the sources that are <span class="strong">live-queryable, hackathon-friendly, and visually spectacular</span>: they return JSON or map tiles in seconds, require no credentials beyond a free key, and have powered winning projects in past cycles. Your flagship app will be built on the first table and pull from the rest opportunistically.</p>
+
+<div class="sub-title"><span class="num">3.1</span> Primary APIs &mdash; api.nasa.gov</div>
+<table>
+    <colgroup><col style="width:22%"><col style="width:40%"><col style="width:38%"></colgroup>
+    <thead><tr><th>API</th><th>WHAT IT RETURNS</th><th>USE IT FOR</th></tr></thead>
+    <tbody>
+        <tr><td><b>EONET v3</b><br><span class="mono">eonet.gsfc.nasa.gov/docs/v3</span></td><td>Natural Event Tracker: curated, near-real-time geo-located events &mdash; wildfires, severe storms, volcanoes, sea &amp; lake ice, floods &mdash; each with polygons, dates, and source links</td><td>The beating heart of the flagship: live event feed driving the map, alerts, and AI briefing generation</td></tr>
+        <tr><td><b>GIBS</b><br><span class="mono">GIBS imagery tiles</span></td><td>Global Imagery Browse Services: 1,000+ full-resolution satellite layers (MODIS, VIIRS, Landsat) served as WMTS/WMS/XYZ tiles, most within hours of capture</td><td>Daily true-color and thermal imagery layers under your event markers; before/after disaster swipes</td></tr>
+        <tr><td><b>FIRMS</b><br><span class="mono">firms.modaps.eosdis.nasa.gov</span></td><td>Fire Information for Resource Management: near-real-time active fire and thermal anomaly detections from VIIRS and MODIS, CSV or API, by bounding box</td><td>Live hotspot overlay and fire-count time series feeding the forecasting feature</td></tr>
+        <tr><td><b>EPIC</b><br><span class="mono">api.nasa.gov #EPIC</span></td><td>DSCOVR Earth Polychromatic Imaging Camera: daily full-disc Earth images from L1, 1.6M km away, in 10 spectral bands</td><td>Cinematic &ldquo;Earth as a whole&rdquo; hero visual; time-lapse of the day the event happened</td></tr>
+        <tr><td><b>DONKI</b><br><span class="mono">api.nasa.gov #DONKI</span></td><td>Space Weather Database Of Notifications, Knowledge, Information: solar flares, coronal mass ejections, geomagnetic storms with timelines and analysis</td><td>Space-weather mission skin: connect solar activity to aurora and infrastructure impacts</td></tr>
+        <tr><td><b>NeoWs</b><br><span class="mono">api.nasa.gov #neo</span></td><td>Near Earth Object Web Service: asteroid close-approach data, sizes, velocities, miss distances, up to 7-day lookups</td><td>Asteroid mission skin: orbital approach visualizations and &ldquo;close approach tonight&rdquo; narratives</td></tr>
+        <tr><td><b>Exoplanet Archive</b><br><span class="mono">api.nasa.gov #exo</span></td><td>Programmatic access to the confirmed exoplanet database: 5,000+ worlds with orbital, stellar, and discovery parameters</td><td>Deep-space mission skin: explorer views, habitability comparisons, discovery storytelling</td></tr>
+        <tr><td><b>Images Library</b><br><span class="mono">images.nasa.gov</span></td><td>Searchable media library of 140,000+ NASA images, videos, and audio with rich metadata and usage rights</td><td>Mission-patch imagery, contextual photos of the region or phenomenon in your story mode</td></tr>
+    </tbody>
+</table>
+
+<div class="sub-title"><span class="num">3.2</span> The Earthdata Ecosystem &mdash; When You Need to Go Deeper</div>
+<table>
+    <colgroup><col style="width:24%"><col style="width:76%"></colgroup>
+    <thead><tr><th>SERVICE</th><th>WHAT IT GIVES YOU</th></tr></thead>
+    <tbody>
+        <tr><td><b>CMR API</b><br><span class="mono">cmr.earthdata.nasa.gov</span></td><td>Common Metadata Repository &mdash; one API to search the entire EOSDIS archive by keyword, bounding box, and time range. Your gateway to petabytes when a challenge demands a dataset no one else touched.</td></tr>
+        <tr><td><b>Earthdata Search + Login</b><br><span class="mono">search.earthdata.nasa.gov</span></td><td>Visual discovery UI for granules plus the single sign-on identity used by most Earth data services. Register early; some downloads need approved EULA acceptance.</td></tr>
+        <tr><td><b>Worldview</b><br><span class="mono">worldview.earthdata.nasa.gov</span></td><td>Interactive browse tool with 1,000+ layers and screenshot-ready storytelling. Use it during prep to scout which GIBS layers look best for your phenomenon.</td></tr>
+        <tr><td><b>OMI / TEMPO air quality</b></td><td>Aerosol index, NO2, and formaldehyde columns &mdash; the go-to layers if a challenge touches air quality, urban pollution, or wildfire smoke transport.</td></tr>
+        <tr><td><b>SDO / Helioviewer</b><br><span class="mono">sdo.gsfc.nasa.gov</span></td><td>Solar Dynamics Observatory full-disk solar imagery across AIA wavelengths; pair with DONKI for a solar-storm narrative that few teams will attempt.</td></tr>
+    </tbody>
+</table>
+
+<div class="sub-title"><span class="num">3.3</span> Geospatial Library Stack &mdash; The &ldquo;Geo&rdquo; Toolbox</div>
+<p class="body-text">The winning pattern in Section 02 &mdash; real pipelines &mdash; is executed with this stack. You will not need everything; the bold entries are the mandatory core your team must be fluent in before the event. Python handles data processing, JavaScript handles everything a judge sees.</p>
+<table>
+    <colgroup><col style="width:22%"><col style="width:12%"><col style="width:66%"></colgroup>
+    <thead><tr><th>LIBRARY</th><th>LANG</th><th>ROLE IN YOUR BUILD</th></tr></thead>
+    <tbody>
+        <tr><td><b>GeoPandas</b></td><td>Python</td><td>DataFrames with geometry: read, join, buffer, and dissolve event polygons; the workhorse of every pipeline script</td></tr>
+        <tr><td><b>Shapely</b></td><td>Python</td><td>Point-in-polygon tests, intersections, area math &mdash; e.g. population inside a flood polygon via overlap geometry</td></tr>
+        <tr><td><b>rasterio / xarray</b></td><td>Python</td><td>Satellite raster windows (GeoTIFF/NetCDF): crop GIBS/CMR data to an event bounding box for model input</td></tr>
+        <tr><td><b>MapLibre GL JS</b></td><td>JS</td><td>The flagship map engine: free, fast vector tiles, 3D terrain, smooth fly-to animations, custom dark style</td></tr>
+        <tr><td><b>turf.js</b></td><td>JS</td><td>In-browser geometry: buffer a click, measure event radius, animate impact circles on the map</td></tr>
+        <tr><td><b>deck.gl</b></td><td>JS</td><td>GPU-accelerated overlays: 20k FIRMS hotspots as a heatmap or point cloud without frame drops</td></tr>
+        <tr><td>CesiumJS / Globe.gl</td><td>JS</td><td>Optional 3D globe mode for the cinematic story sequence &mdash; use only if time remains after the core is solid</td></tr>
+        <tr><td>h3 / s2</td><td>Py/JS</td><td>Hexagonal spatial indexing to aggregate events cleanly and precompute per-region statistics</td></tr>
+        <tr><td>earthengine-api</td><td>Python</td><td>Google Earth Engine for heavy compositing jobs in prep phase; avoid as a live dependency during judging</td></tr>
+    </tbody>
+</table>
+
+<div class="sub-title"><span class="num">3.4</span> The 30-Minute Key Setup Drill</div>
+<p class="body-text">Do this during Week 1 of the pre-mission timeline, not during the hackathon. Each step is free and takes minutes, but Earthdata approvals can take hours &mdash; which is exactly the kind of problem you never want to meet at hour 20 of the event.</p>
+<ol class="tick">
+    <li><b>api.nasa.gov key</b> &mdash; sign up at api.nasa.gov, receive the key instantly by email; it unlocks EONET, EPIC, DONKI, NeoWs, and Exoplanet Archive endpoints. Respect the 30 req/s and 50,000 req/day limits.</li>
+    <li><b>Earthdata Login</b> &mdash; create the account, complete profile, and accept the common EULAs so FIRMS and CMR-linked downloads work without friction.</li>
+    <li><b>FIRMS map key</b> &mdash; request a MAP_KEY from the FIRMS site for tile-based fire overlays; activate it and test a VIIRS layer in MapLibre.</li>
+    <li><b>Hugging Face account</b> &mdash; create the account, generate a read token, and confirm you can load one model from Section 04 locally or on a Space.</li>
+    <li><b>Smoke-test everything</b> &mdash; a single script that calls all five credential-dependent sources and prints OK. Keep it in the repo; run it again the night before the event.</li>
+</ol>

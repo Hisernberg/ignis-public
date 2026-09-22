@@ -1,0 +1,84 @@
+{
+  "trained_at_utc": "2026-09-21T12:54:39Z",
+  "data_window_days": 5,
+  "window_start": "2026-09-16",
+  "window_end": "2026-09-20",
+  "fetch_via": "IGNIS production harmonization proxy -> NASA FIRMS (LANCE) NRT",
+  "regions": [
+    "amazon",
+    "congo",
+    "borneo"
+  ],
+  "sensors": [
+    "MODIS-Aqua",
+    "MODIS-Terra",
+    "VIIRS-NOAA20",
+    "VIIRS-NOAA21",
+    "VIIRS-SNPP"
+  ],
+  "n_detections": 138118,
+  "sensor_counts": {
+    "VIIRS-SNPP": 43520,
+    "VIIRS-NOAA20": 43161,
+    "VIIRS-NOAA21": 40957,
+    "MODIS-Aqua": 6211,
+    "MODIS-Terra": 4269
+  },
+  "eps_scaled": 0.12,
+  "eps_deg_approx": 0.045,
+  "min_samples": 6,
+  "n_complexes": 63,
+  "noise_ratio": 0.0083,
+  "silhouette_sampled": 0.1779,
+  "k_regimes": 6,
+  "regime_profile": {
+    "0": {
+      "n": 42105,
+      "mean_frp": 8.859,
+      "mean_conf": 58.741,
+      "night_frac": 0.0,
+      "mean_hour": 11.234
+    },
+    "1": {
+      "n": 8835,
+      "mean_frp": 7.807,
+      "mean_conf": 61.956,
+      "night_frac": 1.0,
+      "mean_hour": 13.42
+    },
+    "2": {
+      "n": 8182,
+      "mean_frp": 81.322,
+      "mean_conf": 67.77,
+      "night_frac": 0.13,
+      "mean_hour": 11.518
+    },
+    "3": {
+      "n": 23414,
+      "mean_frp": 21.598,
+      "mean_conf": 63.623,
+      "night_frac": 0.04,
+      "mean_hour": 11.212
+    },
+    "4": {
+      "n": 35743,
+      "mean_frp": 3.985,
+      "mean_conf": 55.927,
+      "night_frac": 0.0,
+      "mean_hour": 11.36
+    },
+    "5": {
+      "n": 19839,
+      "mean_frp": 1.744,
+      "mean_conf": 59.975,
+      "night_frac": 0.999,
+      "mean_hour": 10.899
+    }
+  },
+  "class_counts": {
+    "smoldering": 54,
+    "megafire": 4,
+    "active": 1
+  },
+  "harmonization": "VIIRS l/n/h -> 20/50/90; MODIS 0-100 kept; FRP MW; acq_time UTC hours"
+}

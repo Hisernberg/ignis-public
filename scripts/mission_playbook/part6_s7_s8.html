@@ -1,0 +1,110 @@
+<!-- ============ SECTION 07 ============ -->
+<div class="chapter-header">
+    <div class="sec-tag">SECTION 07 // EXECUTION</div>
+    <div class="sec-title">Pre-Mission Timeline &mdash; Ten Weeks Out</div>
+    <p class="sec-lede">The weekly training schedule that gets you to November 14 with roughly seventy percent of the flagship already built and drilled.</p>
+</div>
+
+<p class="body-text">The gap between a Global Nominee and a good local project is almost never talent &mdash; it is what was finished before the clock started. This schedule assumes a 2&ndash;4 person team investing roughly 6&ndash;10 hours per week alongside work or study. Weeks are deliberately themed: build the muscles in order, and do not skip the rehearsal weeks, because they are where the demo confidence that wins judges is actually forged. If you discover this plan later than ten weeks out, compress the early weeks but never cut Weeks 8&ndash;9.</p>
+
+<table>
+    <colgroup><col style="width:12%"><col style="width:26%"><col style="width:62%"></colgroup>
+    <thead><tr><th>WEEK</th><th>CODE NAME</th><th>OBJECTIVES &amp; EXIT CRITERIA</th></tr></thead>
+    <tbody>
+        <tr><td class="mono">W1</td><td><b>Enlistment</b></td><td>Register on spaceappschallenge.org and pick (or form) your local event. Complete the full 30-minute key setup drill from Section 3.4. Create the repo, project board, and this playbook&rsquo;s checklist as issues.</td></tr>
+        <tr><td class="mono">W2</td><td><b>Recce</b></td><td>Run the winner-teardown hour from Section 2.2. Watch five Global Winner videos as a team and score each against the six patterns. Agree on scoring weights for Section 5 &mdash; in writing, now, while calm.</td></tr>
+        <tr><td class="mono">W3</td><td><b>Keel Laying</b></td><td>Scaffold Next.js + MapLibre shell with the dark ops aesthetic. EONET fetcher running end to end; events pulsing on a map. Exit: URL you can send a teammate that loads in under 3 seconds.</td></tr>
+        <tr><td class="mono">W4</td><td><b>Instrumentation</b></td><td>Add FIRMS heatmap (deck.gl) and GIBS day-of-event layer picker. Stand up Postgres/PostGIS, persistence layer, and the 10-minute fetch cron. Exit: yesterday&rsquo;s events replay from the database, not the API.</td></tr>
+        <tr><td class="mono">W5</td><td><b>AI Cadets</b></td><td>Deploy Chronos-Bolt and MiniLM as HF Spaces endpoints; wire the forecast chart and semantic search into the console. Exit: forecast curve renders for one region with MAE printed beneath it.</td></tr>
+        <tr><td class="mono">W6</td><td><b>Command Voice</b></td><td>Build the grounded LLM briefer: structured pipeline data in, cited briefing out, guardrails tested on five real events. Prithvi Space deployed and pinged but not yet in the critical path. Exit: briefing quality you would show a judge.</td></tr>
+        <tr><td class="mono">W7</td><td><b>Satellite Vision</b></td><td>SAM segmentation on an event window with area/population computation. Story Mode v1: EPIC intro, GIBS 30-day zoom, narration track. Exit: the 30-second story sequence exists in rough form.</td></tr>
+        <tr><td class="mono">W8</td><td><b>Flight Drill</b></td><td>Full dress rehearsal: a 4-hour mock sprint where the team re-skins the whole app to a fake challenge in one sitting. Measure everything that broke &mdash; that list is your hour-0 checklist. Record a throwaway demo video.</td></tr>
+        <tr><td class="mono">W9</td><td><b>Range Qualification</b></td><td>Pitch practice: each teammate delivers the 30-second video script and a 2-minute live demo, on camera, twice. Project page skeleton written with the Data Ledger. Hardening: error states, offline fallback, mobile view.</td></tr>
+        <tr><td class="mono">W10</td><td><b>Final Count</b></td><td>Freeze week: dependency bumps only. Re-run the smoke-test script. Agree meal/sleep plan for event weekend and confirm the team roster on the event page. Rest.</td></tr>
+    </tbody>
+</table>
+
+<div class="callout">
+    <div class="co-tag">PREP INVESTMENT RETURN</div>
+    Ten focused weeks &mdash; roughly <b>80 team-hours</b> &mdash; buys you a 48-hour event where 70% of the work is done, the AI is already deployed, and your only real-time job is adaptation and polish. That is the entire competitive edge of this playbook, stated as arithmetic.
+</div>
+
+<!-- ============ SECTION 08 ============ -->
+<div class="chapter-header">
+    <div class="sec-tag">SECTION 08 // EXECUTION</div>
+    <div class="sec-title">The 48-Hour Battle Plan</div>
+    <p class="sec-lede">Six phases, three go/no-go gates, and a triage ladder &mdash; the hour-by-hour doctrine for event weekend.</p>
+</div>
+
+<p class="body-text">The battle plan assumes the flagship chassis from Section 06 and the ten-week prep from Section 07. Its structure follows a simple asymmetric logic: <span class="strong">front-load decisions, back-load polish</span>. The first two hours choose the target and the mission skin; the middle phases execute adaptation; the final third of the clock belongs entirely to the demo, the video, and the submission &mdash; the artifacts judges actually touch. Each phase ends with a go/no-go gate where the team consciously decides what drops and what continues.</p>
+
+<div class="phase">
+    <div class="phase-head"><span class="ph-time">H+0 &mdash; H+2</span><span class="ph-name">PHASE 1 // TARGET LOCK</span></div>
+    <div class="phase-body"><ul>
+        <li><b>H+0:</b> Read the full challenge list individually. Each member scores every plausible challenge alone, in silence, using the Section 5 matrix.</li>
+        <li><b>H+1:</b> Compare scores; discuss only the top two. Apply weights, resolve ties via captain. <b>Announce the pick and stop discussing it.</b></li>
+        <li><b>H+2:</b> Write the one-sentence mission statement and the single persona it serves. Pin it in the team channel; every later decision cites it.</li>
+    </ul></div>
+    <div class="phase-gate">GATE 1: CHALLENGE LOCKED + MISSION STATEMENT WRITTEN. NO REOPENING THE DEBATE WITHOUT CAPTAIN OVERRIDE.</div>
+</div>
+
+<div class="phase">
+    <div class="phase-head"><span class="ph-time">H+2 &mdash; H+12</span><span class="ph-name">PHASE 2 // RE-SKIN THE CHASSIS</span></div>
+    <div class="phase-body"><ul>
+        <li>Rewrite the challenge-specific surfaces: feed filters, map layers, console labels, hero copy. The codebase underneath does not change.</li>
+        <li>Swap the AI plan column from Section 5.2 into the pipeline config; point the briefer&rsquo;s context builder at the challenge&rsquo;s primary dataset.</li>
+        <li>Split now: strongest frontend hand drives the re-skin; second builder wires challenge data into the pipeline; ML lead validates models on challenge data and drafts the validation metric.</li>
+        <li>Begin the project page skeleton in parallel &mdash; never leave it for the end.</li>
+    </ul></div>
+    <div class="phase-gate">GATE 2 (H+12): THE APP LOOKS LIKE IT ANSWERS THIS CHALLENGE. FIRST LIVE WALKTHROUGH OF THE FULL DEMO PATH.</div>
+</div>
+
+<div class="phase">
+    <div class="phase-head"><span class="ph-time">H+12 &mdash; H+24</span><span class="ph-name">PHASE 3 // AI ONLINE</span></div>
+    <div class="phase-body"><ul>
+        <li>Integrate the three chosen models into the live path (default doctrine: Chronos forecast, retrieval, briefer). Validate outputs on real challenge data; print one metric per model.</li>
+        <li>Build the Data Ledger page and per-screen source attributions &mdash; an hour of work that pays for itself at every judging level.</li>
+        <li>Deploy to the public URL. From this hour forward, the link must stay alive; every commit ships behind it.</li>
+    </ul></div>
+</div>
+
+<div class="phase">
+    <div class="phase-head"><span class="ph-time">H+24 &mdash; H+36</span><span class="ph-name">PHASE 4 // SHARPEN &amp; HARDEN</span></div>
+    <div class="phase-body"><ul>
+        <li>Story Mode gets its final cut. Loading states, empty states, error states for the entire demo path &mdash; judges click sideways.</li>
+        <li>Apply the first triage pass: any feature more than 50% unfinished at H+30 is formally cut without debate. scope discipline is a feature.</li>
+        <li>Write the science paragraph for the project page: method, assumptions, validation numbers, dataset versions. This is your Best Use of Science armor.</li>
+    </ul></div>
+    <div class="phase-gate">GATE 3 (H+36): FEATURE FREEZE. NOTHING NEW ENTERS THE BUILD. REMAINING HOURS BELONG TO DEMO, VIDEO, PAGE.</div>
+</div>
+
+<div class="phase">
+    <div class="phase-head"><span class="ph-time">H+36 &mdash; H+44</span><span class="ph-name">PHASE 5 // CAPTURE THE EVIDENCE</span></div>
+    <div class="phase-body"><ul>
+        <li>Shoot the 30-second video per the Section 9 script: hook, live demo, impact. Two takes max; done beats perfect.</li>
+        <li>Finish the project page: mission statement, how-it-works, science paragraph, team roles, full data credits, the video embedded.</li>
+        <li>Record a 90-second full-quality backup walkthrough as insurance against venue wifi at local judging.</li>
+    </ul></div>
+</div>
+
+<div class="phase">
+    <div class="phase-head"><span class="ph-time">H+44 &mdash; H+48</span><span class="ph-name">PHASE 6 // SHIP THE TRANSMISSION</span></div>
+    <div class="phase-body"><ul>
+        <li>Submit through the official portal with hours to spare. Verify: demo URL loads in an incognito browser, video plays, all required fields and team roster complete.</li>
+        <li>Run the smoke-test suite one final time; keep the app deployed through the local judging window.</li>
+        <li>Sleep before the local pitch if one exists. A rested team presenting five features beats an exhausted team presenting seven.</li>
+    </ul></div>
+</div>
+
+<div class="sub-title"><span class="num">8.1</span> Team Role Matrix (2&ndash;4 Players)</div>
+<table>
+    <colgroup><col style="width:20%"><col style="width:40%"><col style="width:40%"></colgroup>
+    <thead><tr><th>ROLE</th><th>OWNS DURING EVENT</th><th>OWNS BEFORE EVENT (SEC 07)</th></tr></thead>
+    <tbody>
+        <tr><td><b>Captain / Product</b></td><td>Scope decisions, gates, mission statement, judge-facing story</td><td>Scoring weights, challenge recce, project page skeleton</td></tr>
+        <tr><td><b>Frontend / Map</b></td><td>Re-skin, map layers, Story Mode cut, demo path quality</td><td>Next.js + MapLibre shell, deck.gl overlays, loading states</td></tr>
+        <tr><td><b>Data / Pipeline</b></td><td>Challenge data wiring, geometry math, Data Ledger</td><td>Fetchers, PostGIS, cron, smoke-test suite</td></tr>
+        <tr><td><b>ML / AI (or 2nd full-stack)</b></td><td>Model integration, validation metrics, briefer tuning</td><td>HF Spaces deployments, Prithvi pre-wiring, guardrails</td></tr>
+    </tbody>
+</table>
+<p class="body-text">With a two-person team, Captain merges into Data/Pipeline and the pair covers frontend and ML together; with five or fewer hours of weekly prep, the ML lead should prioritize only Chronos and the briefer. The matrix scales down cleanly because the architecture, not the headcount, carries the project.</p>

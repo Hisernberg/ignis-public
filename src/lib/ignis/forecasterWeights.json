@@ -1,0 +1,119 @@
+{
+ "name": "ignis-fire-footprint-forecaster",
+ "version": "2.0.0",
+ "kind": "next-day 0.05-deg fire footprint probability field (segmentation) from prior-days detection density",
+ "features": [
+  "kde_0.10_n",
+  "kde_0.35_n",
+  "kde_0.80_n",
+  "frp_kde_0.35_n",
+  "kde_lastday_n",
+  "kde_prevday_n",
+  "lon_n",
+  "lat_n",
+  "doy_sin",
+  "doy_cos"
+ ],
+ "cell": 0.05,
+ "train_regions": {
+  "amazon": [
+   -74,
+   -12,
+   -46,
+   2
+  ],
+  "congo": [
+   8,
+   -8,
+   32,
+   8
+  ],
+  "borneo": [
+   95,
+   -6,
+   120,
+   6
+  ]
+ },
+ "scaler_mean": [
+  0.00638308,
+  0.02736626,
+  0.06471304,
+  0.01710095,
+  0.02618814,
+  0.02365648,
+  0.5,
+  0.5,
+  -0.97591415,
+  -0.21770173
+ ],
+ "scaler_scale": [
+  0.03242032,
+  0.07699026,
+  0.12358048,
+  0.05775981,
+  0.07289529,
+  0.06979758,
+  0.28923799,
+  0.28970624,
+  0.00306078,
+  0.01371749
+ ],
+ "coef": [
+  0.80798999,
+  -1.51243342,
+  0.91895821,
+  -0.15980066,
+  3.85334043,
+  0.37649277,
+  0.24599542,
+  -0.39593176,
+  -0.1285444,
+  0.10030296
+ ],
+ "intercept": -0.39503833,
+ "featureContract": "scene-max-normalized gaussian KDEs (per region-target-day grid, density/max(density)) then log1p \u2014 source-density and day-window agnostic",
+ "skill": {
+  "logreg": {
+   "amazon": {
+    "iou": 0.583,
+    "precision": 0.643,
+    "recall": 0.862,
+    "persistence_baseline_iou": 0.355
+   },
+   "congo": {
+    "iou": 0.551,
+    "precision": 0.873,
+    "recall": 0.599,
+    "persistence_baseline_iou": 0.388
+   },
+   "borneo": {
+    "iou": 0.423,
+    "precision": 0.424,
+    "recall": 0.997,
+    "persistence_baseline_iou": 0.378
+   }
+  },
+  "hgb_reference": {
+   "amazon": {
+    "iou": 0.645,
+    "precision": 0.844,
+    "recall": 0.733,
+    "persistence_baseline_iou": 0.355
+   },
+   "congo": {
+    "iou": 0.503,
+    "precision": 0.973,
+    "recall": 0.51,
+    "persistence_baseline_iou": 0.388
+   },
+   "borneo": {
+    "iou": 0.597,
+    "precision": 0.624,
+    "recall": 0.933,
+    "persistence_baseline_iou": 0.378
+   }
+  }
+ },
+ "caveat": "same-day-early density feature approximated with last-available-day KDE in production; documented in model card"
+}

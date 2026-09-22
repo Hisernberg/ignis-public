@@ -1,0 +1,1412 @@
+[
+  {
+    "complex_id": 55,
+    "detections": 50270,
+    "total_frp_mw": 721698.2,
+    "mean_frp_mw": 14.4,
+    "max_frp_mw": 486.4,
+    "mean_confidence": 61.5,
+    "sensors": [
+      "MODIS-Aqua",
+      "MODIS-Terra",
+      "VIIRS-NOAA20",
+      "VIIRS-NOAA21",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "borneo"
+    ],
+    "centroid_lat": -2.5792,
+    "centroid_lon": 113.0609,
+    "bbox": [
+      108.0014,
+      -4.94995,
+      119.99861,
+      2.98817
+    ],
+    "acq_days": 5,
+    "night_fraction": 0.311,
+    "rank": 1,
+    "class": "megafire"
+  },
+  {
+    "complex_id": 29,
+    "detections": 44503,
+    "total_frp_mw": 450964.4,
+    "mean_frp_mw": 10.1,
+    "max_frp_mw": 193.8,
+    "mean_confidence": 58.0,
+    "sensors": [
+      "MODIS-Aqua",
+      "MODIS-Terra",
+      "VIIRS-NOAA20",
+      "VIIRS-NOAA21",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "congo"
+    ],
+    "centroid_lat": -4.6216,
+    "centroid_lon": 22.2017,
+    "bbox": [
+      10.53229,
+      -6.99996,
+      31.99967,
+      5.78353
+    ],
+    "acq_days": 5,
+    "night_fraction": 0.061,
+    "rank": 2,
+    "class": "megafire"
+  },
+  {
+    "complex_id": 0,
+    "detections": 37235,
+    "total_frp_mw": 431910.5,
+    "mean_frp_mw": 11.6,
+    "max_frp_mw": 175.7,
+    "mean_confidence": 59.5,
+    "sensors": [
+      "MODIS-Aqua",
+      "MODIS-Terra",
+      "VIIRS-NOAA20",
+      "VIIRS-NOAA21",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "amazon"
+    ],
+    "centroid_lat": -5.8076,
+    "centroid_lon": -57.839,
+    "bbox": [
+      -73.97926,
+      -9.99992,
+      -50.00004,
+      -0.80085
+    ],
+    "acq_days": 5,
+    "night_fraction": 0.306,
+    "rank": 3,
+    "class": "megafire"
+  },
+  {
+    "complex_id": 2,
+    "detections": 4364,
+    "total_frp_mw": 32549.3,
+    "mean_frp_mw": 7.5,
+    "max_frp_mw": 38.9,
+    "mean_confidence": 58.0,
+    "sensors": [
+      "MODIS-Aqua",
+      "MODIS-Terra",
+      "VIIRS-NOAA20",
+      "VIIRS-NOAA21",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "amazon"
+    ],
+    "centroid_lat": 2.9096,
+    "centroid_lon": -57.569,
+    "bbox": [
+      -73.68163,
+      -0.45299,
+      -50.0386,
+      4.99898
+    ],
+    "acq_days": 5,
+    "night_fraction": 0.126,
+    "rank": 4,
+    "class": "megafire"
+  },
+  {
+    "complex_id": 15,
+    "detections": 15,
+    "total_frp_mw": 3302.2,
+    "mean_frp_mw": 220.1,
+    "max_frp_mw": 254.7,
+    "mean_confidence": 76.1,
+    "sensors": [
+      "MODIS-Aqua",
+      "MODIS-Terra",
+      "VIIRS-NOAA21",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "amazon"
+    ],
+    "centroid_lat": -2.8822,
+    "centroid_lon": -55.1254,
+    "bbox": [
+      -57.82037,
+      -2.91771,
+      -50.46354,
+      -2.8229
+    ],
+    "acq_days": 3,
+    "night_fraction": 0.2,
+    "rank": 5,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 1,
+    "detections": 16,
+    "total_frp_mw": 3284.5,
+    "mean_frp_mw": 205.3,
+    "max_frp_mw": 219.4,
+    "mean_confidence": 49.4,
+    "sensors": [
+      "MODIS-Terra",
+      "VIIRS-NOAA20",
+      "VIIRS-NOAA21",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "amazon"
+    ],
+    "centroid_lat": -6.5374,
+    "centroid_lon": -59.5545,
+    "bbox": [
+      -60.01895,
+      -6.80612,
+      -58.84929,
+      -6.30004
+    ],
+    "acq_days": 3,
+    "night_fraction": 0.0,
+    "rank": 6,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 41,
+    "detections": 13,
+    "total_frp_mw": 2716.2,
+    "mean_frp_mw": 208.9,
+    "max_frp_mw": 218.9,
+    "mean_confidence": 48.5,
+    "sensors": [
+      "VIIRS-NOAA20",
+      "VIIRS-NOAA21",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "congo"
+    ],
+    "centroid_lat": -4.1207,
+    "centroid_lon": 16.7581,
+    "bbox": [
+      13.18597,
+      -4.3794,
+      17.5218,
+      -3.82931
+    ],
+    "acq_days": 4,
+    "night_fraction": 0.0,
+    "rank": 7,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 6,
+    "detections": 10,
+    "total_frp_mw": 2495.7,
+    "mean_frp_mw": 249.6,
+    "max_frp_mw": 256.8,
+    "mean_confidence": 52.0,
+    "sensors": [
+      "MODIS-Aqua",
+      "VIIRS-NOAA20",
+      "VIIRS-NOAA21"
+    ],
+    "regions": [
+      "amazon"
+    ],
+    "centroid_lat": -6.7686,
+    "centroid_lon": -59.4077,
+    "bbox": [
+      -62.96793,
+      -7.05095,
+      -58.85046,
+      -6.68618
+    ],
+    "acq_days": 3,
+    "night_fraction": 0.0,
+    "rank": 8,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 36,
+    "detections": 8,
+    "total_frp_mw": 2205.5,
+    "mean_frp_mw": 275.7,
+    "max_frp_mw": 293.9,
+    "mean_confidence": 64.8,
+    "sensors": [
+      "MODIS-Aqua",
+      "VIIRS-NOAA20",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "congo"
+    ],
+    "centroid_lat": -5.4898,
+    "centroid_lon": 15.6234,
+    "bbox": [
+      15.10747,
+      -5.76573,
+      16.09474,
+      -5.12115
+    ],
+    "acq_days": 2,
+    "night_fraction": 0.0,
+    "rank": 9,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 19,
+    "detections": 12,
+    "total_frp_mw": 2146.7,
+    "mean_frp_mw": 178.9,
+    "max_frp_mw": 194.0,
+    "mean_confidence": 66.8,
+    "sensors": [
+      "MODIS-Aqua",
+      "VIIRS-NOAA21",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "amazon"
+    ],
+    "centroid_lat": -3.744,
+    "centroid_lon": -55.951,
+    "bbox": [
+      -60.62869,
+      -4.05111,
+      -54.0487,
+      -3.39818
+    ],
+    "acq_days": 4,
+    "night_fraction": 0.0,
+    "rank": 10,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 39,
+    "detections": 12,
+    "total_frp_mw": 2096.3,
+    "mean_frp_mw": 174.7,
+    "max_frp_mw": 204.6,
+    "mean_confidence": 67.5,
+    "sensors": [
+      "VIIRS-NOAA20",
+      "VIIRS-NOAA21",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "congo"
+    ],
+    "centroid_lat": -5.362,
+    "centroid_lon": 28.6055,
+    "bbox": [
+      26.37283,
+      -5.69804,
+      29.22172,
+      -5.24907
+    ],
+    "acq_days": 4,
+    "night_fraction": 0.0,
+    "rank": 11,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 37,
+    "detections": 15,
+    "total_frp_mw": 1927.1,
+    "mean_frp_mw": 128.5,
+    "max_frp_mw": 142.1,
+    "mean_confidence": 62.1,
+    "sensors": [
+      "MODIS-Aqua",
+      "VIIRS-NOAA20",
+      "VIIRS-NOAA21"
+    ],
+    "regions": [
+      "congo"
+    ],
+    "centroid_lat": -4.3457,
+    "centroid_lon": 17.0006,
+    "bbox": [
+      14.79975,
+      -4.76992,
+      17.69621,
+      -4.14693
+    ],
+    "acq_days": 3,
+    "night_fraction": 0.0,
+    "rank": 12,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 21,
+    "detections": 12,
+    "total_frp_mw": 1808.9,
+    "mean_frp_mw": 150.7,
+    "max_frp_mw": 172.4,
+    "mean_confidence": 72.8,
+    "sensors": [
+      "MODIS-Aqua",
+      "VIIRS-NOAA20",
+      "VIIRS-NOAA21",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "amazon"
+    ],
+    "centroid_lat": -1.6748,
+    "centroid_lon": -56.0187,
+    "bbox": [
+      -61.40359,
+      -1.89262,
+      -50.61073,
+      -1.56911
+    ],
+    "acq_days": 4,
+    "night_fraction": 0.0,
+    "rank": 13,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 38,
+    "detections": 7,
+    "total_frp_mw": 1603.7,
+    "mean_frp_mw": 229.1,
+    "max_frp_mw": 243.0,
+    "mean_confidence": 65.7,
+    "sensors": [
+      "MODIS-Aqua",
+      "VIIRS-NOAA21",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "congo"
+    ],
+    "centroid_lat": -6.5385,
+    "centroid_lon": 14.3812,
+    "bbox": [
+      12.96971,
+      -6.85111,
+      16.50019,
+      -6.41239
+    ],
+    "acq_days": 3,
+    "night_fraction": 0.0,
+    "rank": 14,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 34,
+    "detections": 10,
+    "total_frp_mw": 1566.8,
+    "mean_frp_mw": 156.7,
+    "max_frp_mw": 172.4,
+    "mean_confidence": 54.7,
+    "sensors": [
+      "MODIS-Aqua",
+      "VIIRS-NOAA21",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "congo"
+    ],
+    "centroid_lat": -3.775,
+    "centroid_lon": 15.797,
+    "bbox": [
+      13.7052,
+      -3.89083,
+      16.28176,
+      -3.43775
+    ],
+    "acq_days": 2,
+    "night_fraction": 0.0,
+    "rank": 15,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 12,
+    "detections": 8,
+    "total_frp_mw": 1517.3,
+    "mean_frp_mw": 189.7,
+    "max_frp_mw": 192.3,
+    "mean_confidence": 57.5,
+    "sensors": [
+      "MODIS-Aqua",
+      "VIIRS-NOAA20",
+      "VIIRS-NOAA21"
+    ],
+    "regions": [
+      "amazon"
+    ],
+    "centroid_lat": -9.1507,
+    "centroid_lon": -60.5903,
+    "bbox": [
+      -60.79205,
+      -9.28933,
+      -60.35715,
+      -8.79986
+    ],
+    "acq_days": 3,
+    "night_fraction": 0.0,
+    "rank": 16,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 33,
+    "detections": 7,
+    "total_frp_mw": 1514.6,
+    "mean_frp_mw": 216.4,
+    "max_frp_mw": 219.3,
+    "mean_confidence": 65.1,
+    "sensors": [
+      "MODIS-Aqua",
+      "VIIRS-NOAA20",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "congo"
+    ],
+    "centroid_lat": -5.5647,
+    "centroid_lon": 15.6654,
+    "bbox": [
+      15.0202,
+      -5.5714,
+      16.08544,
+      -5.54445
+    ],
+    "acq_days": 3,
+    "night_fraction": 0.0,
+    "rank": 17,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 58,
+    "detections": 30,
+    "total_frp_mw": 1493.6,
+    "mean_frp_mw": 49.8,
+    "max_frp_mw": 66.1,
+    "mean_confidence": 64.5,
+    "sensors": [
+      "MODIS-Aqua",
+      "MODIS-Terra",
+      "VIIRS-NOAA20",
+      "VIIRS-NOAA21",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "borneo"
+    ],
+    "centroid_lat": 2.3496,
+    "centroid_lon": 117.8293,
+    "bbox": [
+      117.09731,
+      2.10641,
+      117.9564,
+      2.67094
+    ],
+    "acq_days": 4,
+    "night_fraction": 0.1,
+    "rank": 18,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 16,
+    "detections": 8,
+    "total_frp_mw": 1472.0,
+    "mean_frp_mw": 184.0,
+    "max_frp_mw": 192.5,
+    "mean_confidence": 37.5,
+    "sensors": [
+      "VIIRS-NOAA20",
+      "VIIRS-NOAA21",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "amazon"
+    ],
+    "centroid_lat": -9.5562,
+    "centroid_lon": -66.6034,
+    "bbox": [
+      -70.45843,
+      -9.56693,
+      -66.04929,
+      -9.50558
+    ],
+    "acq_days": 2,
+    "night_fraction": 0.0,
+    "rank": 19,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 13,
+    "detections": 11,
+    "total_frp_mw": 1410.8,
+    "mean_frp_mw": 128.3,
+    "max_frp_mw": 143.7,
+    "mean_confidence": 54.5,
+    "sensors": [
+      "VIIRS-NOAA20",
+      "VIIRS-NOAA21",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "amazon"
+    ],
+    "centroid_lat": -7.6347,
+    "centroid_lon": -59.6138,
+    "bbox": [
+      -63.38509,
+      -7.81574,
+      -57.67142,
+      -7.52277
+    ],
+    "acq_days": 3,
+    "night_fraction": 0.0,
+    "rank": 20,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 40,
+    "detections": 6,
+    "total_frp_mw": 1042.5,
+    "mean_frp_mw": 173.7,
+    "max_frp_mw": 178.6,
+    "mean_confidence": 60.0,
+    "sensors": [
+      "VIIRS-NOAA20",
+      "VIIRS-NOAA21"
+    ],
+    "regions": [
+      "congo"
+    ],
+    "centroid_lat": -5.3292,
+    "centroid_lon": 15.37,
+    "bbox": [
+      14.42491,
+      -5.59042,
+      15.59796,
+      -5.17239
+    ],
+    "acq_days": 3,
+    "night_fraction": 0.0,
+    "rank": 21,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 23,
+    "detections": 6,
+    "total_frp_mw": 1025.6,
+    "mean_frp_mw": 170.9,
+    "max_frp_mw": 179.6,
+    "mean_confidence": 91.2,
+    "sensors": [
+      "MODIS-Aqua",
+      "MODIS-Terra",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "amazon"
+    ],
+    "centroid_lat": -8.1778,
+    "centroid_lon": -55.9456,
+    "bbox": [
+      -61.38064,
+      -8.42656,
+      -54.72787,
+      -8.03636
+    ],
+    "acq_days": 3,
+    "night_fraction": 0.167,
+    "rank": 22,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 42,
+    "detections": 6,
+    "total_frp_mw": 850.2,
+    "mean_frp_mw": 141.7,
+    "max_frp_mw": 147.4,
+    "mean_confidence": 51.7,
+    "sensors": [
+      "MODIS-Aqua",
+      "VIIRS-NOAA20"
+    ],
+    "regions": [
+      "congo"
+    ],
+    "centroid_lat": -6.0929,
+    "centroid_lon": 28.2468,
+    "bbox": [
+      26.03667,
+      -6.33482,
+      28.79491,
+      -6.00729
+    ],
+    "acq_days": 2,
+    "night_fraction": 0.0,
+    "rank": 23,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 8,
+    "detections": 11,
+    "total_frp_mw": 781.5,
+    "mean_frp_mw": 71.0,
+    "max_frp_mw": 75.7,
+    "mean_confidence": 62.7,
+    "sensors": [
+      "VIIRS-NOAA20",
+      "VIIRS-NOAA21"
+    ],
+    "regions": [
+      "amazon"
+    ],
+    "centroid_lat": -5.1246,
+    "centroid_lon": -55.6252,
+    "bbox": [
+      -56.1066,
+      -5.30811,
+      -50.91381,
+      -4.87989
+    ],
+    "acq_days": 2,
+    "night_fraction": 0.0,
+    "rank": 24,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 35,
+    "detections": 16,
+    "total_frp_mw": 778.6,
+    "mean_frp_mw": 48.7,
+    "max_frp_mw": 52.2,
+    "mean_confidence": 62.0,
+    "sensors": [
+      "MODIS-Aqua",
+      "VIIRS-NOAA20",
+      "VIIRS-NOAA21",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "congo"
+    ],
+    "centroid_lat": -1.4477,
+    "centroid_lon": 29.3579,
+    "bbox": [
+      25.3298,
+      -1.65483,
+      31.31027,
+      -1.25562
+    ],
+    "acq_days": 3,
+    "night_fraction": 0.75,
+    "rank": 25,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 7,
+    "detections": 7,
+    "total_frp_mw": 777.3,
+    "mean_frp_mw": 111.0,
+    "max_frp_mw": 114.8,
+    "mean_confidence": 55.7,
+    "sensors": [
+      "VIIRS-NOAA20",
+      "VIIRS-NOAA21"
+    ],
+    "regions": [
+      "amazon"
+    ],
+    "centroid_lat": -5.1591,
+    "centroid_lon": -56.0733,
+    "bbox": [
+      -56.10138,
+      -5.31098,
+      -55.94204,
+      -5.00728
+    ],
+    "acq_days": 2,
+    "night_fraction": 0.0,
+    "rank": 26,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 10,
+    "detections": 12,
+    "total_frp_mw": 671.8,
+    "mean_frp_mw": 56.0,
+    "max_frp_mw": 60.2,
+    "mean_confidence": 65.0,
+    "sensors": [
+      "MODIS-Aqua",
+      "MODIS-Terra",
+      "VIIRS-NOAA20",
+      "VIIRS-NOAA21",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "amazon"
+    ],
+    "centroid_lat": 1.2925,
+    "centroid_lon": -52.3483,
+    "bbox": [
+      -56.07569,
+      1.16005,
+      -50.76142,
+      1.5624
+    ],
+    "acq_days": 4,
+    "night_fraction": 0.083,
+    "rank": 27,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 24,
+    "detections": 6,
+    "total_frp_mw": 647.5,
+    "mean_frp_mw": 107.9,
+    "max_frp_mw": 116.1,
+    "mean_confidence": 76.2,
+    "sensors": [
+      "MODIS-Aqua",
+      "VIIRS-NOAA20",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "amazon"
+    ],
+    "centroid_lat": -1.5799,
+    "centroid_lon": -54.7401,
+    "bbox": [
+      -55.57237,
+      -1.60948,
+      -54.43811,
+      -1.55571
+    ],
+    "acq_days": 3,
+    "night_fraction": 0.0,
+    "rank": 28,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 18,
+    "detections": 7,
+    "total_frp_mw": 611.0,
+    "mean_frp_mw": 87.3,
+    "max_frp_mw": 99.1,
+    "mean_confidence": 62.1,
+    "sensors": [
+      "MODIS-Aqua",
+      "MODIS-Terra",
+      "VIIRS-NOAA21",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "amazon"
+    ],
+    "centroid_lat": -4.4735,
+    "centroid_lon": -55.2686,
+    "bbox": [
+      -56.08696,
+      -4.51561,
+      -54.97239,
+      -4.36163
+    ],
+    "acq_days": 3,
+    "night_fraction": 0.143,
+    "rank": 29,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 27,
+    "detections": 9,
+    "total_frp_mw": 585.5,
+    "mean_frp_mw": 65.1,
+    "max_frp_mw": 71.4,
+    "mean_confidence": 56.6,
+    "sensors": [
+      "MODIS-Terra",
+      "VIIRS-NOAA20"
+    ],
+    "regions": [
+      "amazon"
+    ],
+    "centroid_lat": 1.5578,
+    "centroid_lon": -55.8223,
+    "bbox": [
+      -56.10201,
+      1.43836,
+      -55.78463,
+      1.57542
+    ],
+    "acq_days": 2,
+    "night_fraction": 0.0,
+    "rank": 30,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 48,
+    "detections": 9,
+    "total_frp_mw": 573.2,
+    "mean_frp_mw": 63.7,
+    "max_frp_mw": 64.8,
+    "mean_confidence": 66.7,
+    "sensors": [
+      "VIIRS-NOAA20",
+      "VIIRS-NOAA21",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "congo"
+    ],
+    "centroid_lat": -1.4078,
+    "centroid_lon": 29.2049,
+    "bbox": [
+      29.20057,
+      -1.41737,
+      29.20916,
+      -1.40243
+    ],
+    "acq_days": 2,
+    "night_fraction": 0.889,
+    "rank": 31,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 4,
+    "detections": 13,
+    "total_frp_mw": 539.2,
+    "mean_frp_mw": 41.5,
+    "max_frp_mw": 46.1,
+    "mean_confidence": 48.3,
+    "sensors": [
+      "MODIS-Aqua",
+      "VIIRS-NOAA20",
+      "VIIRS-NOAA21",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "amazon"
+    ],
+    "centroid_lat": 2.7292,
+    "centroid_lon": -60.3433,
+    "bbox": [
+      -61.25541,
+      2.70971,
+      -59.85006,
+      2.84263
+    ],
+    "acq_days": 4,
+    "night_fraction": 0.0,
+    "rank": 32,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 46,
+    "detections": 14,
+    "total_frp_mw": 528.4,
+    "mean_frp_mw": 37.7,
+    "max_frp_mw": 43.1,
+    "mean_confidence": 57.7,
+    "sensors": [
+      "MODIS-Aqua",
+      "VIIRS-NOAA20",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "congo"
+    ],
+    "centroid_lat": -2.6407,
+    "centroid_lon": 28.2065,
+    "bbox": [
+      25.68471,
+      -2.89499,
+      31.43413,
+      -2.39087
+    ],
+    "acq_days": 2,
+    "night_fraction": 0.0,
+    "rank": 33,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 47,
+    "detections": 15,
+    "total_frp_mw": 443.1,
+    "mean_frp_mw": 29.5,
+    "max_frp_mw": 32.3,
+    "mean_confidence": 59.7,
+    "sensors": [
+      "MODIS-Aqua",
+      "VIIRS-NOAA20",
+      "VIIRS-NOAA21",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "congo"
+    ],
+    "centroid_lat": -1.3722,
+    "centroid_lon": 26.4514,
+    "bbox": [
+      16.94136,
+      -1.71741,
+      31.51137,
+      -1.06198
+    ],
+    "acq_days": 4,
+    "night_fraction": 0.0,
+    "rank": 34,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 14,
+    "detections": 13,
+    "total_frp_mw": 400.9,
+    "mean_frp_mw": 30.8,
+    "max_frp_mw": 33.7,
+    "mean_confidence": 52.9,
+    "sensors": [
+      "MODIS-Aqua",
+      "VIIRS-NOAA20",
+      "VIIRS-NOAA21",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "amazon"
+    ],
+    "centroid_lat": 3.7972,
+    "centroid_lon": -59.3522,
+    "bbox": [
+      -60.48527,
+      3.64518,
+      -54.02347,
+      4.0443
+    ],
+    "acq_days": 4,
+    "night_fraction": 0.0,
+    "rank": 35,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 25,
+    "detections": 6,
+    "total_frp_mw": 361.6,
+    "mean_frp_mw": 60.3,
+    "max_frp_mw": 63.6,
+    "mean_confidence": 71.0,
+    "sensors": [
+      "MODIS-Aqua",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "amazon"
+    ],
+    "centroid_lat": 0.7716,
+    "centroid_lon": -59.2631,
+    "bbox": [
+      -59.55838,
+      0.69131,
+      -59.20079,
+      0.78855
+    ],
+    "acq_days": 2,
+    "night_fraction": 0.0,
+    "rank": 36,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 50,
+    "detections": 10,
+    "total_frp_mw": 346.4,
+    "mean_frp_mw": 34.6,
+    "max_frp_mw": 35.4,
+    "mean_confidence": 69.0,
+    "sensors": [
+      "VIIRS-NOAA20",
+      "VIIRS-NOAA21"
+    ],
+    "regions": [
+      "congo"
+    ],
+    "centroid_lat": -1.4399,
+    "centroid_lon": 29.0494,
+    "bbox": [
+      25.53786,
+      -1.65364,
+      31.30706,
+      -1.40615
+    ],
+    "acq_days": 2,
+    "night_fraction": 0.8,
+    "rank": 37,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 20,
+    "detections": 6,
+    "total_frp_mw": 257.9,
+    "mean_frp_mw": 43.0,
+    "max_frp_mw": 43.6,
+    "mean_confidence": 63.5,
+    "sensors": [
+      "MODIS-Terra",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "amazon"
+    ],
+    "centroid_lat": 1.1491,
+    "centroid_lon": -51.0517,
+    "bbox": [
+      -51.1465,
+      1.04709,
+      -50.92945,
+      1.25881
+    ],
+    "acq_days": 2,
+    "night_fraction": 0.333,
+    "rank": 38,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 17,
+    "detections": 9,
+    "total_frp_mw": 236.4,
+    "mean_frp_mw": 26.3,
+    "max_frp_mw": 27.9,
+    "mean_confidence": 53.3,
+    "sensors": [
+      "VIIRS-NOAA20",
+      "VIIRS-NOAA21",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "amazon"
+    ],
+    "centroid_lat": 2.8407,
+    "centroid_lon": -60.3477,
+    "bbox": [
+      -64.24512,
+      2.7188,
+      -54.25502,
+      3.14015
+    ],
+    "acq_days": 5,
+    "night_fraction": 0.0,
+    "rank": 39,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 61,
+    "detections": 13,
+    "total_frp_mw": 189.7,
+    "mean_frp_mw": 14.6,
+    "max_frp_mw": 17.4,
+    "mean_confidence": 57.7,
+    "sensors": [
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "borneo"
+    ],
+    "centroid_lat": 4.9213,
+    "centroid_lon": 118.284,
+    "bbox": [
+      118.20336,
+      4.88691,
+      118.32816,
+      4.94899
+    ],
+    "acq_days": 1,
+    "night_fraction": 0.0,
+    "rank": 40,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 44,
+    "detections": 7,
+    "total_frp_mw": 176.7,
+    "mean_frp_mw": 25.2,
+    "max_frp_mw": 28.3,
+    "mean_confidence": 57.7,
+    "sensors": [
+      "MODIS-Aqua",
+      "VIIRS-NOAA20",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "congo"
+    ],
+    "centroid_lat": -0.6746,
+    "centroid_lon": 17.3272,
+    "bbox": [
+      15.59778,
+      -0.81672,
+      18.71872,
+      -0.63994
+    ],
+    "acq_days": 3,
+    "night_fraction": 0.0,
+    "rank": 41,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 60,
+    "detections": 9,
+    "total_frp_mw": 132.4,
+    "mean_frp_mw": 14.7,
+    "max_frp_mw": 16.4,
+    "mean_confidence": 56.7,
+    "sensors": [
+      "VIIRS-NOAA20",
+      "VIIRS-NOAA21",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "borneo"
+    ],
+    "centroid_lat": 1.5243,
+    "centroid_lon": 118.0466,
+    "bbox": [
+      117.96487,
+      1.39377,
+      118.21045,
+      1.61456
+    ],
+    "acq_days": 1,
+    "night_fraction": 0.0,
+    "rank": 42,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 51,
+    "detections": 8,
+    "total_frp_mw": 124.4,
+    "mean_frp_mw": 15.5,
+    "max_frp_mw": 17.5,
+    "mean_confidence": 60.0,
+    "sensors": [
+      "VIIRS-NOAA20",
+      "VIIRS-NOAA21",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "congo"
+    ],
+    "centroid_lat": 1.7154,
+    "centroid_lon": 30.8928,
+    "bbox": [
+      30.08887,
+      1.42435,
+      31.44818,
+      1.84821
+    ],
+    "acq_days": 1,
+    "night_fraction": 0.0,
+    "rank": 43,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 49,
+    "detections": 11,
+    "total_frp_mw": 119.0,
+    "mean_frp_mw": 10.8,
+    "max_frp_mw": 12.3,
+    "mean_confidence": 60.0,
+    "sensors": [
+      "VIIRS-NOAA20",
+      "VIIRS-NOAA21"
+    ],
+    "regions": [
+      "congo"
+    ],
+    "centroid_lat": 1.7629,
+    "centroid_lon": 20.4768,
+    "bbox": [
+      19.77875,
+      1.68497,
+      21.78521,
+      1.80651
+    ],
+    "acq_days": 2,
+    "night_fraction": 0.0,
+    "rank": 44,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 62,
+    "detections": 6,
+    "total_frp_mw": 117.0,
+    "mean_frp_mw": 19.5,
+    "max_frp_mw": 20.8,
+    "mean_confidence": 72.5,
+    "sensors": [
+      "MODIS-Aqua",
+      "MODIS-Terra",
+      "VIIRS-NOAA21",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "borneo"
+    ],
+    "centroid_lat": 1.439,
+    "centroid_lon": 118.1912,
+    "bbox": [
+      118.11722,
+      1.39254,
+      118.31795,
+      1.50962
+    ],
+    "acq_days": 3,
+    "night_fraction": 0.167,
+    "rank": 45,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 43,
+    "detections": 11,
+    "total_frp_mw": 113.6,
+    "mean_frp_mw": 10.3,
+    "max_frp_mw": 11.8,
+    "mean_confidence": 60.0,
+    "sensors": [
+      "VIIRS-NOAA20",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "congo"
+    ],
+    "centroid_lat": 5.3741,
+    "centroid_lon": 25.0165,
+    "bbox": [
+      20.72711,
+      5.26786,
+      31.83336,
+      5.63994
+    ],
+    "acq_days": 4,
+    "night_fraction": 0.0,
+    "rank": 46,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 53,
+    "detections": 8,
+    "total_frp_mw": 106.6,
+    "mean_frp_mw": 13.3,
+    "max_frp_mw": 14.9,
+    "mean_confidence": 65.0,
+    "sensors": [
+      "MODIS-Aqua",
+      "VIIRS-NOAA20",
+      "VIIRS-NOAA21"
+    ],
+    "regions": [
+      "congo"
+    ],
+    "centroid_lat": 5.3647,
+    "centroid_lon": 24.7994,
+    "bbox": [
+      24.45492,
+      5.12474,
+      25.22097,
+      5.64203
+    ],
+    "acq_days": 3,
+    "night_fraction": 0.0,
+    "rank": 47,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 56,
+    "detections": 41,
+    "total_frp_mw": 88.5,
+    "mean_frp_mw": 2.2,
+    "max_frp_mw": 3.4,
+    "mean_confidence": 60.0,
+    "sensors": [
+      "VIIRS-NOAA20",
+      "VIIRS-NOAA21",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "borneo"
+    ],
+    "centroid_lat": 3.3591,
+    "centroid_lon": 113.2389,
+    "bbox": [
+      113.0617,
+      3.22385,
+      115.19238,
+      3.67312
+    ],
+    "acq_days": 4,
+    "night_fraction": 0.854,
+    "rank": 48,
+    "class": "active"
+  },
+  {
+    "complex_id": 57,
+    "detections": 15,
+    "total_frp_mw": 62.9,
+    "mean_frp_mw": 4.2,
+    "max_frp_mw": 4.8,
+    "mean_confidence": 60.0,
+    "sensors": [
+      "VIIRS-NOAA20",
+      "VIIRS-NOAA21",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "borneo"
+    ],
+    "centroid_lat": 3.7626,
+    "centroid_lon": 114.739,
+    "bbox": [
+      112.06481,
+      3.60347,
+      116.90089,
+      3.90272
+    ],
+    "acq_days": 5,
+    "night_fraction": 0.267,
+    "rank": 49,
+    "class": "smoldering"
+  },
+  {
+    "complex_id": 28,
+    "detections": 6,
+    "total_frp_mw": 59.3,
+    "mean_frp_mw": 9.9,
+    "max_frp_mw": 10.3,
+    "mean_confidence": 50.8,
+    "sensors": [
+      "MODIS-Aqua",
+      "VIIRS-NOAA20",
+      "VIIRS-NOAA21",
+      "VIIRS-SNPP"
+    ],
+    "regions": [
+      "amazon"
+    ],
+    "centroid_lat": 3.1827,
+    "centroid_lon": -72.4667,
+    "bbox": [
+      -73.75119,
+      3.03875,
+      -71.81431,
+      3.46569
+    ],
+    "acq_days": 2,
+    "night_fraction": 0.0,
+    "rank": 50,
+    "class": "smoldering"
+  }
+]

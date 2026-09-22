@@ -1,0 +1,71 @@
+<!-- ==================== PDF2 COVER ==================== -->
+<div class="cover">
+    <div class="stars"></div>
+    <div class="cover-topline">
+        <span><span class="dot">&#9650;</span> FLAGSHIP MASTER PLAN // CHALLENGE #09</span>
+        <span>DOC-ID: SP-2026-003</span>
+    </div>
+    <div class="cover-badge">NASA SPACE APPS 2026 &nbsp;&#9670;&nbsp; HARMONIZATION OF MODIS &amp; VIIRS HOT SPOTS</div>
+    <h1 class="cover-title"><div>PYRO&shy;CHRON</div><div class="hl">MISSION PLAN</div></h1>
+    <p class="cover-sub">Two satellites, two decades, one incompatible fire record &mdash; and the app that fuses them into a single 25-year burning activity calendar for every corner of Earth. The flagship build for the Best Use of Data lane.</p>
+    <div class="cover-stats">
+        <div class="cover-stat">
+            <div class="k">FUSED DATA RECORD</div>
+            <div class="v">MODIS <em>2000</em> + VIIRS <em>2012</em></div>
+        </div>
+        <div class="cover-stat">
+            <div class="k">CORE DELIVERABLE</div>
+            <div class="v">25-YR <em>BURN CALENDAR</em></div>
+        </div>
+        <div class="cover-stat">
+            <div class="k">PRIMARY AWARD LANES</div>
+            <div class="v">DATA &middot; <em>GLOBAL CONNECTION</em></div>
+        </div>
+    </div>
+    <div class="cover-bottomline">
+        <span>PREPARED BY: MISSION COMMAND</span>
+        <span>REV 1.0 // FLAGSHIP DOCTRINE</span>
+    </div>
+</div>
+
+<div class="main-content">
+
+<!-- ============ BRIEFING ============ -->
+<div class="chapter-header first">
+    <div class="sec-tag">TRANSMISSION 003 // FLAGSHIP ORDERS</div>
+    <div class="sec-title">Mission Briefing</div>
+    <p class="sec-lede">What this document contains and how the team consumes it before and during the event.</p>
+</div>
+
+<p class="body-text">PYROCHRON is the primary submission: a web application that turns NASA&rsquo;s fragmented satellite fire record into one harmonized, explorable, forecast-ready <b>burning activity calendar</b>. This master plan is the complete engineering and strategy doctrine for building it &mdash; written before the event, so the 48 hours are spent executing rather than deciding. It assumes the pre-built TERRA SENTINEL chassis from the mission playbook (Next.js 15 shell, MapLibre/deck.gl geo-stack, Python ingestion pipelines, FastAPI micro-services, Hugging Face model registry) and specifies only what must be built or adapted on top of it.</p>
+
+<p class="body-text">The document is organized for two reading modes. Before the event, read Sections 01&ndash;08 in order: the decoded brief, the harmonization science, the data arsenal, the product definition, the AI division, the architecture, the award-lane map, and the ten-week preparation timeline. During the event, jump straight to Section 09 (the 48-hour battle plan with its three hard gates), Section 10 (the pitch kit), and Section 11 (the risk register with pre-agreed fallbacks). Every claim about data availability in this plan was verified against live NASA portals during dossier preparation; where a claim could not be verified, it is marked as an assumption with a test step in the Hour&nbsp;0&ndash;2 data checks.</p>
+
+<div class="callout">
+    <div class="co-tag">FLAGSHIP DOCTRINE</div>
+    One submission, executed to depth. PYROCHRON wins by making one thing undeniable: before us, the fire record had a seam &mdash; MODIS here, VIIRS there, never comparable. After us, there is one calendar, verified against burned-area truth, with a forecast attached.
+</div>
+
+<!-- ============ S1 DECODED ============ -->
+<div class="chapter-header">
+    <div class="sec-tag">SECTION 01 // THE BRIEF, DECODED</div>
+    <div class="sec-title">What the Challenge Actually Demands</div>
+    <p class="sec-lede">Reading the brief the way a judge will grade it.</p>
+</div>
+
+<p class="body-text">The official text asks for a web application that <b>harmonizes the MODIS and VIIRS active-fire records into a burning activity calendar</b> based on active fire hotspots, enabling early warning and emergency responders, scientists, and land managers to examine historical fire patterns, unusual conditions, and critical periods within a selected area of interest. Four verbs carry the grade: <span class="hl-cy" style="color:var(--cy);font-weight:600;">harmonize</span> (the science), <span class="hl-cy" style="color:var(--cy);font-weight:600;">calendar</span> (the product), <span class="hl-cy" style="color:var(--cy);font-weight:600;">examine</span> (the interactivity), and <span class="hl-cy" style="color:var(--cy);font-weight:600;">enable</span> (the user relevance). Teams that only visualize raw FIRMS points will fail the first verb; teams that harmonize but produce a static report will fail the second and third. The winning shape is a live app with an honest, documented fusion method underneath.</p>
+
+<p class="body-text">The brief also names its users explicitly &mdash; early warning systems, emergency responders, scientists, land managers &mdash; which hands us the persona slide for the pitch: each screen we ship should be traceable to one of those four users. The phrase <b>&ldquo;critical periods&rdquo;</b> is the strongest hint: the calendar must not only show history but surface when fire activity is abnormal relative to climatology, which is exactly what our z-score anomaly engine and Chronos-Bolt forecast provide. Finally, the dual difficulty flag (Advanced&nbsp;/&nbsp;Intermediate) tells us the judge pool expects methodological transparency but not a peer-reviewed algorithm &mdash; a defensible, well-documented bias-correction approach with validation statistics clears the bar with room to spare.</p>
+
+<div class="sub-title"><span class="num">01.1</span> Judge&rsquo;s Checklist &mdash; Inferred Grading Rubric</div>
+<table>
+    <colgroup><col style="width:22%"><col style="width:44%"><col style="width:34%"></colgroup>
+    <thead><tr><th>CRITERION</th><th>WHAT THE JUDGE LOOKS FOR</th><th>OUR EVIDENCE</th></tr></thead>
+    <tbody>
+        <tr><td><b>Harmonization (Validity)</b></td><td>A stated method that makes MODIS-era and VIIRS-era detections comparable &mdash; not a silent concatenation</td><td>Methodology page: sensor transfer function derived from the 2012&ndash;present overlap period; per-land-cover bias stratification</td></tr>
+        <tr><td><b>Calendar (Creativity)</b></td><td>The deliverable is literally a calendar &mdash; a 25-year &times; 52-week activity grid is the dream artifact</td><td>The hero screen: one AOI, one glance, the entire fire year of every year since 2000</td></tr>
+        <tr><td><b>Unusual conditions (Relevance)</b></td><td>Anomaly surfacing against climatology, not just raw history</td><td>Z-score spotlight per week-of-year; &ldquo;this week is a 98th-percentile fire week&rdquo; readouts</td></tr>
+        <tr><td><b>Early warning (Impact)</b></td><td>A forward-looking use, not an archive viewer</td><td>4-week seasonal outlook per AOI via Chronos-Bolt, plus briefing generator for responders</td></tr>
+        <tr><td><b>NASA data (Criteria fit)</b></td><td>Heavy, verifiable use of NASA sources</td><td>FIRMS MODIS + VIIRS as the spine; MCD64A1 burned area for validation; GIBS context tiles; POWER fire-weather indices</td></tr>
+    </tbody>
+</table>

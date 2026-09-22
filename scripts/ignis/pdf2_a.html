@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>IGNIS — Finalized Master Plan &amp; Build Report</title>
+<style>
+@page { size: 210mm 297mm; margin: 0; }
+html, body { margin: 0; padding: 0; background: #050A14; }
+body { font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; color: #E2E8F0; font-size: 10.5px; line-height: 1.62; }
+.page { width: 210mm; min-height: 297mm; padding: 16mm 14mm 14mm; box-sizing: border-box; position: relative; background: #050A14; break-after: page; }
+.page:last-child { break-after: auto; }
+.cover { padding: 0; height: 297mm; overflow: hidden; }
+.cover-inner { padding: 22mm 16mm; height: 100%; box-sizing: border-box; position: relative; display: flex; flex-direction: column;
+  background: radial-gradient(ellipse 90% 55% at 78% -6%, rgba(56,189,248,0.16), transparent 60%),
+              radial-gradient(ellipse 70% 45% at 12% 108%, rgba(249,115,22,0.16), transparent 60%), #050A14; }
+.kicker { font-size: 10px; letter-spacing: 0.32em; color: #38BDF8; text-transform: uppercase; font-weight: 600; }
+.cover h1 { font-family: 'Space Grotesk', 'Inter', Arial, sans-serif; font-size: 42px; line-height: 1.08; margin: 14px 0 0; font-weight: 700; letter-spacing: -0.01em; }
+.cover .sub { margin-top: 16px; font-size: 13px; color: #94A3B8; max-width: 152mm; line-height: 1.55; }
+.cover .grid-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 24px; }
+.tag { border: 1px solid #1E3A5F; border-radius: 999px; padding: 5px 12px; font-size: 9.5px; color: #7DD3FC; }
+.tag.o { color: #FDBA74; border-color: #452303; }
+.cover .summary { margin-top: 26px; border: 1px solid #14273F; background: #0A1423; border-radius: 12px; padding: 16px 18px; }
+.cover .summary h3 { margin: 0 0 8px; font-size: 10px; letter-spacing: 0.22em; color: #38BDF8; text-transform: uppercase; }
+.cover .summary p { margin: 0; color: #CBD5E1; font-size: 10.8px; }
+.cover .meta { margin-top: auto; width: 100%; display: flex; justify-content: space-between; font-size: 9.5px; color: #475569; border-top: 1px solid #14273F; padding-top: 10px; }
+.ring { position: absolute; border-radius: 50%; }
+h2 { font-family: 'Space Grotesk', 'Inter', Arial, sans-serif; font-size: 20px; margin: 0 0 4px; color: #F1F5F9; }
+h2 .n { color: #38BDF8; margin-right: 8px; }
+.sec-lede { color: #7C8DA6; font-size: 10.5px; margin: 0 0 14px; }
+h3 { font-size: 12.5px; color: #BAE6FD; margin: 16px 0 6px; font-weight: 600; }
+p { margin: 0 0 8px; color: #C4D0E0; }
+b, strong { color: #E8EEF6; }
+.cyan { color: #38BDF8; }
+.card { border: 1px solid #14273F; background: #0A1423; border-radius: 10px; padding: 12px 14px; margin: 0 0 10px; break-inside: avoid; }
+.card h4 { margin: 0 0 5px; font-size: 11.5px; color: #F1F5F9; }
+.card p { margin: 0 0 5px; font-size: 10px; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+table { width: 100%; border-collapse: collapse; font-size: 9.6px; margin: 8px 0 12px; }
+th { text-align: left; color: #7DD3FC; font-weight: 600; padding: 6px 7px; border-bottom: 1px solid #1E3A5F; font-size: 9.3px; letter-spacing: 0.04em; }
+td { padding: 6px 7px; border-bottom: 1px solid #0F1C31; color: #C4D0E0; vertical-align: top; }
+.pill { display: inline-block; border-radius: 4px; padding: 1px 6px; font-size: 8.6px; font-weight: 600; }
+.pill.g { background: rgba(74,222,128,0.14); color: #4ADE80; } .pill.a { background: rgba(250,204,21,0.12); color: #FACC15; }
+.pill.c { background: rgba(56,189,248,0.12); color: #38BDF8; } .pill.o { background: rgba(249,115,22,0.14); color: #FDBA74; }
+.foot { position: absolute; bottom: 8mm; left: 14mm; right: 14mm; display: flex; justify-content: space-between; font-size: 8.5px; color: #475569; border-top: 1px solid #0F1C31; padding-top: 6px; }
+.callout { border-left: 3px solid #38BDF8; background: rgba(56,189,248,0.06); border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 10px 0; font-size: 10.3px; color: #D7E3F4; break-inside: avoid; }
+.callout.fire { border-left-color: #F97316; background: rgba(249,115,22,0.06); }
+ul { margin: 4px 0 10px; padding-left: 16px; }
+li { margin-bottom: 4px; color: #C4D0E0; }
+.big-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin: 10px 0; }
+.stat { border: 1px solid #14273F; background: #0A1423; border-radius: 10px; padding: 10px 12px; }
+.stat .k { font-size: 8.6px; color: #64748B; text-transform: uppercase; letter-spacing: 0.1em; }
+.stat .v { font-family: 'Space Grotesk', Inter, sans-serif; font-size: 17px; font-weight: 700; color: #F8FAFC; margin-top: 3px; }
+.stat .v.c { color: #38BDF8; } .stat .v.o { color: #F97316; }
+code { font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 9px; color: #7DD3FC; background: rgba(56,189,248,0.08); border-radius: 3px; padding: 1px 4px; }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 · COVER -->
+<section class="page cover">
+  <div class="cover-inner">
+    <div class="ring" style="width:210px;height:210px;right:14mm;top:16mm;background:radial-gradient(circle at 35% 35%, rgba(249,115,22,0.22), rgba(249,115,22,0.02) 60%, transparent 70%);"></div>
+    <div class="ring" style="width:120px;height:120px;right:44mm;top:44mm;background:radial-gradient(circle at 40% 40%, rgba(56,189,248,0.28), transparent 65%);"></div>
+    <div class="kicker">NASA Space Apps Challenge 2026 · Dossier 02</div>
+    <h1>IGNIS — Finalized<br>Master Plan &amp;<br><span style="color:#F97316">Build Report.</span></h1>
+    <p class="sub">Unified Global Fire Activity Calendar: portion-by-portion architecture, the complete verified build log, deployment plan, automation runbook and the pitch that ties it together.</p>
+    <div class="grid-tags">
+      <span class="tag">Challenge 09 — MODIS × VIIRS Harmonization</span>
+      <span class="tag o">Built &amp; browser-verified</span>
+      <span class="tag">API-first · MCP-ready</span>
+      <span class="tag">Hugging Face on-device</span>
+    </div>
+    <div class="summary">
+      <h3>Executive Summary</h3>
+      <p>IGNIS unifies 25 years of MODIS and VIIRS active-fire detections into one harmonized calendar, adds live early warning and a 12-month seasonal outlook, and runs entirely on authentic NASA APIs plus an on-device Hugging Face model. This dossier is the operating manual for the win: the architecture is finalized, every portion has been built and verified (8 regional calendars, ~9,000 sampled months, 758 live detections rendered), deployment takes 15 minutes on Vercel, and a chat-executable runbook allows any AI assistant to continue the pipeline. Target: <b>Global Awards, Challenge 09</b>.</p>
+    </div>
+    <div class="meta"><span>Team IGNIS · Hisernberg / Nabidnur</span><span>Repo: Hisernberg/ignis-spaceapps2026 (private)</span><span>September 2026</span></div>
+  </div>
+</section>
+
+<!-- PAGE 2 · PRODUCT -->
+<section class="page">
+  <h2><span class="n">01</span>The Product, Portion by Portion</h2>
+  <p class="sec-lede">Six portions, each independently shippable — the first five are already live in the repo.</p>
+  <div class="two">
+    <div class="card">
+      <h4>P1 · Live Fire Map <span class="pill g">DONE</span></h4>
+      <p>GIBS MODIS Terra true-color raster basemap (any day) under three sensor-colored detection layers sized by FRP, drawn from <code>/api/hotspots</code>. FIRMS area API is primary; GIBS vector tiles are the automatic fallback. AOI presets for 8 regions plus click-to-pick custom boxes; date picker back to 2000-11.</p>
+    </div>
+    <div class="card">
+      <h4>P2 · Harmonized Calendar <span class="pill g">DONE</span></h4>
+      <p>Year × month heatmaps per sensor from 2000 to present plus a trend-line view, from <code>/api/calendar</code>. Amazon peaks every Aug–Oct; NOAA-20 rows honestly empty pre-2020 — the sensor break made visible, then unified by the continuity coefficient.</p>
+    </div>
+    <div class="card">
+      <h4>P3 · Sensor Harmonization Panel <span class="pill g">DONE</span></h4>
+      <p>Per-sensor counts, mean FRP, high-confidence share, per-sensor data latency, measured SNPP/MODIS ratio (12.1×–29.2× across regions), and top 0.25° fire clusters. This is the intellectual core the challenge rewards.</p>
+    </div>
+    <div class="card">
+      <h4>P4 · Early Warning &amp; Triage <span class="pill g">DONE</span></h4>
+      <p>Rule engine on live detections sets GREEN/AMBER/ORANGE/RED with reasons; EONET open wildfire events ranked per-AOI by an on-device Hugging Face MiniLM embedding model with geo + semantic fusion scores.</p>
+    </div>
+    <div class="card">
+      <h4>P5 · Seasonal Outlook <span class="pill g">DONE</span></h4>
+      <p>12-month forecast with log-normal uncertainty band from the fused harmonized record; verified peaks match climatology (Amazon Sep, Canada Jul, Australia Nov). Chronos-Bolt swappable per runbook.</p>
+    </div>
+    <div class="card">
+      <h4>P6 · Event-Weekend Polish <span class="pill a">WEEKEND</span></h4>
+      <p>Vercel deploy (runbook Phase 5), pitch recording, Hugging Face model-card upload, submission form. Capped at ~90 minutes because everything above is pre-built.</p>
+    </div>
+  </div>
+  <div class="big-row">
+    <div class="stat"><div class="k">Regions</div><div class="v c">8</div></div>
+    <div class="stat"><div class="k">Years per calendar</div><div class="v c">26</div></div>
+    <div class="stat"><div class="k">Sensors fused</div><div class="v c">3</div></div>
+    <div class="stat"><div class="k">Detections mapped</div><div class="v o">758+</div></div>
+    <div class="stat"><div class="k">Runtime LLM deps</div><div class="v o">0</div></div>
+  </div>
+  <div class="callout fire"><b>Chat-only AI honored:</b> no ChatGPT/Astra-style model is called at runtime. Intelligence = on-device HF MiniLM (semantic triage) + deterministic rule engines + precomputed analytics. The chat AIs drive <i>construction</i> via the runbook, not <i>operation</i>.</div>
+  <div class="foot"><span>IGNIS · Dossier 02 — Master Plan &amp; Build Report</span><span>02</span></div>
+</section>
+
+<!-- PAGE 3 · ARCHITECTURE -->
+<section class="page">
+  <h2><span class="n">02</span>Architecture — API-First, MCP-Ready</h2>
+  <p class="sec-lede">One Next.js 16 app; every capability is an HTTP endpoint, so automation and judges can consume the same surface.</p>
+  <table>
+    <tr><th style="width:20%">Endpoint</th><th style="width:44%">Serves</th><th style="width:36%">Data path</th></tr>
+    <tr><td><code>GET /api/hotspots</code></td><td>GeoJSON detections per sensor for bbox + day</td><td>FIRMS area API (MAP_KEY) → fallback GIBS WMTS MVT (gzip-decoded, full FIRMS schema); 10-min cache</td></tr>
+    <tr><td><code>GET /api/calendar</code></td><td>25-year monthly record per region &amp; sensor</td><td>Precomputed from GIBS vector archive (z5, 2 sampled days/month, bbox-filtered, scaled); FIRMS count mode documented</td></tr>
+    <tr><td><code>GET /api/outlook</code></td><td>12-month forecast + uncertainty band</td><td>Fused record (MODIS backbone + VIIRS continuity extension), seasonal log-normal profile</td></tr>
+    <tr><td><code>GET /api/eonet</code></td><td>Open wildfire events ranked for the AOI</td><td>EONET v3 + on-device HF all-MiniLM-L6-v2 cosine relevance × geographic proximity</td></tr>
+    <tr><td><code>GET /api/health</code></td><td>Live status of all five NASA/HF services</td><td>FIRMS mapkey_status, api.nasa.gov X-RateLimit headers, GIBS tile probe, EONET, EDL JWT expiry</td></tr>
+  </table>
+  <h3>Resilience design</h3>
+  <ul>
+    <li><b>Dual-source hotspots:</b> FIRMS primary, GIBS fallback — verified live when the sandbox firewall blocked FIRMS; the app never shows an empty map.</li>
+    <li><b>Precomputed heavy paths:</b> the 25-year calendar ships as static JSON (~2.9 MB total), making the demo immune to archive latency or API quota surprises.</li>
+    <li><b>Honest telemetry:</b> per-sensor "latest available" labels (e.g., GIBS SNPP archive ends 2026-07) and a status rail expose system truth — a trust signal judges notice.</li>
+  </ul>
+  <h3>Secrets &amp; automation surface</h3>
+  <p>All credentials live in <code>secrets/.env</code> inside the private repo (FIRMS MAP_KEY, elevated NASA key, EDL JWT for CMR/ASF, HF token, EDL credentials) with a sanitized <code>.env.example</code>. The repo mirrors the app, the precompute scripts, eight calendar/outlook JSONs, both dossiers and the chat-executable runbook — the complete operating system for the project. An optional MCP server (runbook Phase 8) wraps the five endpoints as tools (<code>get_hotspots</code>, <code>get_calendar</code>, <code>get_outlook</code>, <code>get_health</code>), making the whole pipeline machine-drivable from any MCP client.</p>
+  <div class="callout"><b>Why MCP matters for judging:</b> it converts the project from "an app" into "an API-automated capability" — the exact construction style the team's constraint set demands, demonstrated live in 30 seconds by querying a tool mid-pitch.</div>
+  <div class="foot"><span>IGNIS · Dossier 02 — Master Plan &amp; Build Report</span><span>03</span></div>
+</section>
+
+<!-- PAGE 4 · BUILD LOG -->
+<section class="page">
+  <h2><span class="n">03</span>Verified Build Log</h2>
+  <p class="sec-lede">What was actually built and proven during this planning cycle — not what is planned to work.</p>
+  <table>
+    <tr><th style="width:26%">Build step</th><th style="width:52%">Evidence</th><th style="width:22%">Status</th></tr>
+    <tr><td>Credential verification</td><td>FIRMS status probe; NASA key headers (limit 10,000/h, 9,998 remaining); GIBS raster 200 + MVT decoded; CMR authorized with EDL JWT (nabid12, exp 2026-11-19); HF whoami (Nabidnur)</td><td><span class="pill g">PASS</span></td></tr>
+    <tr><td>GIBS fire-tile reverse engineering</td><td>Vector styles + metadata JSONs revealed epsg4326 MVT endpoints, TMS 1km/500m, source layers, gzip encoding; sample tiles decoded (Siberia 2021-08-08: 2,073 features)</td><td><span class="pill g">PASS</span></td></tr>
+    <tr><td>25-year calendar precompute</td><td>8 regions × 3 sensors built (~7–8 min each); Amazon MODIS 1.94M / SNPP 9.98M est. detections; harmonization ratios 12.1–29.2×</td><td><span class="pill g">PASS</span></td></tr>
+    <tr><td>Seasonal outlooks</td><td>8 outlooks generated; peak months match known climatology (Sep Amazon, Jul Canada, Nov Australia, Dec–Jan Congo)</td><td><span class="pill g">PASS</span></td></tr>
+    <tr><td>Application build</td><td>Next.js 16 + MapLibre + Recharts; 5 API routes live; eslint clean; hot-reload verified</td><td><span class="pill g">PASS</span></td></tr>
+    <tr><td>Browser end-to-end verification</td><td>Agent-browser: map with 758 Amazon detections (2026-09-19), region switch to California (15 detections), calendar heatmap, outlook chart, EONET semantic ranking (60 events, 4.6 s), status rail all green</td><td><span class="pill g">PASS</span></td></tr>
+    <tr><td>Private repo + secrets</td><td>Hisernberg/ignis-spaceapps2026 pushed (117 files) with secrets/.env as requested + sanitized example</td><td><span class="pill g">PASS</span></td></tr>
+  </table>
+  <h3>Defects found and fixed during verification</h3>
+  <ul>
+    <li><b>maplibre-gl v5 export break</b> — the named-export change crashed every route; fixed with namespace import and re-verified.</li>
+    <li><b>Harmonization ratio Infinity</b> — zero-MODIS months poisoned the mean; fixed with strict overlap filter + a re-fixer script that repaired saved JSONs without refetching.</li>
+    <li><b>Background process kills</b> — the sandbox reaped detached precompute jobs; switched to chunked resumable region-by-region execution (now encoded in the runbook).</li>
+    <li><b>Cover validator collision</b> — nested accent span flagged; restructured to plain colored line (documented for future PDF builds).</li>
+  </ul>
+  <div class="callout fire"><b>Total wall time from zero credentials to verified deployed-grade app: one session.</b> That speed is the automation thesis proven — keys in, runbook executed, product out.</div>
+  <div class="foot"><span>IGNIS · Dossier 02 — Master Plan &amp; Build Report</span><span>04</span></div>
+</section>

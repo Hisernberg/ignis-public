@@ -1,0 +1,89 @@
+<!-- ============ SECTION 06 ============ -->
+<div class="chapter-header">
+    <div class="sec-tag">SECTION 06 // THE FLAGSHIP</div>
+    <div class="sec-title">TERRA SENTINEL &mdash; Mission Control for Planet Earth</div>
+    <p class="sec-lede">The one app you will build: a live Earth-event intelligence platform fusing NASA&rsquo;s open data with an AI analysis stack, engineered to be defensible in every award category.</p>
+</div>
+
+<p class="body-text">TERRA SENTINEL is a web platform that watches the planet the way mission control watches a spacecraft. It ingests NASA&rsquo;s live natural-event feed and satellite imagery, fuses them with forecast and segmentation models, and turns the noise into <span class="strong">plain-language mission briefings anyone can act on</span>. The one-line pitch: <b>&ldquo;Mission control for planet Earth &mdash; live events, satellite eyes, and an AI analyst that explains what is happening anywhere on the planet, right now.&rdquo;</b> It is built on the three streams judges can verify in seconds &mdash; EONET, GIBS, FIRMS &mdash; and it is deliberately architected so that disaster, climate, air-quality, and even space-weather challenges are skins over the same chassis.</p>
+
+<div class="sub-title"><span class="num">6.1</span> The Five Core Features</div>
+<div class="grid-2">
+    <div class="card"><div class="card-tag">FEATURE 01 // LIVE OPS MAP</div><div class="card-title">The planet, breathing</div><div class="card-body">A MapLibre globe with EONET events pulsing live &mdash; wildfires, storms, volcanoes, ice &mdash; over a GIBS true-color layer from today. FIRMS hotspots render as a GPU heatmap via deck.gl. Fly-to animation takes you inside any event in one click.</div></div>
+    <div class="card"><div class="card-tag">FEATURE 02 // AI MISSION BRIEFER</div><div class="card-title">From raw feed to briefing</div><div class="card-body">Select an event; the platform assembles structured context (location, area, population in buffer via Shapely, satellite layer, forecast curve) and an LLM writes a numbered field briefing with confidence levels and dataset citations. Human-readable in 90 languages via the UI layer.</div></div>
+    <div class="card"><div class="card-tag">FEATURE 03 // PREDICTIVE TIMELINE</div><div class="card-title">What happens next 72 hours</div><div class="card-body">Chronos-Bolt zero-shot forecasts fire-count or AQI time series for the region, plotted against the observed history with a confidence band and one honest validation metric (MAE vs. persistence) printed under the chart.</div></div>
+    <div class="card"><div class="card-tag">FEATURE 04 // SATELLITE VISION</div><div class="card-title">The satellite&rsquo;s eye, quantified</div><div class="card-body">Pull the event window&rsquo;s imagery; SAM segments water or burn scars with a click, and the platform computes affected area in hectares and population intersected &mdash; the measurement that turns a picture into a number a judge can trust.</div></div>
+    <div class="card"><div class="card-tag">FEATURE 05 // STORY MODE</div><div class="card-title">The replay judges remember</div><div class="card-body">A cinematic guided sequence: EPIC full-disc Earth, then a zoom from orbit into the event region across the last 30 days of GIBS imagery, narrated by the AI briefer. This is the screenshot moment from Pattern 06 &mdash; protected at all costs.</div></div>
+    <div class="card"><div class="card-tag">FOUNDATION // PRE-WIRED</div><div class="card-title">Prithvi-EO embeddings</div><div class="card-body">The Prithvi-EO-2.0 Space is pre-wired in prep week and offered as the science extension &mdash; land-cover context under events or burn-scar classification. It ships wired but is the first feature dropped under the triage ladder if time compresses.</div></div>
+</div>
+
+<div class="sub-title"><span class="num">6.2</span> System Architecture</div>
+<p class="body-text">Four layers make up the platform, each replaceable without touching the others: the NASA data layer feeds Python pipeline workers, which persist clean, geometry-enriched event records to PostGIS; HF Spaces microservices read that same database to produce forecasts, segmentations, and briefings; and the Next.js experience layer renders it all as mission control. Because every layer degrades gracefully to the one below it, a cold model Space or a stalled fetcher never blanks the screen &mdash; the demo path survives every individual failure.</p>
+<div class="arch">
+    <div class="arch-layer">
+        <div class="arch-ltitle">LAYER 1 // NASA DATA LAYER</div>
+        <div class="arch-nodes">
+            <div class="arch-node"><div class="n">EONET v3</div><div class="d">live events + polygons</div></div>
+            <div class="arch-node"><div class="n">GIBS tiles</div><div class="d">daily satellite imagery</div></div>
+            <div class="arch-node"><div class="n">FIRMS</div><div class="d">active fire hotspots</div></div>
+            <div class="arch-node"><div class="n">EPIC / DONKI</div><div class="d">hero visuals / space wx</div></div>
+        </div>
+    </div>
+    <div class="arch-conn"><span>&#9650;</span><span>&#9650;</span><span>&#9650;</span></div>
+    <div class="arch-layer">
+        <div class="arch-ltitle">LAYER 2 // INGEST &amp; PIPELINE (PYTHON WORKERS)</div>
+        <div class="arch-nodes">
+            <div class="arch-node"><div class="n">Fetcher cron</div><div class="d">poll feeds every 10 min</div></div>
+            <div class="arch-node"><div class="n">GeoPandas / Shapely</div><div class="d">geometry + impact math</div></div>
+            <div class="arch-node"><div class="n">rasterio / xarray</div><div class="d">imagery windows</div></div>
+            <div class="arch-node"><div class="n">Postgres + PostGIS</div><div class="d">single source of truth</div></div>
+        </div>
+    </div>
+    <div class="arch-conn"><span>&#9650;</span><span>&#9650;</span><span>&#9650;</span></div>
+    <div class="arch-layer">
+        <div class="arch-ltitle">LAYER 3 // AI DIVISION (HF SPACES MICROSERVICES)</div>
+        <div class="arch-nodes">
+            <div class="arch-node"><div class="n">Chronos-Bolt</div><div class="d">72h forecasts</div></div>
+            <div class="arch-node"><div class="n">SAM ViT-B</div><div class="d">segmentation + area</div></div>
+            <div class="arch-node"><div class="n">Prithvi-EO-2.0</div><div class="d">land / burn classification</div></div>
+            <div class="arch-node"><div class="n">LLM briefer</div><div class="d">grounded narration</div></div>
+        </div>
+    </div>
+    <div class="arch-conn"><span>&#9650;</span><span>&#9650;</span><span>&#9650;</span></div>
+    <div class="arch-layer">
+        <div class="arch-ltitle">LAYER 4 // EXPERIENCE (NEXT.JS 15 + TAILWIND, DEPLOYED ON VERCEL)</div>
+        <div class="arch-nodes">
+            <div class="arch-node"><div class="n">Ops Map</div><div class="d">MapLibre + deck.gl</div></div>
+            <div class="arch-node"><div class="n">Event Console</div><div class="d">briefing + timeline</div></div>
+            <div class="arch-node"><div class="n">Vision Panel</div><div class="d">SAM on imagery</div></div>
+            <div class="arch-node"><div class="n">Story Mode</div><div class="d">cinematic replay</div></div>
+        </div>
+    </div>
+</div>
+<p class="body-text">The architecture obeys one hackathon law on top of this layering: <span class="strong">the demo path never crosses a fragile dependency</span>. If a model Space is cold or down, the Event Console still renders the briefing shell from the pipeline database; if the pipeline stalls, the map still shows live EONET fetched client-side. Every layer degrades gracefully to the layer below it, and the recorded video covers the worst case entirely.</p>
+
+<div class="sub-title"><span class="num">6.3</span> Award-Category Coverage Map</div>
+<table>
+    <colgroup><col style="width:30%"><col style="width:14%"><col style="width:56%"></colgroup>
+    <thead><tr><th>CATEGORY</th><th>COVERAGE</th><th>THE ONE-LINE ARGUMENT</th></tr></thead>
+    <tbody>
+        <tr><td>Best Use of Data</td><td class="mono">&#9733;&#9733;&#9733;</td><td>Three live NASA streams fused into one computed impact estimate, updated every ten minutes &mdash; not embedded, transformed.</td></tr>
+        <tr><td>Best Use of Technology</td><td class="mono">&#9733;&#9733;&#9733;</td><td>Microservice AI layer, GPU map rendering, graceful degradation &mdash; production-grade engineering in 48 hours.</td></tr>
+        <tr><td>Best Use of Science</td><td class="mono">&#9733;&#9733;</td><td>Published validation metric per model; area/population math shown with formulas on the project page.</td></tr>
+        <tr><td>Galactic Impact</td><td class="mono">&#9733;&#9733;&#9733;</td><td>Faster plain-language disaster intelligence for every community on Earth &mdash; planetary-scale resilience infrastructure.</td></tr>
+        <tr><td>Most Inspiring Storytelling</td><td class="mono">&#9733;&#9733;</td><td>Story Mode replays a real event from orbit to street level in 30 seconds, narrated by the AI.</td></tr>
+        <tr><td>Best Mission Concept</td><td class="mono">&#9733;&#9733;</td><td>Named adoption path: emergency-management agencies and newsrooms, with a zero-cost pilot plan.</td></tr>
+        <tr><td>Global Connection</td><td class="mono">&#9733;&#9733;</td><td>90-language UI, voice incident intake via Whisper, designed for low-bandwidth fallback.</td></tr>
+        <tr><td>Art &amp; Technology</td><td class="mono">&#9733;</td><td>The EPIC-to-street zoom is genuine data art; exportable as a shareable clip.</td></tr>
+        <tr><td>Community Choice</td><td class="mono">&#9733;&#9733;</td><td>One URL, no signup, one wow moment &mdash; built to be shared by people who watched someone demo it.</td></tr>
+    </tbody>
+</table>
+<div class="tbl-note">NOMINATE: BEST USE OF DATA (PRIMARY) OR BEST USE OF TECHNOLOGY. COVERAGE LEGEND: &#9733;&#9733;&#9733; CORE / &#9733;&#9733; STRONG / &#9733; PRESENT.</div>
+
+<div class="sub-title"><span class="num">6.4</span> Screen Plan &mdash; What the Judge Sees</div>
+<div class="check">
+    <div class="check-item"><div class="bx"></div><div><b>Landing (3s)</b> &mdash; dark globe spinning with live event pulses; one headline stat: &ldquo;N events unfolding now.&rdquo; Zero scroll to the wow.</div></div>
+    <div class="check-item"><div class="bx"></div><div><b>Event Console</b> &mdash; left: map focus; right: the AI briefing card with citations and the 72-hour forecast chart.</div></div>
+    <div class="check-item"><div class="bx"></div><div><b>Vision Panel</b> &mdash; imagery with SAM mask animation, area counter ticking up to hectares, population intersect figure.</div></div>
+    <div class="check-item"><div class="bx"></div><div><b>Data Ledger</b> &mdash; footer page listing every dataset, timestamp, and endpoint with license &mdash; the credibility page most teams skip.</div></div>
+</div>

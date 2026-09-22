@@ -1,0 +1,106 @@
+[
+ {
+  "key": "amazon",
+  "label": "Amazon Basin",
+  "note": "Deforestation-driven fire regime: dry-season (Aug-Oct) ignition front along the agricultural frontier; large, hot, day-dominant detections.",
+  "features": {
+   "peakMonth": 8,
+   "seasonality": 14.77,
+   "interannualCV": 0.414,
+   "nightFraction": 0.435,
+   "meanFrp": 12.7,
+   "logMedianCount": 4.3
+  }
+ },
+ {
+  "key": "california",
+  "label": "California / US West",
+  "note": "Mediterranean + forest regime: summer-autumn wind- and drought-driven fires, high intensity, strong interannual swings.",
+  "features": {
+   "peakMonth": 8,
+   "seasonality": 12.07,
+   "interannualCV": 1.032,
+   "nightFraction": 0.439,
+   "meanFrp": 22.1,
+   "logMedianCount": 3.31
+  }
+ },
+ {
+  "key": "canada",
+  "label": "Boreal Canada",
+  "note": "Boreal crown-fire regime: short intense Jun-Aug window, episodic megayears (2023), high night fraction from large smoldering fronts.",
+  "features": {
+   "peakMonth": 7,
+   "seasonality": 32.97,
+   "interannualCV": 1.331,
+   "nightFraction": 0.352,
+   "meanFrp": 16.5,
+   "logMedianCount": 3.38
+  }
+ },
+ {
+  "key": "siberia",
+  "label": "Eastern Siberia",
+  "note": "Boreal/permafrost regime: Jul-Aug peak, huge interannual variability, deep smoldering peat fires burn day and night.",
+  "features": {
+   "peakMonth": 6,
+   "seasonality": 30.49,
+   "interannualCV": 0.676,
+   "nightFraction": 0.371,
+   "meanFrp": 10.8,
+   "logMedianCount": 3.87
+  }
+ },
+ {
+  "key": "congo",
+  "label": "Congo Basin",
+  "note": "Savanna-agricultural regime: very frequent, low-intensity burns tightly locked to the dry seasons; the most regular signal on Earth.",
+  "features": {
+   "peakMonth": 0,
+   "seasonality": 3.72,
+   "interannualCV": 0.261,
+   "nightFraction": 0.163,
+   "meanFrp": 10.6,
+   "logMedianCount": 5.34
+  }
+ },
+ {
+  "key": "borneo",
+  "label": "Borneo & Sumatra",
+  "note": "Peatland regime: rare but catastrophic El Niño megafires (2015, 2019, 2023); smoldering underground peat produces high night fraction.",
+  "features": {
+   "peakMonth": 8,
+   "seasonality": 12.21,
+   "interannualCV": 0.851,
+   "nightFraction": 0.477,
+   "meanFrp": 9.5,
+   "logMedianCount": 3.8
+  }
+ },
+ {
+  "key": "australia",
+  "label": "Australia",
+  "note": "Arid/shrubland regime: broad austral-summer peak (Nov-Feb), moderate intensity, fire-following-rain variability.",
+  "features": {
+   "peakMonth": 9,
+   "seasonality": 3.46,
+   "interannualCV": 0.417,
+   "nightFraction": 0.324,
+   "meanFrp": 13.2,
+   "logMedianCount": 4.93
+  }
+ },
+ {
+  "key": "mediterranean",
+  "label": "Mediterranean Basin",
+  "note": "European temperate regime: Jul-Aug heatwave-driven fires, high intensity per pixel, low night fraction.",
+  "features": {
+   "peakMonth": 7,
+   "seasonality": 3.82,
+   "interannualCV": 0.247,
+   "nightFraction": 0.332,
+   "meanFrp": 6.8,
+   "logMedianCount": 4.18
+  }
+ }
+]

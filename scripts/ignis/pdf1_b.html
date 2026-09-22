@@ -1,0 +1,55 @@
+<!-- PAGE 6 · RISK -->
+<section class="page">
+  <h2><span class="n">05</span>Risk Register &amp; Kill Criteria</h2>
+  <p class="sec-lede">What could break the win — and the pre-built countermeasures already in the repo.</p>
+  <table>
+    <tr><th style="width:24%">Risk</th><th style="width:10%">P</th><th style="width:10%">I</th><th style="width:56%">Countermeasure (status)</th></tr>
+    <tr><td>FIRMS host unreachable from demo network</td><td><span class="pill a">MED</span></td><td><span class="pill r">HIGH</span></td><td>GIBS vector-tile fallback ships in the app (verified live — 758 Amazon detections served via GIBS when FIRMS was firewalled). Production deploy on Vercel restores the FIRMS path automatically.</td></tr>
+    <tr><td>GIBS VIIRS archive lag (SNPP ends 2026-07, N20 2025-12)</td><td><span class="pill g">CERTAIN</span></td><td><span class="pill a">LOW</span></td><td>Per-sensor "latest available" labels in UI; MODIS path is fresh to yesterday; production mode uses FIRMS NRT (hours-fresh).</td></tr>
+    <tr><td>Harmonization ratio challenged as unphysical</td><td><span class="pill a">MED</span></td><td><span class="pill a">MED</span></td><td>Method page publishes sampling design + measured ratios; exact-count FIRMS mode documented in runbook Phase 2.3 for literature-grade numbers.</td></tr>
+    <tr><td>MiniLM first-call latency on cold deploy</td><td><span class="pill g">HIGH</span></td><td><span class="pill a">LOW</span></td><td>Model cached in <span class="cyan">.hf_cache</span>; runbook prescribes one warm-up call before recording the pitch.</td></tr>
+    <tr><td>Judges ask "why not FIRMS only?"</td><td><span class="pill a">MED</span></td><td><span class="pill a">LOW</span></td><td>Answer scripted: dual-source resilience is a feature — the calendar survives any single API outage; GIBS path independently reproduces the record.</td></tr>
+    <tr><td>Team time-box breach during event weekend</td><td><span class="pill a">MED</span></td><td><span class="pill a">MED</span></td><td>App already built and verified pre-event; weekend work narrows to polish, pitch, submission — the runbook caps it at ~90 minutes.</td></tr>
+  </table>
+  <h3>Pre-event verification evidence</h3>
+  <ul>
+    <li><b>api.nasa.gov:</b> HTTP 200, <span class="cyan">X-RateLimit-Limit: 10000</span>, 9998 remaining at check time (elevated key, ten times the anonymous tier).</li>
+    <li><b>GIBS WMTS:</b> raster true-color 200; vector MVT decoded with full FIRMS schema; MODIS Terra coverage 2000-11-01 → 2026-09-20.</li>
+    <li><b>Earthdata Login:</b> JWT uid <span class="cyan">nabid12</span>, valid to 2026-11-19; CMR collections query authorized.</li>
+    <li><b>Hugging Face:</b> whoami → user <span class="cyan">Nabidnur</span>; MiniLM-L6-v2 executed on-device (60 EONET events ranked in 4.6 s including model load).</li>
+    <li><b>End-to-end:</b> browser-verified interactivity — region switching, live date picker, calendar heatmap, outlook chart, alert engine, status rail.</li>
+  </ul>
+  <div class="callout fire"><b>Bottom line:</b> the highest-risk item in most Space Apps entries — "will the data actually flow on demo day?" — has been eliminated by building and testing the entire pipeline before the event starts. The remaining risks are presentation-level and rehearsed.</div>
+  <div class="foot"><span>IGNIS · Challenge Dossier 01</span><span>06</span></div>
+</section>
+
+<!-- PAGE 7 · CONCLUSION -->
+<section class="page">
+  <h2><span class="n">06</span>Decision &amp; Next Actions</h2>
+  <p class="sec-lede">The selection is final; execution already began — this section defines the handoff.</p>
+  <p><b>Decision.</b> Team IGNIS enters <b>Challenge 09 — Harmonization of MODIS and VIIRS Hot Spots</b> with the flagship build <b>IGNIS — Unified Global Fire Activity Calendar</b>. Challenges 02 (Trend Detective) and 06 (Dancing with the SARs) are confirmed as ranked fallbacks with pre-verified data paths. The selection rests on three legs: a 5-factor weighted matrix scored against live-verified credentials; a completed flagship build that demonstrates the winning pattern end-to-end; and a deployment architecture (Next.js API routes, serverless, zero-cost) that removes every infrastructure unknown from the event weekend.</p>
+  <p><b>What is already true today.</b> The private repository <span class="cyan">Hisernberg/ignis-spaceapps2026</span> contains the full application, eight 25-year regional calendars totaling roughly nine thousand live-sampled months across three sensors, eight seasonal outlooks, the automation runbook, and the complete secrets inventory. The application has been browser-verified against production NASA endpoints. Nothing in this plan depends on future luck; every claim in the pitch video can be reproduced from the repo in under an hour.</p>
+  <div class="two">
+    <div class="card">
+      <h4>Immediate next actions (owner: team lead)</h4>
+      <ul>
+        <li>Register "Team IGNIS" on the Space Apps portal for Challenge 09 (Global Awards track).</li>
+        <li>Deploy to Vercel via runbook Phase 5 and confirm <span class="cyan">/api/health</span> shows FIRMS reachable.</li>
+        <li>Record the 30-second pitch per the script in Dossier 02 §Pitch.</li>
+        <li>Upload outlook artifact to Hugging Face under Nabidnur (runbook Phase 6).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Companion documents</h4>
+      <ul>
+        <li><b>Dossier 02 — IGNIS Finalized Master Plan &amp; Build Report:</b> architecture, portion-by-portion build log, deployment, pitch, judging strategy.</li>
+        <li><b>docs/AUTOMATION_RUNBOOK.md</b> (repo): the chat-executable pipeline for continuing the build with any chat AI.</li>
+        <li><b>mission_playbook_space_apps_2026.pdf:</b> the original 25-page resource playbook (design continuity).</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout"><b>One-sentence pitch:</b> "Two satellite programs watched Earth burn for twenty-five years in two incompatible languages — IGNIS unites them into one calendar, forecasts what burns next, and warns who needs to know, all on authentic NASA data with zero runtime AI dependencies."</div>
+  <div class="foot"><span>IGNIS · Challenge Dossier 01</span><span>07</span></div>
+</section>
+</body>
+</html>

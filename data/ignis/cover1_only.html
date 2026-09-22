@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>IGNIS — 14 Challenges, Full Analysis &amp; Winning Selection</title>
+<style>
+@page { size: 210mm 297mm; margin: 0; }
+html, body { margin: 0; padding: 0; background: #050A14; }
+body { font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; color: #E2E8F0; font-size: 10.5px; line-height: 1.62; }
+.page { width: 210mm; min-height: 297mm; padding: 16mm 14mm 14mm; box-sizing: border-box; position: relative; background: #050A14; break-after: page; }
+.page:last-child { break-after: auto; }
+.cover { padding: 0; height: 297mm; overflow: hidden; }
+.cover-inner { padding: 22mm 16mm; height: 100%; box-sizing: border-box; position: relative; display: flex; flex-direction: column;
+  background: radial-gradient(ellipse 90% 55% at 78% -6%, rgba(56,189,248,0.16), transparent 60%),
+              radial-gradient(ellipse 70% 45% at 12% 108%, rgba(249,115,22,0.14), transparent 60%), #050A14; }
+.kicker { font-size: 10px; letter-spacing: 0.32em; color: #38BDF8; text-transform: uppercase; font-weight: 600; }
+.cover h1 { font-family: 'Space Grotesk', 'Inter', Arial, sans-serif; font-size: 44px; line-height: 1.06; margin: 14px 0 0; font-weight: 700; letter-spacing: -0.01em; }
+.cover h1 .fire { color: #F97316; }
+.cover .sub { margin-top: 16px; font-size: 13.5px; color: #94A3B8; max-width: 150mm; line-height: 1.55; }
+.cover .grid-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 26px; }
+.tag { border: 1px solid #1E3A5F; border-radius: 999px; padding: 5px 12px; font-size: 9.5px; color: #7DD3FC; }
+.tag.o { color: #FDBA74; border-color: #452303; }
+.cover .summary { margin-top: 30px; border: 1px solid #14273F; background: #0A1423; border-radius: 12px; padding: 16px 18px; }
+.cover .summary h3 { margin: 0 0 8px; font-size: 10px; letter-spacing: 0.22em; color: #38BDF8; text-transform: uppercase; }
+.cover .summary p { margin: 0; color: #CBD5E1; font-size: 10.8px; }
+.cover .meta { margin-top: auto; position: static; width: 100%; display: flex; justify-content: space-between; font-size: 9.5px; color: #475569; border-top: 1px solid #14273F; padding-top: 10px; }
+.ring { position: absolute; border-radius: 50%; }
+h2 { font-family: 'Space Grotesk', 'Inter', Arial, sans-serif; font-size: 20px; margin: 0 0 4px; color: #F1F5F9; letter-spacing: 0.01em; }
+h2 .n { color: #38BDF8; margin-right: 8px; }
+.sec-lede { color: #7C8DA6; font-size: 10.5px; margin: 0 0 14px; }
+h3 { font-size: 12.5px; color: #BAE6FD; margin: 16px 0 6px; font-weight: 600; }
+p { margin: 0 0 8px; color: #C4D0E0; }
+b, strong { color: #E8EEF6; }
+.cyan { color: #38BDF8; } .amber { color: #F97316; } .mag { color: #E879F9; } .green { color: #4ADE80; } .red { color: #F87171; }
+.card { border: 1px solid #14273F; background: #0A1423; border-radius: 10px; padding: 12px 14px; margin: 0 0 10px; break-inside: avoid; }
+.card h4 { margin: 0 0 5px; font-size: 11.5px; color: #F1F5F9; }
+.card p { margin: 0 0 5px; font-size: 10px; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+table { width: 100%; border-collapse: collapse; font-size: 9.6px; margin: 8px 0 12px; }
+th { text-align: left; color: #7DD3FC; font-weight: 600; padding: 6px 7px; border-bottom: 1px solid #1E3A5F; font-size: 9.3px; letter-spacing: 0.04em; }
+td { padding: 6px 7px; border-bottom: 1px solid #0F1C31; color: #C4D0E0; vertical-align: top; }
+tr.win td { background: rgba(249,115,22,0.07); }
+.score { color: #FDBA74; font-weight: 600; }
+.pill { display: inline-block; border-radius: 4px; padding: 1px 6px; font-size: 8.6px; font-weight: 600; }
+.pill.g { background: rgba(74,222,128,0.14); color: #4ADE80; } .pill.a { background: rgba(250,204,21,0.12); color: #FACC15; }
+.pill.r { background: rgba(248,113,113,0.12); color: #F87171; } .pill.c { background: rgba(56,189,248,0.12); color: #38BDF8; }
+.foot { position: absolute; bottom: 8mm; left: 14mm; right: 14mm; display: flex; justify-content: space-between; font-size: 8.5px; color: #475569; border-top: 1px solid #0F1C31; padding-top: 6px; }
+.callout { border-left: 3px solid #38BDF8; background: rgba(56,189,248,0.06); border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 10px 0; font-size: 10.3px; color: #D7E3F4; break-inside: avoid; }
+.callout.fire { border-left-color: #F97316; background: rgba(249,115,22,0.06); }
+ul { margin: 4px 0 10px; padding-left: 16px; }
+li { margin-bottom: 4px; color: #C4D0E0; }
+.big-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin: 10px 0; }
+.stat { border: 1px solid #14273F; background: #0A1423; border-radius: 10px; padding: 10px 12px; }
+.stat .k { font-size: 8.6px; color: #64748B; text-transform: uppercase; letter-spacing: 0.12em; }
+.stat .v { font-family: 'Space Grotesk', Inter, sans-serif; font-size: 19px; font-weight: 700; color: #F8FAFC; margin-top: 3px; }
+.stat .v.c { color: #38BDF8; } .stat .v.o { color: #F97316; }
+</style>
+</head><body><section class="page cover">
+  <div class="cover-inner">
+    <div class="ring" style="width:210px;height:210px;right:14mm;top:16mm;background:radial-gradient(circle at 35% 35%, rgba(56,189,248,0.25), rgba(56,189,248,0.02) 60%, transparent 70%);"></div>
+    <div class="ring" style="width:120px;height:120px;right:44mm;top:44mm;background:radial-gradient(circle at 40% 40%, rgba(249,115,22,0.3), transparent 65%);"></div>
+    <div class="kicker">NASA Space Apps Challenge 2026 · Challenge Dossier 01</div>
+    <h1>Fourteen Challenges,</h1>
+    <h1 style="margin-top:2px;color:#F97316">One Winning Fire.</h1>
+    <p class="sub">Full analysis of every official 2026 challenge — data access, demo power, AI leverage, story and competition density — and the evidence-backed selection of the challenge we build to win.</p>
+    <div class="grid-tags">
+      <span class="tag">14 challenges analyzed</span>
+      <span class="tag">5-factor weighted matrix</span>
+      <span class="tag o">Winner: MODIS × VIIRS Harmonization</span>
+      <span class="tag">Build: IGNIS (live)</span>
+    </div>
+    <div class="summary">
+      <h3>Executive Summary</h3>
+      <p>We scored all fourteen official challenges on data availability (30%), demonstration impact (25%), AI leverage under a chat-only constraint (20%), narrative strength (15%) and competition density (10%). Three challenges separated from the field: <b>Harmonization of MODIS and VIIRS Hot Spots</b> (winner, 8.9/10), <b>Be An Earth System Trend Detective</b> (8.1) and <b>Dancing with the SARs</b> (7.8). The winner is the only challenge where the team's exact credentials — a FIRMS MAP_KEY, an elevated api.nasa.gov key, Earthdata Login, GIBS and Hugging Face — cover 100% of the data path, and where a 25-year, scientifically meaningful web artifact can be built and deployed within hackathon limits. The flagship build <b>IGNIS</b> was constructed, verified and deployed during this planning cycle; this dossier documents why it will win.</p>
+    </div>
+    <div class="meta"><span>Team IGNIS · Hisernberg / Nabidnur</span><span>Private repo: ignis-spaceapps2026</span><span>September 2026</span></div>
+  </div>
+</section></body></html>

@@ -1,0 +1,108 @@
+<!-- ============ S4 EARTH SCIENCE CLUSTER ============ -->
+<div class="chapter-header">
+    <div class="sec-tag">SECTION 04 // INTEL CARDS &mdash; CLUSTER I</div>
+    <div class="sec-title">Earth Intelligence: The Six-Card Spread</div>
+    <p class="sec-lede">Six briefs point at NASA&rsquo;s Earth fleet. Scored in ranked order; every data claim verified against live NASA archives.</p>
+</div>
+
+<div class="ch-card">
+    <div class="ch-head">
+        <span class="ch-num">#09</span>
+        <span class="ch-name">Harmonization of MODIS and VIIRS Hot Spots</span>
+        <span class="ch-meta"><span class="diff adv">ADV+INT</span><span class="diff">EARTH &#9670; SOFTWARE</span></span>
+    </div>
+    <div class="ch-body">The brief states the problem with unusual precision: satellites have tracked active fire for two decades, but the record is <b>split across sensors that cannot be compared directly</b>, and fire managers lack one consistent picture of when and where burning occurs. The deliverable is explicit &mdash; a web application that harmonizes the records into a <span class="hl-cy">burning activity calendar</span> for a chosen area of interest, usable for early warning and response. This is the best-in class setup on the whole slate: a bounded science problem (sensor bias correction), a concrete product (a calendar), and a user (responders, scientists, land managers). The data reality is flawless: MODIS thermal anomalies archived since November 2000, VIIRS 375&nbsp;m since 20 January 2012, both free via FIRMS with historical archive access. Our pre-built FIRMS pipeline, map stack, and Chronos forecasting module land on this brief with almost zero translation. It is the flagship &mdash; master plan in SP-2026-003.</div>
+    <div class="dims">
+        <div class="dim-row"><span class="dl">DATA 0.30</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="dv">10</span></div>
+        <div class="dim-row"><span class="dl">DEMO WOW 0.25</span><span class="track"><span class="fill" style="width:80%"></span></span><span class="dv">8</span></div>
+        <div class="dim-row"><span class="dl">AI LEVERAGE 0.20</span><span class="track"><span class="fill" style="width:70%"></span></span><span class="dv">7</span></div>
+        <div class="dim-row"><span class="dl">STORY 0.15</span><span class="track"><span class="fill" style="width:80%"></span></span><span class="dv">8</span></div>
+        <div class="dim-row"><span class="dl">COMP DENSITY 0.10</span><span class="track"><span class="fill" style="width:70%"></span></span><span class="dv">7</span></div>
+    </div>
+    <div class="ch-verdict">WEIGHTED <b>8.30</b> &nbsp;&middot;&nbsp; LANES: BEST USE OF DATA &#9670; GLOBAL CONNECTION &#9670; BEST USE OF SCIENCE &nbsp;&middot;&nbsp; RISK: LOW</div>
+</div>
+
+<div class="ch-card">
+    <div class="ch-head">
+        <span class="ch-num">#02</span>
+        <span class="ch-name">Be An Earth System Trend Detective!</span>
+        <span class="ch-meta"><span class="diff adv">ADVANCED</span><span class="diff">EARTH &#9670; SOFTWARE</span></span>
+    </div>
+    <div class="ch-body">This brief asks teams to find variables measured by NASA missions or produced by NASA models, visualize how they change over time, and determine <b>what is changing, where, how much, and whether the change is statistically significant</b> &mdash; including the delightfully sharp detail that the same process can trend opposite ways in different regions. It is a rigor showcase: Mann-Kendall trend tests, Sen&rsquo;s slope, autocorrelation awareness, and honest p-values are the actual product. The variable catalog is enormous and free &mdash; SST and chlorophyll from MODIS/VIIRS ocean color, NO&#8322; columns from OMI/TEMPO, soil moisture from SMAP, water storage anomalies from GRACE-FO, precipitation from GPM &mdash; all queryable through Earthdata and open APIs. The visual language (trend maps, significance mosaics, regional contrast stories) suits a map-first team. Its twin-pivot role: roughly seventy percent of the engine built for #09 &mdash; ingestion, time-series storage, trend statistics, map shell &mdash; snaps directly onto this brief. Master plan in SP-2026-004.</div>
+    <div class="dims">
+        <div class="dim-row"><span class="dl">DATA 0.30</span><span class="track"><span class="fill" style="width:90%"></span></span><span class="dv">9</span></div>
+        <div class="dim-row"><span class="dl">DEMO WOW 0.25</span><span class="track"><span class="fill" style="width:60%"></span></span><span class="dv">6</span></div>
+        <div class="dim-row"><span class="dl">AI LEVERAGE 0.20</span><span class="track"><span class="fill" style="width:80%"></span></span><span class="dv">8</span></div>
+        <div class="dim-row"><span class="dl">STORY 0.15</span><span class="track"><span class="fill" style="width:60%"></span></span><span class="dv">6</span></div>
+        <div class="dim-row"><span class="dl">COMP DENSITY 0.10</span><span class="track"><span class="fill" style="width:70%"></span></span><span class="dv">7</span></div>
+    </div>
+    <div class="ch-verdict">WEIGHTED <b>7.40</b> &nbsp;&middot;&nbsp; LANES: BEST USE OF SCIENCE &#9670; BEST USE OF DATA &nbsp;&middot;&nbsp; RISK: LOW-MEDIUM (SCOPE DISCIPLINE)</div>
+</div>
+
+<div class="ch-card">
+    <div class="ch-head">
+        <span class="ch-num">#06</span>
+        <span class="ch-name">Dancing with the SARs (NISAR)</span>
+        <span class="ch-meta"><span class="diff adv">ADV+INT</span><span class="diff">EARTH SCIENCE</span></span>
+    </div>
+    <div class="ch-body">Build an interactive application using <b>NISAR radar data</b> to track and visualize surface change &mdash; wetland loss, wildfires, earthquakes, glaciers, agriculture. The wow ceiling is the highest on the slate: interferometric deformation maps and change stacks are jaw-dropping when they work. And the data situation has transformed since the last event: NISAR L-band products began public release in January&ndash;February 2026, with 100K+ Level&nbsp;1&ndash;3 products already flowing through the Alaska Satellite Facility DAAC and the full science record expected by end of 2026. The catch is processing weight: single-look complex products are terabyte-scale, InSAR pairs require careful baseline selection, and on-demand processing (ASF HyP3) queues can be slow on a hackathon weekend. A team without prior SAR experience burns Saturday fighting GAMMA or ISCE. Scores as high wow, high risk &mdash; reserve bench with a defined swap trigger: attempt only if SAR familiarity is confirmed before the event.</div>
+    <div class="dims">
+        <div class="dim-row"><span class="dl">DATA 0.30</span><span class="track"><span class="fill" style="width:70%"></span></span><span class="dv">7</span></div>
+        <div class="dim-row"><span class="dl">DEMO WOW 0.25</span><span class="track"><span class="fill" style="width:90%"></span></span><span class="dv">9</span></div>
+        <div class="dim-row"><span class="dl">AI LEVERAGE 0.20</span><span class="track"><span class="fill" style="width:60%"></span></span><span class="dv">6</span></div>
+        <div class="dim-row"><span class="dl">STORY 0.15</span><span class="track"><span class="fill" style="width:70%"></span></span><span class="dv">7</span></div>
+        <div class="dim-row"><span class="dl">COMP DENSITY 0.10</span><span class="track"><span class="fill" style="width:70%"></span></span><span class="dv">7</span></div>
+    </div>
+    <div class="ch-verdict">WEIGHTED <b>7.30</b> &nbsp;&middot;&nbsp; LANES: BEST USE OF DATA &#9670; BEST USE OF SCIENCE &nbsp;&middot;&nbsp; RISK: HIGH &mdash; RESERVE</div>
+</div>
+
+<div class="ch-card">
+    <div class="ch-head">
+        <span class="ch-num">#07</span>
+        <span class="ch-name">Field Shift: Adapting Farms with NASA Data</span>
+        <span class="ch-meta"><span class="diff adv">ADV+INT</span><span class="diff">ARTS &#9670; EARTH &#9670; SOFTWARE</span></span>
+    </div>
+    <div class="ch-body">Create a decision-support tool that uses <b>NASA Earth observations plus local soil information, crop characteristics, and farmer priorities</b> to explore crop-rotation strategies that protect soil health and adapt to shifting climate conditions. This is the humanitarian heavyweight of the slate: food security, water scarcity, and climate adaptation for the people who feed everyone. The data stack is strong and quota-friendly &mdash; NASA POWER daily agroclimatology, SMAP soil moisture (with USDA&rsquo;s Crop-CASMA as precedent), GPM precipitation, MODIS/VIIRS vegetation indices, SoilGrids and USDA soil properties, and the Cropland Data Layer for rotation history. The science is rule-based and explainable: nitrogen fixation, disease-break cycles, water demand, soil cover. Judges reward decisions that visibly honor user priorities &mdash; the brief literally demands a priorities input. The demo is less cinematic than fire maps, but the pitch writes itself. Third pick, impact lane &mdash; master plan in SP-2026-005.</div>
+    <div class="dims">
+        <div class="dim-row"><span class="dl">DATA 0.30</span><span class="track"><span class="fill" style="width:80%"></span></span><span class="dv">8</span></div>
+        <div class="dim-row"><span class="dl">DEMO WOW 0.25</span><span class="track"><span class="fill" style="width:60%"></span></span><span class="dv">6</span></div>
+        <div class="dim-row"><span class="dl">AI LEVERAGE 0.20</span><span class="track"><span class="fill" style="width:70%"></span></span><span class="dv">7</span></div>
+        <div class="dim-row"><span class="dl">STORY 0.15</span><span class="track"><span class="fill" style="width:90%"></span></span><span class="dv">9</span></div>
+        <div class="dim-row"><span class="dl">COMP DENSITY 0.10</span><span class="track"><span class="fill" style="width:60%"></span></span><span class="dv">6</span></div>
+    </div>
+    <div class="ch-verdict">WEIGHTED <b>7.25</b> &nbsp;&middot;&nbsp; LANES: GLOBAL CONNECTION &#9670; MOST INSPIRATIONAL &#9670; BEST USE OF DATA &nbsp;&middot;&nbsp; RISK: LOW</div>
+</div>
+
+<div class="ch-card">
+    <div class="ch-head">
+        <span class="ch-num">#10</span>
+        <span class="ch-name">Identify Earth Locations that Analog Moon Base &amp; Mars Sites</span>
+        <span class="ch-meta"><span class="diff adv">ADV+INT+YTH</span><span class="diff">EARTH &#9670; MOONS &#9670; SOFTWARE</span></span>
+    </div>
+    <div class="ch-body">Use open Earth, Moon, and Mars data to <b>identify and characterize new terrestrial analog sites</b> &mdash; deserts, polar regions, volcanic terrains, caves &mdash; that share conditions with future lunar or Martian base locations. Genuinely cross-planetary: SRTM and ASTER topography against MOLA Mars elevation and LRO lunar models, climate normals against THEMIS and Diviner surface temperatures, geology against spectral maps. The science is multi-criteria similarity scoring, which our stack can express beautifully as weighted overlays and similarity radars per candidate site. It earns an A&#8722; rather than a pick for one reason: the analysis surface area is huge. Doing it credibly in 48 hours requires pre-computing the entire similarity pipeline pre-event &mdash; which is possible, but competes for the same pre-build hours as #09, #02 and #07. High originality ceiling for a team with GIS depth; park on the bench with a pre-event feasibility probe.</div>
+    <div class="dims">
+        <div class="dim-row"><span class="dl">DATA 0.30</span><span class="track"><span class="fill" style="width:80%"></span></span><span class="dv">8</span></div>
+        <div class="dim-row"><span class="dl">DEMO WOW 0.25</span><span class="track"><span class="fill" style="width:70%"></span></span><span class="dv">7</span></div>
+        <div class="dim-row"><span class="dl">AI LEVERAGE 0.20</span><span class="track"><span class="fill" style="width:60%"></span></span><span class="dv">6</span></div>
+        <div class="dim-row"><span class="dl">STORY 0.15</span><span class="track"><span class="fill" style="width:70%"></span></span><span class="dv">7</span></div>
+        <div class="dim-row"><span class="dl">COMP DENSITY 0.10</span><span class="track"><span class="fill" style="width:70%"></span></span><span class="dv">7</span></div>
+    </div>
+    <div class="ch-verdict">WEIGHTED <b>7.10</b> &nbsp;&middot;&nbsp; LANES: BEST USE OF SCIENCE &#9670; BEST MISSION CONCEPT &nbsp;&middot;&nbsp; RISK: MEDIUM</div>
+</div>
+
+<div class="ch-card">
+    <div class="ch-head">
+        <span class="ch-num">#14</span>
+        <span class="ch-name">The Earth Information Jukebox</span>
+        <span class="ch-meta"><span class="diff int">INT+YOUTH</span><span class="diff">ARTS &#9670; EARTH &#9670; SOFTWARE</span></span>
+    </div>
+    <div class="ch-body">Pair <b>Earth Information Center visual frames with real-time sonification</b> &mdash; translating sight into sound so Earth science reaches audiences visualization alone misses. The Art &amp; Technology award lane is practically painted on the brief, and the demo has viral energy: a planet whose temperature anomaly, ice loss, or storm tracks become generative music. The engineering is tractable &mdash; Web Audio API synthesis, EIC/SVS frames and public indicator datasets &mdash; but the craft is audio design, and quality is brutally exposed: a mediocre sonification sounds like a dial-up modem, while a good one needs musical judgment our team does not disproportionately own. The youth-friendly flag predicts a crowded, playful field. Delightful brief; wrong toolkit. Skipped without regret &mdash; but if the event-day team includes a musician, re-score on the spot.</div>
+    <div class="dims">
+        <div class="dim-row"><span class="dl">DATA 0.30</span><span class="track"><span class="fill" style="width:60%"></span></span><span class="dv">6</span></div>
+        <div class="dim-row"><span class="dl">DEMO WOW 0.25</span><span class="track"><span class="fill" style="width:80%"></span></span><span class="dv">8</span></div>
+        <div class="dim-row"><span class="dl">AI LEVERAGE 0.20</span><span class="track"><span class="fill" style="width:60%"></span></span><span class="dv">6</span></div>
+        <div class="dim-row"><span class="dl">STORY 0.15</span><span class="track"><span class="fill" style="width:70%"></span></span><span class="dv">7</span></div>
+        <div class="dim-row"><span class="dl">COMP DENSITY 0.10</span><span class="track"><span class="fill" style="width:60%"></span></span><span class="dv">6</span></div>
+    </div>
+    <div class="ch-verdict">WEIGHTED <b>6.65</b> &nbsp;&middot;&nbsp; LANES: ART &amp; TECHNOLOGY &#9670; MOST INSPIRATIONAL &nbsp;&middot;&nbsp; RISK: MEDIUM (AUDIO CRAFT)</div>
+</div>

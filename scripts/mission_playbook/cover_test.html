@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MISSION PLAYBOOK — NASA Space Apps Challenge 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ============ MISSION CONTROL DARK DESIGN SYSTEM ============ */
+@page {
+    size: 720px 1020px;
+    margin: 0;
+}
+:root {
+    --bg: #070B14;
+    --panel: #0E1626;
+    --panel2: #101B30;
+    --ink: #E7EEF9;
+    --dim: #8CA0BE;
+    --cy: #38BDF8;
+    --line: rgba(56, 189, 248, 0.18);
+    --line2: rgba(140, 160, 190, 0.14);
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 720px;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+    font-size: 13px;
+    line-height: 1.66;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+body {
+    line-break: strict;
+    word-break: normal;
+    overflow-wrap: break-word;
+}
+p, td, li {
+    line-break: strict;
+    text-align: justify;
+}
+@media screen {
+    html {
+        height: auto;
+        display: flex;
+        justify-content: center;
+        background: #03060C;
+    }
+    body {
+        margin: 24px auto;
+        box-shadow: 0 0 60px rgba(56,189,248,0.12);
+    }
+}
+.mono { font-family: 'JetBrains Mono', 'Courier New', monospace; }
+
+/* ============ COVER ============ */
+.cover {
+    width: 720px;
+    height: 1020px;
+    box-sizing: border-box;
+    break-after: page;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 56px 60px;
+    background:
+        radial-gradient(ellipse 90% 55% at 50% -10%, rgba(56,189,248,0.14), transparent 60%),
+        radial-gradient(ellipse 70% 45% at 85% 108%, rgba(56,189,248,0.10), transparent 60%),
+        var(--bg);
+}
+.cover .stars {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image:
+        radial-gradient(1px 1px at 12% 22%, rgba(231,238,249,0.7) 50%, transparent 51%),
+        radial-gradient(1px 1px at 28% 68%, rgba(231,238,249,0.45) 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 44% 12%, rgba(231,238,249,0.6) 50%, transparent 51%),
+        radial-gradient(1px 1px at 62% 82%, rgba(231,238,249,0.4) 50%, transparent 51%),
+        radial-gradient(1px 1px at 76% 34%, rgba(231,238,249,0.65) 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 88% 58%, rgba(231,238,249,0.5) 50%, transparent 51%),
+        radial-gradient(1px 1px at 8% 78%, rgba(231,238,249,0.5) 50%, transparent 51%),
+        radial-gradient(1px 1px at 55% 45%, rgba(231,238,249,0.35) 50%, transparent 51%);
+}
+.cover .orbit {
+    position: absolute; border-radius: 50%; border: 1px solid rgba(56,189,248,0.16);
+}
+.cover .orbit.o1 { width: 560px; height: 560px; top: -220px; right: -180px; }
+.cover .orbit.o2 { width: 380px; height: 380px; top: -130px; right: -90px; border-color: rgba(56,189,248,0.10); }
+.cover .orbit.o3 { width: 300px; height: 300px; bottom: -140px; left: -110px; }
+.cover .orbit .sat {
+    position: absolute; width: 7px; height: 7px; border-radius: 50%;
+    background: var(--cy); box-shadow: 0 0 12px rgba(56,189,248,0.9);
+    top: 18%; left: 12%;
+}
+.cover-topline {
+    position: absolute; top: 42px; left: 60px; right: 60px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'JetBrains Mono', monospace; font-size: 10px;
+    letter-spacing: 2px; color: var(--dim);
+}
+.cover-topline .dot { color: var(--cy); }
+.cover-badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 3px;
+    color: var(--cy); border: 1px solid var(--line); padding: 8px 14px;
+    width: fit-content; margin-bottom: 30px;
+    background: rgba(56,189,248,0.06);
+}
+.cover-title {
+    font-size: 74px; font-weight: 700; line-height: 1.04;
+    letter-spacing: -1.5px; margin: 0 0 22px 0;
+    text-align: left;
+}
+.cover-title .hl { color: var(--cy); }
+.cover-sub {
+    font-size: 16.5px; line-height: 1.55; color: var(--dim);
+    max-width: 500px; margin-bottom: 42px; text-align: left;
+}
+.cover-stats { display: flex; flex-wrap: wrap; gap: 12px; max-width: 100%; }
+.cover-stat {
+    flex: 1 1 150px; min-width: 150px; max-width: 100%;
+    border: 1px solid var(--line2); background: rgba(14,22,38,0.72);
+    padding: 14px 16px; box-sizing: border-box;
+}
+.cover-stat .k {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px;
+    letter-spacing: 2px; color: var(--dim); margin-bottom: 6px;
+}
+.cover-stat .v { font-size: 19px; font-weight: 700; color: var(--ink); }
+.cover-stat .v em { color: var(--cy); font-style: normal; }
+.cover-bottomline {
+    position: absolute; bottom: 44px; left: 60px; right: 60px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'JetBrains Mono', monospace; font-size: 10px;
+    letter-spacing: 2px; color: var(--dim);
+    border-top: 1px solid var(--line2); padding-top: 16px;
+}
+
+/* ============ MAIN CONTENT (single flowing container) ============ */
+.main-content {
+    padding: 52px 58px 40px 58px;
+}
+.chapter-header {
+    break-after: avoid;
+    break-inside: avoid;
+    margin-top: 26px;
+    margin-bottom: 14px;
+}
+.chapter-header.first { margin-top: 0; }
+.sec-tag {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px;
+    letter-spacing: 3px; color: var(--cy); margin-bottom: 8px;
+    display: flex; align-items: center; gap: 10px;
+}
+.sec-tag::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+.sec-title {
+    font-size: 25px; font-weight: 700; line-height: 1.15;
+    letter-spacing: -0.3px; margin: 0 0 6px 0;
+    text-align: left;
+}
+.sec-lede {
+    font-size: 13.5px; color: var(--dim); margin: 6px 0 0 0; text-align: left;
+}
+.sub-title {
+    font-size: 15.5px; font-weight: 600; margin: 18px 0 8px 0;
+    break-after: avoid; display: flex; align-items: center; gap: 8px;
+    text-align: left;
+}
+.sub-title .num {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--cy);
+    border: 1px solid var(--line); padding: 2px 7px;
+}
+.body-text { margin: 0 0 11px 0; }
+.body-text b, .card b { color: var(--cy); font-weight: 600; }
+.strong { color: var(--ink); font-weight: 600; }
+
+/* ============ CARDS & PANELS ============ */
+.card {
+    break-inside: avoid;
+    border: 1px solid var(--line2);
+    background: var(--panel);
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+}
+.card .card-tag {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px;
+    letter-spacing: 2px; color: var(--cy); margin-bottom: 6px;
+}
+.card .card-title { font-size: 14px; font-weight: 600; margin-bottom: 5px; text-align: left; }
+.card .card-body { font-size: 12px; color: var(--dim); text-align: left; }
+.card .card-body b { color: var(--ink); font-weight: 600; }
+.grid-2 { display: flex; flex-wrap: wrap; gap: 12px; max-width: 100%; margin-bottom: 12px; }
+.grid-2 > .card { flex: 1 1 280px; min-width: 260px; max-width: 100%; margin-bottom: 0; }
+
+.callout {
+    break-inside: avoid;
+    border-left: 3px solid var(--cy);
+    background: rgba(56,189,248,0.07);
+    padding: 12px 16px;
+    margin: 12px 0 14px 0;
+    font-size: 12.5px;
+}
+.callout .co-tag {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px;
+    letter-spacing: 2px; color: var(--cy); margin-bottom: 4px;
+}
+
+/* ============ STAT ROWS ============ */
+.stat-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0; max-width: 100%; break-inside: avoid; }
+.stat {
+    flex: 1 1 130px; min-width: 120px; max-width: 100%;
+    border: 1px solid var(--line2); background: var(--panel);
+    padding: 12px 14px; box-sizing: border-box;
+}
+.stat .v { font-size: 22px; font-weight: 700; color: var(--cy); line-height: 1.1; margin-bottom: 4px; }
+.stat .k { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1.5px; color: var(--dim); line-height: 1.4; }
+
+/* ============ TABLES ============ */
+table {
+    width: 100%; border-collapse: collapse; margin: 10px 0 14px 0;
+    font-size: 11.5px; table-layout: fixed;
+}
+thead { display: table-header-group; }
+tr { break-inside: avoid; }
+th {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 1.5px;
+    color: var(--cy); text-align: left; padding: 8px 10px;
+    border-bottom: 1px solid var(--line);
+    background: rgba(56,189,248,0.05);
+}
+td {
+    padding: 8px 10px; border-bottom: 1px solid var(--line2);
+    vertical-align: top; color: var(--ink); text-align: left;
+    overflow-wrap: break-word;
+}
+td .mono { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--dim); }
+td .m2 { color: var(--cy); }
+.tbl-note { font-size: 10.5px; color: var(--dim); font-family: 'JetBrains Mono', monospace; margin: -8px 0 12px 0; }
+.tbl-wrap-keep { break-inside: avoid; }
+
+/* ============ LISTS ============ */
+ul.tick, ol.tick { margin: 6px 0 12px 0; padding-left: 18px; }
+ul.tick li, ol.tick li {
+    margin-bottom: 6px; break-inside: avoid; text-align: left;
+    font-size: 12.5px;
+}
+ul.tick li::marker { color: var(--cy); }
+ol.tick li::marker { color: var(--cy); font-family: 'JetBrains Mono', monospace; font-size: 11px; }
+
+/* ============ TIMELINE / PHASES ============ */
+.phase {
+    break-inside: avoid;
+    border: 1px solid var(--line2); background: var(--panel);
+    margin-bottom: 12px; padding: 0;
+}
+.phase-head {
+    display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+    padding: 11px 16px; border-bottom: 1px solid var(--line2);
+    background: rgba(56,189,248,0.05);
+}
+.phase-head .ph-time {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    font-weight: 700; color: var(--cy); letter-spacing: 1px;
+}
+.phase-head .ph-name { font-size: 13.5px; font-weight: 600; }
+.phase-body { padding: 11px 16px 6px 16px; font-size: 12px; color: var(--dim); text-align: left; }
+.phase-body ul { margin: 0 0 8px 0; padding-left: 16px; }
+.phase-body li { margin-bottom: 4px; font-size: 12px; }
+.phase-body li b { color: var(--ink); }
+.phase-gate {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--cy);
+    border-top: 1px dashed var(--line2); padding: 8px 16px; letter-spacing: 1px;
+}
+
+/* ============ ARCHITECTURE DIAGRAM ============ */
+.arch { break-inside: avoid; margin: 14px 0; }
+.arch-layer {
+    border: 1px solid var(--line); background: rgba(56,189,248,0.04);
+    padding: 10px 14px;
+}
+.arch-conn {
+    display: flex; justify-content: center; gap: 60px;
+    font-family: 'JetBrains Mono', monospace; color: var(--cy);
+    font-size: 12px; line-height: 1; padding: 5px 0;
+}
+.arch-ltitle {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px;
+    letter-spacing: 2px; color: var(--cy); margin-bottom: 8px;
+}
+.arch-nodes { display: flex; flex-wrap: wrap; gap: 8px; max-width: 100%; }
+.arch-node {
+    flex: 1 1 130px; min-width: 120px; max-width: 100%;
+    border: 1px solid var(--line2); background: var(--panel2);
+    padding: 8px 10px; text-align: left; box-sizing: border-box;
+}
+.arch-node .n { font-size: 11.5px; font-weight: 600; color: var(--ink); margin-bottom: 3px; }
+.arch-node .d { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--dim); line-height: 1.5; }
+
+/* ============ CHECKLIST ============ */
+.check { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 14px 0; max-width: 100%; }
+.check-item {
+    flex: 1 1 320px; min-width: 280px; max-width: 100%;
+    display: flex; gap: 10px; align-items: flex-start;
+    border: 1px solid var(--line2); background: var(--panel);
+    padding: 10px 12px; font-size: 11.5px; color: var(--dim);
+    break-inside: avoid; text-align: left; box-sizing: border-box;
+}
+.check-item .bx {
+    flex-shrink: 0; width: 13px; height: 13px; border: 1px solid var(--cy);
+    margin-top: 2px; background: rgba(56,189,248,0.08);
+}
+.check-item b { color: var(--ink); font-weight: 600; }
+
+/* ============ ENDING ============ */
+.ending {
+    width: 720px; height: 1020px; box-sizing: border-box;
+    break-before: page; overflow: hidden; position: relative;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 60px;
+    background:
+        radial-gradient(ellipse 90% 50% at 50% 115%, rgba(56,189,248,0.16), transparent 65%),
+        var(--bg);
+}
+.ending .stars {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image:
+        radial-gradient(1px 1px at 18% 28%, rgba(231,238,249,0.6) 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 36% 72%, rgba(231,238,249,0.45) 50%, transparent 51%),
+        radial-gradient(1px 1px at 58% 18%, rgba(231,238,249,0.55) 50%, transparent 51%),
+        radial-gradient(1px 1px at 74% 62%, rgba(231,238,249,0.4) 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 90% 38%, rgba(231,238,249,0.5) 50%, transparent 51%);
+}
+.ending .orbit {
+    position: absolute; border-radius: 50%; border: 1px solid rgba(56,189,248,0.14);
+}
+.ending .orbit.e1 { width: 620px; height: 620px; bottom: -300px; left: 50px; }
+.ending .orbit.e2 { width: 420px; height: 420px; bottom: -200px; left: 150px; border-color: rgba(56,189,248,0.09); }
+.end-tag {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 3px;
+    color: var(--cy); margin-bottom: 26px;
+}
+.end-big { font-size: 46px; font-weight: 700; line-height: 1.16; letter-spacing: -1px; margin-bottom: 26px; text-align: left; }
+.end-big .hl { color: var(--cy); }
+.end-text { font-size: 14px; color: var(--dim); max-width: 520px; margin-bottom: 38px; text-align: left; }
+.end-final {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 2px;
+    color: var(--dim); border-top: 1px solid var(--line2); padding-top: 18px;
+    display: flex; justify-content: space-between;
+}
+</style>
+</head>
+<body>
+<!-- ==================== COVER ==================== -->
+<div class="cover">
+    <div class="stars"></div>
+    <div class="orbit o1"><div class="sat"></div></div>
+    <div class="orbit o2"></div>
+    <div class="orbit o3"></div>
+    <div class="cover-topline">
+        <span><span class="dot">&#9650;</span> MISSION DOSSIER // CLASSIFICATION: TEAM EYES ONLY</span>
+        <span>DOC-ID: SP-2026-001</span>
+    </div>
+    <div class="cover-badge">NASA SPACE APPS CHALLENGE &nbsp;&#9670;&nbsp; 2026 EDITION</div>
+    <h1 class="cover-title"><div>MISSION</div><div class="hl">PLAYBOOK</div></h1>
+    <p class="cover-sub">The ultimate master plan to compete for a Global Award: one flagship app, the complete NASA resource arsenal, an AI model registry, and a 48-hour battle doctrine &mdash; engineered before the challenges even drop.</p>
+    <div class="cover-stats">
+        <div class="cover-stat">
+            <div class="k">T-MINUS / EVENT DATE</div>
+            <div class="v">NOV <em>14&ndash;15</em>, 2026</div>
+        </div>
+        <div class="cover-stat">
+            <div class="k">WAR CHEST</div>
+            <div class="v"><em>20+</em> APIs &amp; DATASETS</div>
+        </div>
+        <div class="cover-stat">
+            <div class="k">AI DIVISION</div>
+            <div class="v"><em>8</em> HF MODELS ON STANDBY</div>
+        </div>
+    </div>
+    <div class="cover-bottomline">
+        <span>PREPARED BY: MISSION COMMAND</span>
+        <span>REV 1.0 // PRE-LAUNCH</span>
+    </div>
+</div>
+
+</body></html>

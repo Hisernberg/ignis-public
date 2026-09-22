@@ -1,0 +1,81 @@
+<!-- ============ S2 TARGETING SYSTEM ============ -->
+<div class="chapter-header">
+    <div class="sec-tag">SECTION 02 // THE TARGETING SYSTEM</div>
+    <div class="sec-title">Five Dimensions, One Firing Solution</div>
+    <p class="sec-lede">The scoring matrix that converts fourteen briefs into a ranked list &mdash; and why each weight is what it is.</p>
+</div>
+
+<p class="body-text">Challenge selection fails when it is done by enthusiasm. Teams fall in love with a topic, discover on Saturday night that the data is gated or the science is out of reach, and ship a demo that works only on slides. The matrix below forces the opposite behavior: every candidate is scored 0&ndash;10 on five independent dimensions, each anchored to verifiable evidence, and combined by fixed weights into a single weighted composite. The weights encode one belief: <b>at Space Apps, data plumbing kills more projects than imagination does</b>. A beautiful app with no data is a screensaver; a modest app with a relentless data feed is a weapon.</p>
+
+<div class="stat-row">
+    <div class="stat"><div class="v">0.30</div><div class="k">DATA AVAILABILITY &mdash; verified public archives, no quota walls, 48h-friendly access</div></div>
+    <div class="stat"><div class="v">0.25</div><div class="k">DEMO WOW &mdash; the 30-second visual hook that survives video compression</div></div>
+    <div class="stat"><div class="v">0.20</div><div class="k">AI LEVERAGE &mdash; Hugging Face models doing real work, not decoration</div></div>
+    <div class="stat"><div class="v">0.15</div><div class="k">STORY POWER &mdash; human stakes, headline potential, judge memory</div></div>
+    <div class="stat"><div class="v">0.10</div><div class="k">COMPETITION DENSITY &mdash; estimated field size and strength, inverted</div></div>
+</div>
+
+<div class="sub-title"><span class="num">02.1</span> How Each Dimension Is Evidenced</div>
+<ul class="tick">
+    <li><b>Data availability (0.30).</b> Verified before scoring: archive depth, spatial resolution, latency, API quotas, and registration friction. Example: FIRMS distributes MODIS thermal anomalies back to November 2000 and VIIRS 375&nbsp;m detections back to 20 January 2012, free, no key walls &mdash; an easy 10/10. A brief requiring on-demand SAR processing of terabyte pairs scores far lower on feasibility even when data is public.</li>
+    <li><b>Demo wow (0.25).</b> Judged from the judge&rsquo;s chair: does the screen animate, do patterns emerge unbidden, does the video open on something moving? InSAR deformation maps score 9; a well-designed health checklist scores 5.</li>
+    <li><b>AI leverage (0.20).</b> The playbook&rsquo;s Hugging Face division &mdash; Chronos-Bolt, Prithvi-EO-2.0, SAM, MiniLM, ClimateBERT &mdash; must do load-bearing work: forecasting, segmentation, retrieval, briefing. Challenges where an LLM is the product score highest.</li>
+    <li><b>Story power (0.15).</b> Wildfires, food security, and stranded hardware on the Moon carry their own headlines. Abstract variable analysis does not &mdash; unless the app manufactures the story through contrast and significance verdicts.</li>
+    <li><b>Competition density (0.10).</b> Youth-flagged briefs and game briefs attract the largest fields. Niche, math-heavy briefs with intimidating interfaces attract the smallest. Low competition does not win alone &mdash; which is why it carries the lightest weight &mdash; but it changes what &ldquo;excellent&rdquo; means in a field.</li>
+</ul>
+
+<p class="body-text">Two adjustments sit on top of the raw composite. First, a <b>stack-fit tiebreak</b>: when two challenges score within 0.15 of each other, the pick goes to the one that reuses the pre-built TERRA SENTINEL chassis &mdash; Next.js 15 shell, MapLibre/deck.gl maps, Python ingestion pipelines, FastAPI micro-services, and the HF model registry &mdash; because pre-built percentage is the true currency of a 48-hour event. Second, an <b>award-lane check</b>: the final portfolio must attack distinct Global Award categories rather than three challenges that all compete for the same trophy. The verdict in Section 06 applies both adjustments explicitly.</p>
+
+<!-- ============ S3 MASTER MATRIX ============ -->
+<div class="chapter-header">
+    <div class="sec-tag">SECTION 03 // THE MASTER MATRIX</div>
+    <div class="sec-title">All Fourteen, Scored and Ranked</div>
+    <p class="sec-lede">D = data availability &middot; WOW = demo impact &middot; AI = model leverage &middot; STY = story power &middot; CMP = competition density (inverted; 10 = widest-open field) &middot; SCORE = weighted composite.</p>
+</div>
+
+<table>
+    <colgroup><col style="width:7%"><col style="width:8%"><col style="width:37%"><col style="width:7%"><col style="width:8%"><col style="width:7%"><col style="width:8%"><col style="width:8%"><col style="width:10%"></colgroup>
+    <thead><tr><th>RK</th><th>N</th><th>CHALLENGE</th><th>D</th><th>WOW</th><th>AI</th><th>STY</th><th>CMP</th><th>SCORE</th></tr></thead>
+    <tbody>
+        <tr><td class="rank-cell">1</td><td class="mono">09</td><td>Harmonization of MODIS &amp; VIIRS Hot Spots</td><td>10</td><td>8</td><td>7</td><td>8</td><td>7</td><td class="wp">8.30</td></tr>
+        <tr><td class="rank-cell">2</td><td class="mono">02</td><td>Be An Earth System Trend Detective!</td><td>9</td><td>6</td><td>8</td><td>6</td><td>7</td><td class="wp">7.40</td></tr>
+        <tr><td class="rank-cell">3</td><td class="mono">06</td><td>Dancing with the SARs (NISAR)</td><td>7</td><td>9</td><td>6</td><td>7</td><td>7</td><td class="wp">7.30</td></tr>
+        <tr><td class="rank-cell">4</td><td class="mono">07</td><td>Field Shift: Adapting Farms</td><td>8</td><td>6</td><td>7</td><td>9</td><td>6</td><td class="wp">7.25</td></tr>
+        <tr><td class="rank-cell">5</td><td class="mono">04</td><td>CLPS Lunar Mission Browser</td><td>8</td><td>7</td><td>5</td><td>7</td><td>9</td><td class="wp">7.10</td></tr>
+        <tr><td class="rank-cell">6</td><td class="mono">08</td><td>Flame in Freefall</td><td>7</td><td>6</td><td>9</td><td>6</td><td>8</td><td class="wp">7.10</td></tr>
+        <tr><td class="rank-cell">7</td><td class="mono">10</td><td>Earth Analogs for Moon &amp; Mars</td><td>8</td><td>7</td><td>6</td><td>7</td><td>7</td><td class="wp">7.10</td></tr>
+        <tr><td class="rank-cell">8</td><td class="mono">11</td><td>Interplanetary Survival Guide: Martian Map</td><td>8</td><td>8</td><td>5</td><td>7</td><td>4</td><td class="wp">6.85</td></tr>
+        <tr><td class="rank-cell">9</td><td class="mono">14</td><td>The Earth Information Jukebox</td><td>6</td><td>8</td><td>6</td><td>7</td><td>6</td><td class="wp">6.65</td></tr>
+        <tr><td class="rank-cell">10</td><td class="mono">01</td><td>Abandoned but not Forgotten</td><td>6</td><td>6</td><td>7</td><td>10</td><td>4</td><td class="wp">6.60</td></tr>
+        <tr><td class="rank-cell">11</td><td class="mono">03</td><td>Junior Astronaut Mission Trainer</td><td>6</td><td>8</td><td>7</td><td>7</td><td>3</td><td class="wp">6.55</td></tr>
+        <tr><td class="rank-cell">12</td><td class="mono">12</td><td>Planet X and SPHEREx</td><td>7</td><td>6</td><td>5</td><td>6</td><td>9</td><td class="wp">6.40</td></tr>
+        <tr><td class="rank-cell">13</td><td class="mono">13</td><td>Space Mission Design Game</td><td>6</td><td>7</td><td>6</td><td>6</td><td>3</td><td class="wp">5.95</td></tr>
+        <tr><td class="rank-cell">14</td><td class="mono">05</td><td>Astronaut Health Monitoring</td><td>5</td><td>5</td><td>6</td><td>7</td><td>5</td><td class="wp">5.50</td></tr>
+    </tbody>
+</table>
+
+<div class="sub-title"><span class="num">03.1</span> Tier List</div>
+<div class="grid-2">
+    <div class="card">
+        <div class="card-tag">TIER S &mdash; FLAGSHIP</div>
+        <div class="card-title">#09 Harmonization of MODIS &amp; VIIRS Hot Spots &nbsp;<span class="tier s">S</span></div>
+        <div class="card-body">The rare brief where the data is free and instant, the deliverable is concrete, the science is real but bounded, and the story burns on every continent. Our chassis covers it almost end-to-end.</div>
+    </div>
+    <div class="card">
+        <div class="card-tag">TIER A &mdash; PICKS &amp; CONTENDERS</div>
+        <div class="card-title">#02 Trend Detective &nbsp;<span class="tier a">A</span><br>#06 Dancing with SARs &nbsp;<span class="tier a">A</span><br>#07 Field Shift &nbsp;<span class="tier a">A</span></div>
+        <div class="card-body">#02 shares its engine with #09 and showcases scientific rigor. #07 owns the humanitarian lane. #6 posts the highest demo wow on the slate but carries SAR execution risk &mdash; reserve status.</div>
+    </div>
+    <div class="card">
+        <div class="card-tag">TIER A&#8722; / B &mdash; RESERVE BENCH</div>
+        <div class="card-title">#04 CLPS Browser &nbsp;<span class="tier b">A&#8722;</span><br>#08 Flame in Freefall &nbsp;<span class="tier b">A&#8722;</span><br>#10 Earth Analogs &nbsp;<span class="tier b">A&#8722;</span><br>#11 Martian Map &nbsp;<span class="tier b">B+</span></div>
+        <div class="card-body">Strong briefs blocked by one bottleneck each: ephemeris math (#4), repository data wrangling (#8), heavy GIS analysis (#10), crowded Mars-map field (#11). Each has a defined swap trigger &mdash; see Section 06.</div>
+    </div>
+    <div class="card">
+        <div class="card-tag">TIER B / C &mdash; LOW PRIORITY</div>
+        <div class="card-title">#14 Jukebox &nbsp;<span class="tier c">B</span> &nbsp; #01 Abandoned &nbsp;<span class="tier c">B</span> &nbsp; #03 Trainer &nbsp;<span class="tier c">B</span><br>#12 SPHEREx &nbsp;<span class="tier c">B&#8722;</span> &nbsp; #13 Design Game &nbsp;<span class="tier c">C</span> &nbsp; #05 Health &nbsp;<span class="tier c">C</span></div>
+        <div class="card-body">Great missions, wrong team: they reward game polish, audio craft, narrative design, or life-science data access that our full-stack profile does not disproportionately own. Skipped, not mocked.</div>
+    </div>
+</div>
+
+<p class="body-text">A note on what the matrix is not: it is not a claim that the bottom tiers are weak challenges. #01 is the best pure storytelling brief NASA has issued in years, and #14 might produce the most delightful 90-second video of the event. The matrix scores <span class="strong">winnability by this team</span> &mdash; a two-to-four-person full-stack unit with a pre-built Earth-observation platform and an AI registry &mdash; against a judging funnel that eliminates 96 percent of all projects before global finals. Chasing the best story with the wrong toolkit is how 11,000 other projects die.</p>

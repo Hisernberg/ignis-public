@@ -1,0 +1,82 @@
+<!-- ============ S2 DECISION MODEL ============ -->
+<div class="chapter-header">
+    <div class="sec-tag">SECTION 02 // THE DECISION MODEL</div>
+    <div class="sec-title">Twelve Explainable Rules</div>
+    <p class="sec-lede">The rotation engine is deliberately rule-based: transparent, auditable, and computable in milliseconds.</p>
+</div>
+
+<p class="body-text">ROOTLOGIC&rsquo;s engine scores a candidate <b>rotation sequence</b> (a multi-year ordered crop plan) against a field profile using twelve rules grouped into four families. Rules return a subscore plus a plain-language trace line &mdash; the sentence the interface shows the farmer. The total score is the weighted sum where the weights come from the farmer&rsquo;s priority sliders, so the same data produces different rankings for Amara and Daniel, <b>visibly and honestly</b>. This is the anti-black-box stance: no learned model stands between the farmer and the reasoning; the AI layer narrates the rules&rsquo; output rather than replacing it.</p>
+
+<table>
+    <colgroup><col style="width:20%"><col style="width:34%"><col style="width:46%"></colgroup>
+    <thead><tr><th>RULE FAMILY</th><th>RULES (EXAMPLES)</th><th>WHAT IT CONSUMES</th></tr></thead>
+    <tbody>
+        <tr><td><b>Nitrogen economy</b></td><td>Legume N-fixation credit; N-balance across sequence; deep-rooter capture of residual N</td><td>Crop catalog traits; soil organic matter (SoilGrids/USDA)</td></tr>
+        <tr><td><b>Pest &amp; disease break</b></td><td>Botanical-family spacing (no same family twice in a row); disease-host break intervals</td><td>Crop catalog family/host tags</td></tr>
+        <tr><td><b>Water &amp; weather fit</b></td><td>Season water demand vs GPM/POWER supply; SMAP start-of-season moisture; drought-stress penalty vs crop tolerance</td><td>POWER daily weather; GPM; SMAP; crop drought tolerance</td></tr>
+        <tr><td><b>Soil protection</b></td><td>Living-cover fraction of the year; rooting-depth diversity; residue return; erosion-risk index on slope &times; cover</td><td>Crop catalog; soil texture; EO vegetation cover (MODIS NDVI)</td></tr>
+    </tbody>
+</table>
+
+<div class="callout">
+    <div class="co-tag">WORKED EXAMPLE (DEMO SCRIPT)</div>
+    A Sahel profile with declining July&ndash;September rainfall scores millet&rarr;cowpea&rarr;fallow-crop above continuous millet on three visible rules: legume credit (+N without purchase), family break (striga pressure), and living-cover (fallow substitute). The option card shows all three trace lines; sliding &ldquo;water conservation&rdquo; up promotes an earlier-maturing variety one slot. The judge sees cause and effect in one interaction.
+</div>
+
+<div class="sub-title"><span class="num">02.1</span> Seed Catalog v1 &mdash; Twelve Crops with Cited Traits</div>
+<table>
+    <colgroup><col style="width:19%"><col style="width:17%"><col style="width:13%"><col style="width:16%"><col style="width:35%"></colgroup>
+    <thead><tr><th>CROP</th><th>FAMILY</th><th>N ROLE</th><th>WATER NEED</th><th>ROTATION ROLE (RULE HOOKS)</th></tr></thead>
+    <tbody>
+        <tr><td>Millet (pearl)</td><td>Poaceae</td><td>Heavy feeder</td><td>Low</td><td>Drought-tolerant cereal; short season fits erratic onset</td></tr>
+        <tr><td>Sorghum</td><td>Poaceae</td><td>Heavy feeder</td><td>Low-Med</td><td>Deep roots break hardpan; residue returns</td></tr>
+        <tr><td>Cowpea</td><td>Fabaceae</td><td>Fixes N</td><td>Low</td><td>Legume credit; striga break after cereals</td></tr>
+        <tr><td>Groundnut</td><td>Fabaceae</td><td>Fixes N</td><td>Med</td><td>Legume credit; residue adds OM</td></tr>
+        <tr><td>Maize</td><td>Poaceae</td><td>Heavy feeder</td><td>Med-High</td><td>Disease-break demand; high residue</td></tr>
+        <tr><td>Soybean</td><td>Fabaceae</td><td>Fixes N</td><td>Med</td><td>Legume credit in Midwest sequences</td></tr>
+        <tr><td>Wheat (winter)</td><td>Poaceae</td><td>Feeder</td><td>Med</td><td>Off-season cover; erosion control</td></tr>
+        <tr><td>Cover rye</td><td>Poaceae</td><td>Scavenger</td><td>Low</td><td>Living-cover champion; captures residual N</td></tr>
+        <tr><td>Clover (cover)</td><td>Fabaceae</td><td>Fixes N</td><td>Med</td><td>Living cover + N credit between cash crops</td></tr>
+        <tr><td>Chickpea</td><td>Fabaceae</td><td>Fixes N</td><td>Low-Med</td><td>Mediterranean dryland legume</td></tr>
+        <tr><td>Tomato (veg)</td><td>Solanaceae</td><td>Feeder</td><td>High</td><td>Family-break demonstration crop</td></tr>
+        <tr><td>Sunflower</td><td>Asteraceae</td><td>Feeder</td><td>Med</td><td>Third-family break; deep taproot</td></tr>
+    </tbody>
+</table>
+<p class="tbl-note">TRAITS COMPILED FROM USDA &amp; FAO CULTURAL GUIDANCE; EACH RULE TRACE CITES ITS SOURCE FAMILY.</p>
+
+<!-- ============ S3 DATA ARSENAL ============ -->
+<div class="chapter-header">
+    <div class="sec-tag">SECTION 03 // DATA ARSENAL</div>
+    <div class="sec-title">Quota-Free by Design</div>
+    <p class="sec-lede">Every input is free, keyed at most once, and sized for a laptop.</p>
+</div>
+
+<table>
+    <colgroup><col style="width:22%"><col style="width:32%"><col style="width:22%"><col style="width:24%"></colgroup>
+    <thead><tr><th>SOURCE</th><th>WHAT IT GIVES US</th><th>ACCESS</th><th>ENGINE ROLE</th></tr></thead>
+    <tbody>
+        <tr><td><b>NASA POWER</b></td><td>Daily/agroclimatology: temp, rainfall, RH, wind &mdash; point &amp; regional</td><td>REST, free, no quota walls</td><td>Water-balance rule; climate trend context</td></tr>
+        <tr><td><b>SMAP L3 / Crop-CASMA</b></td><td>Surface soil moisture; vegetation condition</td><td>NSIDC (free, Earthdata login)</td><td>Start-of-season moisture; drought stress</td></tr>
+        <tr><td><b>GPM IMERG</b></td><td>Global precipitation, 30&nbsp;km, daily</td><td>GES DISC (free)</td><td>Seasonal supply for demand matching</td></tr>
+        <tr><td><b>MODIS NDVI</b></td><td>Vegetation cover fraction, monthly</td><td>LP DAAC / GIBS</td><td>Living-cover and residue proxies</td></tr>
+        <tr><td><b>SoilGrids / USDA NCSS</b></td><td>Texture, organic carbon, drainage, pH</td><td>REST/WCS, free</td><td>Soil family rules; erosion index</td></tr>
+        <tr><td><b>Cropland Data Layer</b></td><td>Annual crop history (US)</td><td>CropScape, free</td><td>Actual past rotation as engine input (US demo)</td></tr>
+        <tr><td><b>USDA/FAO guidance</b></td><td>Crop trait tables, rotation guidance documents</td><td>Public documents</td><td>Crop catalog contents &amp; citations</td></tr>
+    </tbody>
+</table>
+
+<p class="body-text">The engineering posture matches the other plans: everything the demo needs is <b>pre-fetched and cached before the event</b> &mdash; one worked region&rsquo;s five-year daily weather is a few megabytes; soil rasters for a region are trivial. The live POWER call runs during the demo only to prove freshness, with the cached copy as an immediate fallback. This challenge has the lightest data weight of the three, which is why ROOTLOGIC is the portfolio&rsquo;s designated safe harbor.</p>
+
+<!-- ============ S4 PRODUCT ============ -->
+<div class="chapter-header">
+    <div class="sec-tag">SECTION 04 // THE PRODUCT</div>
+    <div class="sec-title">ROOTLOGIC &mdash; Screens and the Signature Move</div>
+    <p class="sec-lede">Four screens; the second one is where priorities become visible physics.</p>
+</div>
+
+<p class="body-text"><b>Screen 1 &mdash; Field Profile.</b> The farmer (or judge) picks a region &mdash; preset fields in the Sahel, US Midwest, and Mediterranean &mdash; and sees the field&rsquo;s live dossier: five-year rainfall trace from GPM/POWER, soil texture card from SoilGrids, recent crop history from CDL where available, and the current seasonal outlook. Everything is sourced on-screen. <b>Screen 2 &mdash; Rotation Explorer.</b> The priority sliders (water, soil health, resilience, cost) sit at the top; below, ranked rotation options render as cards &mdash; each card a mini timeline of the sequence with its total score, and &mdash; the signature move &mdash; a <b>trace list of which rules fired</b>: passed in green, failed in red, partial in amber, each phrased in plain words. Dragging a slider re-scores live; the reordering is the demo moment where the brief&rsquo;s &ldquo;farmer priorities&rdquo; clause becomes visible.</p>
+
+<p class="body-text"><b>Screen 3 &mdash; Season Outlook.</b> The chosen rotation meets the year ahead: POWER-based seasonal anomaly context, SMAP start-of-season moisture, and a Chronos-Bolt projection of the rainfall series with explicit &ldquo;projection&rdquo; labeling &mdash; advice framed as conditions to watch, not predictions to trust. <b>Screen 4 &mdash; Field Notebook.</b> A shareable one-page summary: the field, the chosen rotation, the rule traces, the data sources with links &mdash; printable, and honest about what the tool does not know (pest pressure, market prices, seed availability) with pointers to where the farmer gets that knowledge. Saying what we don&rsquo;t know is a trust feature, and trust is this challenge&rsquo;s real currency.</p>
+
+<div class="sub-title"><span class="num">04.1</span> Demo Choreography (70 Seconds)</div>
+<p class="body-text">Open on Amara&rsquo;s Sahel field: the dossier builds itself &mdash; a 20-year rainfall trace from POWER, the soil card from SoilGrids, the crop history row. The Rotation Explorer ranks four sequences; the top card&rsquo;s trace list glows green on three rules. Drag &ldquo;water conservation&rdquo; up: cards reorder in place, and the trace on the promoted option explains the earlier-maturing variety choice. Switch region to Daniel&rsquo;s Midwest farm: the same engine, a different answer, citing cover-crop windows from the NDVI record &mdash; generality proven in one click. Finish on the Field Notebook: one printable page, every number linked to its source, and one honest line about what the tool does not know. Close-up on that line for two seconds; it is the most persuasive sentence in the demo.</p>

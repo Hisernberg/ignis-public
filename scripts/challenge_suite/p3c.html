@@ -1,0 +1,151 @@
+<!-- ============ S5 SHARED ENGINE ============ -->
+<div class="chapter-header">
+    <div class="sec-tag">SECTION 05 // SHARED ENGINE STRATEGY</div>
+    <div class="sec-title">What PULSE Reuses, Adapts, and Adds</div>
+    <p class="sec-lede">The 70 percent doctrine, itemized.</p>
+</div>
+
+<table>
+    <colgroup><col style="width:34%"><col style="width:22%"><col style="width:44%"></colgroup>
+    <thead><tr><th>MODULE</th><th>REUSE MODE</th><th>NOTE</th></tr></thead>
+    <tbody>
+        <tr><td>Next.js 15 shell, routing, dark UI system</td><td class="mono">DIRECT</td><td>Re-skin accents; zero structural change</td></tr>
+        <tr><td>MapLibre + deck.gl geo-stack, AOI drawing</td><td class="mono">DIRECT</td><td>HexagonLayer re-used for slope maps</td></tr>
+        <tr><td>Ingestion pipeline &amp; Parquet lake pattern</td><td class="mono">PATTERN</td><td>Same shape, new connectors per variable family</td></tr>
+        <tr><td>Time-series store + trend engine (MK, Sen, STL)</td><td class="mono">DIRECT</td><td>Built for flagship W6; PULSE is its native consumer</td></tr>
+        <tr><td>Chronos-Bolt forecast service</td><td class="mono">DIRECT</td><td>Series in, quantile band out &mdash; unchanged</td></tr>
+        <tr><td>LLM briefing service</td><td class="mono">ADAPT</td><td>Stat pack swaps fire counts for verdict sentences</td></tr>
+        <tr><td>Harmonization engine (sensor fusion)</td><td class="mono">DORMANT</td><td>Not used by PULSE; stays in the repo for #09</td></tr>
+        <tr><td><b>New:</b> contrast scanner + verdict panel UI</td><td class="mono">BUILD</td><td>The only genuinely new surface (~week of work)</td></tr>
+    </tbody>
+</table>
+
+<div class="arch">
+    <div class="arch-layer">
+        <div class="arch-ltitle">LAYER 4 // EXPERIENCE &mdash; NEXT.JS 15</div>
+        <div class="arch-nodes">
+            <div class="arch-node"><div class="n">Catalog Picker</div><div class="d">Variable + region + provenance</div></div>
+            <div class="arch-node"><div class="n">Trend Map</div><div class="d">deck.gl slopes / p-values</div></div>
+            <div class="arch-node"><div class="n">Contrast Story</div><div class="d">Paired verdict panels</div></div>
+        </div>
+    </div>
+    <div class="arch-conn">&#9650;&#9660; REST</div>
+    <div class="arch-layer">
+        <div class="arch-ltitle">LAYER 3 // AI &amp; STATS SERVICES &mdash; FASTAPI</div>
+        <div class="arch-nodes">
+            <div class="arch-node"><div class="n">/verdict</div><div class="d">MK + Sen + STL, per region</div></div>
+            <div class="arch-node"><div class="n">/forecast</div><div class="d">Chronos-Bolt bands</div></div>
+            <div class="arch-node"><div class="n">/contrast</div><div class="d">Max-divergence scanner</div></div>
+        </div>
+    </div>
+    <div class="arch-conn">&#9650;&#9660; Parquet / DuckDB</div>
+    <div class="arch-layer">
+        <div class="arch-ltitle">LAYER 2 // VARIABLE CONNECTORS (PRE-COMPUTED CUBES)</div>
+        <div class="arch-nodes">
+            <div class="arch-node"><div class="n">SST &middot; NO&#8322; &middot; CHL</div><div class="d">Ocean color / GES DISC</div></div>
+            <div class="arch-node"><div class="n">SMAP &middot; GRACE-FO</div><div class="d">Water stores</div></div>
+            <div class="arch-node"><div class="n">GPM &middot; NSIDC Ice</div><div class="d">Rain &amp; cryosphere</div></div>
+        </div>
+    </div>
+</div>
+
+<!-- ============ S6 LANES + TIMELINE ============ -->
+<div class="chapter-header">
+    <div class="sec-tag">SECTION 06 // LANES &amp; PREP TIMELINE</div>
+    <div class="sec-title">Trophy Targets and the Compressed Schedule</div>
+    <p class="sec-lede">PULSE prep runs inside the flagship&rsquo;s ten weeks &mdash; it adds three items, not ten.</p>
+</div>
+
+<p class="body-text"><b>Award lanes.</b> Primary: <b>Best Use of Science</b> &mdash; the named statistical protocol with displayed negative results is the strongest claim in the portfolio. Secondary: <b>Best Use of Data</b>, contested with the flagship; PULSE claims it in any timeline where six NASA variable families are fused with provenance panels. Tertiary: <b>Global Connection</b> via contrast pairs spanning hemispheres. The judging criteria map one-to-one: validity = protocol page; relevance = DAAC-linked catalog; impact = plain-language verdicts and projection; creativity = the Contrast Story; presentation = the two-verdict pitch close.</p>
+
+<p class="body-text"><b>Prep timeline.</b> Weeks 1&ndash;2 and 6&ndash;8 are shared with the flagship by design (shell, trend engine, AI services &mdash; already in SP-2026-003&rsquo;s schedule). PULSE-specific additions: <b>W4</b> &mdash; two connectors (SST, sea ice) live end-to-end, verdict endpoint returning MK/Sen/STL with pre-whitening flag; <b>W5</b> &mdash; remaining four connectors; contrast scanner v1 on preset pairs; <b>W9</b> &mdash; verdict panel UI polish, methodology page written with formulas and references, offline bundle validated. If the flagship consumes all Week 4&ndash;5 capacity, PULSE falls back to a <b>three-variable build</b> (SST, sea ice, soil moisture) &mdash; still a complete submission, still six screens of demo value from three families.</p>
+
+<div class="callout">
+    <div class="co-tag">RESOURCE LAW</div>
+    PULSE may never steal hours from the flagship&rsquo;s harmonization engine before Week 6. It feeds on shared modules and its own weekend slots. The pivot must be free to remain a credible threat.
+</div>
+
+<!-- ============ S7 BATTLE PLAN + PITCH ============ -->
+<div class="chapter-header">
+    <div class="sec-tag">SECTION 07 // BATTLE PLAN &amp; PITCH</div>
+    <div class="sec-title">48 Hours on the Pivot Track</div>
+    <p class="sec-lede">Identical gate structure to the flagship; the differences are in the content lines.</p>
+</div>
+
+<div class="phase">
+    <div class="phase-head"><span class="ph-time">H 0&ndash;2</span><span class="ph-name">Lock &amp; data check (PIVOT TRACK)</span></div>
+    <div class="phase-body">Gate A variant: ping one endpoint per catalog family (SST subset, NSIDC ice index, SMAP, GPM, OMI, GRACE-FO). Commit if four of six green; drop red families from the demo path immediately.</div>
+    <div class="phase-gate">GATE A &mdash; &#8805;4 FAMILIES LIVE. ELSE RETHINK CATALOG, NEVER THE METHOD.</div>
+</div>
+<div class="phase">
+    <div class="phase-head"><span class="ph-time">H 2&ndash;22</span><span class="ph-name">Cubes online &rarr; verdicts flowing</span></div>
+    <div class="phase-body">Pre-computed cubes mounted; verdict + contrast endpoints against event data; Trend Map and verdict panels live for all green families; methodology page populated with final n and &alpha; values.</div>
+    <div class="phase-gate">GATE B &mdash; THREE SCREENS FUNCTIONAL (1, 2, 3) BY H22. PROJECTION (4) BY H30.</div>
+</div>
+<div class="phase">
+    <div class="phase-head"><span class="ph-time">H 22&ndash;34</span><span class="ph-name">Story &amp; video</span></div>
+    <div class="phase-body">Pick the two strongest contrast pairs by data quality, not drama; shoot video on the signature move; project page: method, provenance, live link; record the verdict panel reading &ldquo;no significant trend&rdquo; somewhere on purpose &mdash; the honesty beat.</div>
+    <div class="phase-gate">EXIT: VIDEO V1 + PAGE 90% BY H34.</div>
+</div>
+<div class="phase">
+    <div class="phase-head"><span class="ph-time">H 34&ndash;46</span><span class="ph-name">Polish, rehearse, freeze</span></div>
+    <div class="phase-body">Cold-user test; 2-minute pitch rehearsed; offline bundle verified; submit by H44 in incognito verification. Buffer absorbs defects only.</div>
+    <div class="phase-gate">GATE C &mdash; SUBMITTED &amp; VERIFIED. FREEZE HOLDS.</div>
+</div>
+
+<div class="sub-title"><span class="num">07.1</span> 30-Second Video Script (Pulse Track)</div>
+<table>
+    <colgroup><col style="width:12%"><col style="width:40%"><col style="width:48%"></colgroup>
+    <thead><tr><th>TIME</th><th>SHOT</th><th>VOICEOVER</th></tr></thead>
+    <tbody>
+        <tr><td class="mono">0&ndash;6s</td><td>Split screen: Arctic ice stepping down, Antarctic holding &mdash; one variable, two verdicts</td><td>&ldquo;One process. Two opposite trends. Both true at the same time.&rdquo;</td></tr>
+        <tr><td class="mono">6&ndash;14s</td><td>Trend map painting in; hover reveals a verdict sentence with magnitude and confidence</td><td>&ldquo;PULSE scans NASA&rsquo;s Earth records and answers the question properly: what is changing, where, how fast &mdash; and is it significant?&rdquo;</td></tr>
+        <tr><td class="mono">14&ndash;22s</td><td>Verdict panel close-up: &ldquo;+0.34&deg;C per decade &middot; significant&rdquo; beside &ldquo;no significant trend&rdquo;</td><td>&ldquo;Mann-Kendall tests, Sen&rsquo;s slopes, honest negatives &mdash; the statistics are on the page, not in our tone of voice.&rdquo;</td></tr>
+        <tr><td class="mono">22&ndash;30s</td><td>Projection band; logo card</td><td>&ldquo;PULSE. Every trend, on the record.&rdquo;</td></tr>
+    </tbody>
+</table>
+
+<div class="sub-title"><span class="num">07.2</span> 2-Minute Local Pitch Script</div>
+<table>
+    <colgroup><col style="width:14%"><col style="width:24%"><col style="width:62%"></colgroup>
+    <thead><tr><th>TIME</th><th>BEAT</th><th>SCRIPT</th></tr></thead>
+    <tbody>
+        <tr><td class="mono">0:00&ndash;0:20</td><td>Hook</td><td>&ldquo;Scientists are suspicious of the sentence &lsquo;the data clearly shows.&rsquo; Because usually it doesn&rsquo;t &mdash; not clearly, not everywhere, and not in the same direction. Today, most tools will still paint you a confident map.&rdquo;</td></tr>
+        <tr><td class="mono">0:20&ndash;0:45</td><td>The method</td><td>&ldquo;PULSE answers like a scientist. For every variable and every region it runs the Mann-Kendall trend test &mdash; autocorrelation-corrected &mdash; reports Sen&rsquo;s slope as a real magnitude per decade, separates the seasons from the drift, and tells you when there is nothing to report. Especially then.&rdquo;</td></tr>
+        <tr><td class="mono">0:45&ndash;1:20</td><td>Live demo</td><td>Run the 75-second choreography compressed: Arctic verdict &rarr; Contrast Story &rarr; NO&#8322; repaint. &ldquo;One process, two opposite trends &mdash; both true, both quantified, both sourced to the DAAC they came from.&rdquo;</td></tr>
+        <tr><td class="mono">1:20&ndash;1:45</td><td>Why it matters</td><td>&ldquo;This is what the challenge asked for: what is changing, where, how much, and is it significant. Six NASA variable families, one honest protocol, and a projection engine to look one season ahead &mdash; clearly labeled as a projection, never as proof.&rdquo;</td></tr>
+        <tr><td class="mono">1:45&ndash;2:00</td><td>Close</td><td>&ldquo;PULSE is live, the methodology page is public, and the negative results are on purpose. Every trend, on the record. Thank you.&rdquo;</td></tr>
+    </tbody>
+</table>
+
+<!-- ============ S8 RISKS ============ -->
+<div class="chapter-header">
+    <div class="sec-tag">SECTION 08 // RISK REGISTER</div>
+    <div class="sec-title">Pulse-Specific Risks</div>
+    <p class="sec-lede">Shared risks (wifi, scope creep, dropouts) inherit the flagship register.</p>
+</div>
+
+<table>
+    <colgroup><col style="width:26%"><col style="width:12%"><col style="width:62%"></colgroup>
+    <thead><tr><th>RISK</th><th>LEVEL</th><th>MITIGATION / FALLBACK</th></tr></thead>
+    <tbody>
+        <tr><td>GES DISC / NSIDC subsetter slow on event weekend</td><td class="mono">MEDIUM</td><td>All cubes pre-computed pre-event; live calls exist only as freshness garnish. Gate A drops red families instead of waiting on them</td></tr>
+        <tr><td>Statistics challenged (why MK, why pre-whitening)</td><td class="mono">MEDIUM</td><td>Methodology page with formulas, references (Mann 1945; Kendall 1975; Yue-Pilon 2002), and a &ldquo;what we did not do&rdquo; section; rehearsed answers</td></tr>
+        <tr><td>Scope creep toward 10 variables</td><td class="mono">HIGH</td><td>Catalog locked at six; a seventh variable ships only after Gate B and only if all screens are green &mdash; which never happens; accept it</td></tr>
+        <tr><td>Contrast pair judged cherry-picked</td><td class="mono">LOW</td><td>Scanner is a published rule (max slope divergence over preset regions); the rule, not the result, is the defense</td></tr>
+    </tbody>
+</table>
+
+</div><!-- /main-content -->
+
+<!-- ==================== PDF3 ENDING ==================== -->
+<div class="ending">
+    <div class="stars"></div>
+    <div class="end-tag">END OF PIVOT PLAN // SP-2026-004</div>
+    <div class="end-big"><div>EVERY TREND,</div><div class="hl">ON THE RECORD.</div></div>
+    <div class="end-text">PULSE costs three weeks of marginal work and buys the portfolio a second trophy lane, a credible fallback, and the scientific credibility that makes judges trust everything else we ship. Build it quietly. Keep it armed.</div>
+    <div class="end-final">
+        <span>PIVOT: PULSE &#9670; CHALLENGE #02</span>
+        <span>MISSION COMMAND OUT</span>
+    </div>
+</div>

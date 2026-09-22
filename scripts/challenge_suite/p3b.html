@@ -1,0 +1,95 @@
+<!-- ============ S2 SIGNIFICANCE SCIENCE ============ -->
+<div class="chapter-header">
+    <div class="sec-tag">SECTION 02 // THE SCIENCE</div>
+    <div class="sec-title">Significance, Done Properly</div>
+    <p class="sec-lede">The statistical engine is the product. Here is exactly what it computes and why.</p>
+</div>
+
+<p class="body-text">PULSE&rsquo;s verdicts rest on three statistics applied per region and per variable, with choices explained on the methodology page in plain language. First, <b>Mann-Kendall</b>: a rank-based test for monotonic trend that asks whether a time series is consistently drifting upward or downward, returning a tau and a p-value. It is the workhorse because it makes no normality assumption and tolerates the gappy, seasonal records satellites produce &mdash; but it assumes independent samples, which raw climate series violate. Second, <b>Sen&rsquo;s slope</b>: the median of pairwise slopes, giving a robust magnitude per decade (&ldquo;&minus;42&nbsp;km&sup2; of sea ice per year&rdquo;) that outliers cannot hijack. Third, <b>seasonal-trend decomposition</b> (STL) to separate the annual cycle from the drift before testing, so a warm July every year is not mistaken for climate change.</p>
+
+<div class="sub-title"><span class="num">02.1</span> The Honest-Statistics Protocol</div>
+<ul class="tick">
+    <li><b>Autocorrelation correction.</b> Pre-whitening (Yue-Pilon) applied before Mann-Kendall on series with lag-1 autocorrelation; the correction flag is shown per verdict, not hidden.</li>
+    <li><b>Multiple-testing awareness.</b> A world map runs thousands of tests; PULSE reports field significance honestly (the fraction of regions passing at &alpha;&nbsp;=&nbsp;0.05) instead of implying every red pixel is a discovery.</li>
+    <li><b>Record-length disclosure.</b> Every verdict shows n years analyzed; a 2015-start series cannot masquerade as a 2002-start one. Short records get a &ldquo;low confidence&rdquo; badge automatically.</li>
+    <li><b>Negative results displayed.</b> The verdict panel always shows both directions &mdash; including &ldquo;no significant trend,&rdquo; which is the sentence that makes judges believe the others.</li>
+    <li><b>Projection separated from test.</b> Chronos-Bolt continuations render in a visually distinct lane from the tested historical trend; the app never implies the forecast was part of the significance claim.</li>
+</ul>
+
+<div class="callout">
+    <div class="co-tag">WHY THIS WINS THE SCIENCE LANE</div>
+    Most trend visualizations stop at color. PULSE stops at a verdict with a method, a magnitude, an uncertainty, and a stated limitation &mdash; the four things a reviewing scientist checks before believing anything. That is the difference between pretty and credible, and credible is what &ldquo;Best Use of Science&rdquo; pays for.
+</div>
+
+<!-- ============ S3 VARIABLE CATALOG ============ -->
+<div class="chapter-header">
+    <div class="sec-tag">SECTION 03 // VARIABLE CATALOG</div>
+    <div class="sec-title">Six Families, Verified and Pre-Connected</div>
+    <p class="sec-lede">Curated for continuity, spatial completeness, and story value. Each is a pre-built connector.</p>
+</div>
+
+<table>
+    <colgroup><col style="width:24%"><col style="width:30%"><col style="width:22%"><col style="width:24%"></colgroup>
+    <thead><tr><th>VARIABLE FAMILY</th><th>MISSION / MODEL &amp; ACCESS</th><th>RECORD</th><th>WHY IT IS IN THE CATALOG</th></tr></thead>
+    <tbody>
+        <tr><td><b>Sea-surface temperature</b></td><td>MODIS-Aqua / VIIRS ocean color SST via Earthdata (OPeNDAP/subsetter)</td><td>2002&rarr;present, monthly</td><td>Canonical warming signal; strong regional contrast (warming vs &ldquo;cold blob&rdquo;)</td></tr>
+        <tr><td><b>Soil moisture</b></td><td>SMAP L3 via NSIDC; Crop-CASMA as precedent UI</td><td>2015&rarr;present</td><td>Agriculture resonance; drought trend stories</td></tr>
+        <tr><td><b>Air quality &mdash; NO&#8322;</b></td><td>OMI (2004&rarr;) and TEMPO (2023&rarr;) column NO&#8322; via GES DISC</td><td>2004&rarr;present</td><td>Visible lockdown dip; policy-linked trends</td></tr>
+        <tr><td><b>Terrestrial water storage</b></td><td>GRACE / GRACE-FO via PODAAC</td><td>2002&rarr;present</td><td>Groundwater depletion headline trends (e.g., aquifers)</td></tr>
+        <tr><td><b>Precipitation</b></td><td>GPM IMERG via GES DISC</td><td>2000&rarr;present</td><td>Intensification stories; flood/drought contrast</td></tr>
+        <tr><td><b>Sea ice extent</b></td><td>NSIDC sea ice index</td><td>1978&rarr;present</td><td>The clearest negative trend on Earth; instant comprehension</td></tr>
+    </tbody>
+</table>
+
+<p class="body-text">Each family ships as a connector module with the same interface: region-time cube in, verdict out. That uniformity is what makes the shared engine real &mdash; the flagship&rsquo;s ingestion layer feeds PULSE with zero architectural change, and adding a seventh variable is a config entry, not a code fork. Preset regions ride with the catalog: six continents plus named contrast pairs (e.g., Antarctic vs Arctic sea ice, Sahel vs Horn precipitation, California vs Indus soil moisture) so the Contrast Story screen has curated, defensible openings.</p>
+
+<div class="sub-title"><span class="num">03.1</span> Family Deep Dives and Example Verdicts</div>
+<div class="grid-2">
+    <div class="card">
+        <div class="card-tag">FAMILY 1 // SEA-SURFACE TEMPERATURE</div>
+        <div class="card-title">The canonical warming record</div>
+        <div class="card-body">Monthly SST from MODIS-Aqua and VIIRS ocean color, 2002&rarr;present. The demo workhorse: nearly every ocean region shows a significant positive trend, which makes the <b>exceptions</b> &mdash; the subpolar &ldquo;cold blob,&rdquo; parts of the eastern Pacific &mdash; the story. Example verdict: <b>&ldquo;+0.29&deg;C per decade, significant (p&nbsp;&lt;&nbsp;0.001), n&nbsp;=&nbsp;21&nbsp;yr.&rdquo;</b></div>
+    </div>
+    <div class="card">
+        <div class="card-tag">FAMILY 2 // SEA ICE</div>
+        <div class="card-title">The clearest negative trend on Earth</div>
+        <div class="card-body">NSIDC sea-ice index, the longest record in the catalog. Arctic September extent steps down decisively; Antarctic shows near-flat behavior with high variability &mdash; the portfolio&rsquo;s best Contrast Story pair. Example verdict: <b>&ldquo;&minus;78,000&nbsp;km&sup2; per year, significant &mdash; Arctic;&nbsp; no significant trend &mdash; Antarctic.&rdquo;</b></div>
+    </div>
+    <div class="card">
+        <div class="card-tag">FAMILY 3 // SOIL MOISTURE</div>
+        <div class="card-title">SMAP&rsquo;s agricultural heartbeat</div>
+        <div class="card-body">SMAP L3, 2015&rarr;present. Short record forces the low-confidence badge &mdash; which is itself a demo beat about statistical honesty. Strong regional stories: Indus depletion signatures, Sahel greening pulses. Example verdict: <b>&ldquo;&minus;0.9&nbsp;%/yr near-surface moisture, low confidence (n&nbsp;=&nbsp;9&nbsp;yr).&rdquo;</b></div>
+    </div>
+    <div class="card">
+        <div class="card-tag">FAMILY 4 // NO&#8322; AIR QUALITY</div>
+        <div class="card-title">The policy-responsive trend</div>
+        <div class="card-body">OMI columns 2004&rarr;present, joined by TEMPO&rsquo;s hourly North America views. Urban trends track policy: Chinese megacity reductions, South Asian increases &mdash; an accessible story for any audience. Example verdict: <b>&ldquo;&minus;2.1&nbsp;%/yr over Beijing, significant; +1.4&nbsp;%/yr over Dhaka, significant.&rdquo;</b></div>
+    </div>
+    <div class="card">
+        <div class="card-tag">FAMILY 5 // TERRESTRIAL WATER STORAGE</div>
+        <div class="card-title">GRACE-FO sees the aquifers</div>
+        <div class="card-body">GRACE/GRACE-FO anomalies, 2002&rarr;present, the only direct measure of groundwater change from orbit. Headline trends: Central Valley, Indus, Caspian. Example verdict: <b>&ldquo;&minus;3.1&nbsp;cm/yr equivalent water height over NW India, significant.&rdquo;</b></div>
+    </div>
+    <div class="card">
+        <div class="card-tag">FAMILY 6 // PRECIPITATION</div>
+        <div class="card-title">GPM&rsquo;s intensification signal</div>
+        <div class="card-body">IMERG, 2000&rarr;present. Noisy by nature &mdash; which showcases the honest-negative verdict: many regions show no significant trend, and the ones that do (monsoon edges, Mediterranean drying) earn their red and blue. Example verdict: <b>&ldquo;+4.8&nbsp;%/decade extreme-day contribution, significant (Sahel).&rdquo;</b></div>
+    </div>
+</div>
+
+<div class="sub-title"><span class="num">03.2</span> Worked Case Study &mdash; One Click of the Product</div>
+<p class="body-text">A judge selects <b>Sea-Surface Temperature &rarr; North Atlantic</b>. The Trend Map paints in six seconds: most cells warm, a patch south of Greenland cools. Hovering the warm cell reads: <i>&ldquo;+0.31&deg;C per decade, Mann-Kendall p&nbsp;&lt;&nbsp;0.001, pre-whitened, n&nbsp;=&nbsp;21 years.&rdquo;</i> Hovering the cold cell: <i>&ldquo;&minus;0.12&deg;C per decade, significant.&rdquo;</i> The side panel shows the STL decomposition &mdash; seasonal band, trend line, remainder &mdash; so the annual cycle is visibly separated from the drift. One click later, the Contrast Story stages the warm subtropical gyre against the cold blob, narrated in two sentences with citations to the DAAC. The projection tab extends the subtropical series with a Chronos-Bolt band. Total time from curiosity to a defensible, sourced, quantified answer: under thirty seconds. That is the entire product thesis.</p>
+
+<!-- ============ S4 PRODUCT ============ -->
+<div class="chapter-header">
+    <div class="sec-tag">SECTION 04 // THE PRODUCT</div>
+    <div class="sec-title">PULSE &mdash; Screens and the Signature Move</div>
+    <p class="sec-lede">Four screens; the third one exists because the brief demanded it.</p>
+</div>
+
+<p class="body-text"><b>Screen 1 &mdash; Variable &amp; Region.</b> The catalog as a first-class picker: choose a variable family and a preset region or draw one. The screen shows record length, spatial resolution, and the DAAC it came from &mdash; provenance is part of the interface, not the footnote. <b>Screen 2 &mdash; Trend Map.</b> The region renders as a Sen&rsquo;s-slope choropleth/hex map with a toggle to p-values and to confidence levels; hovering any cell reads the verdict sentence aloud in text. A time-series panel with the STL decomposition sits beside the map, seasonal band and trend line drawn apart. <b>Screen 4 &mdash; Projection.</b> The same series with a Chronos-Bolt continuation band and a per-decade magnitude readout.</p>
+
+<p class="body-text"><b>Screen 3 &mdash; The Contrast Story</b> is the signature. Given a variable, PULSE scans its preset regions for maximal slope divergence and stages the two extremes side by side &mdash; a paired map, paired series, and a generated narration of why scientists care (same process, opposite local outcome). The pitch line writes itself: <span class="hl-cy" style="color:var(--cy);font-weight:600;">&ldquo;One planet, two verdicts &mdash; and both of them true.&rdquo;</span> This screen is also the most shareable artifact the app produces, which powers the presentation criterion without any extra polish work.</p>
+
+<div class="sub-title"><span class="num">04.1</span> Demo Choreography (75 Seconds)</div>
+<p class="body-text">Open on the catalog picker &mdash; provenance badges visible &mdash; and select Arctic sea ice: the trend map steps down in one decisive color, and the verdict sentence lands with its magnitude and p-value. Jump straight to the Contrast Story: the scanner stages Antarctic against Arctic; the paired series draw side by side while the narration types out &ldquo;same planet, opposite verdicts.&rdquo; Switch variables to NO&#8322;: the world repaints around policy history &mdash; Beijing down, Dhaka up. Close on the methodology page for four seconds: formulas, references, the pre-whitening flag, and one honest &ldquo;no significant trend&rdquo; on screen. The choreography deliberately ends on restraint, because restraint is the thing being sold.</p>

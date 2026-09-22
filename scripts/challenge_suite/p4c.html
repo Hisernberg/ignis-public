@@ -1,0 +1,148 @@
+<!-- ============ S5 AI + ARCHITECTURE ============ -->
+<div class="chapter-header">
+    <div class="sec-tag">SECTION 05 // AI DIVISION &amp; ARCHITECTURE</div>
+    <div class="sec-title">The LLM Explains; the Rules Decide</div>
+    <p class="sec-lede">The division of authority is the architecture&rsquo;s headline.</p>
+</div>
+
+<p class="body-text">ROOTLOGIC&rsquo;s AI posture inverts the usual hackathon pattern: <b>the rule engine decides, the LLM explains</b>. The agronomy rules are deterministic and auditable; the language model&rsquo;s job is to translate rule traces into the farmer&rsquo;s language (literally &mdash; multilingual output is a one-model feature), answer follow-up questions in a grounded chat (&ldquo;why did cowpea lose points?&rdquo;), and assemble the notebook. Retrieval grounding comes from USDA and FAO rotation guidance documents embedded with MiniLM; the model is instructed to refuse claims not present in the rule output or the corpus, and every chat answer carries its citation. This design survives both judge questions &mdash; &ldquo;is AI doing real work?&rdquo; (grounded multilingual advisory) and &ldquo;can it hallucinate?&rdquo; (nothing it says can outrank the rule trace).</p>
+
+<div class="arch">
+    <div class="arch-layer">
+        <div class="arch-ltitle">LAYER 4 // EXPERIENCE &mdash; NEXT.JS 15</div>
+        <div class="arch-nodes">
+            <div class="arch-node"><div class="n">Field Dossier</div><div class="d">Weather, soil, history cards</div></div>
+            <div class="arch-node"><div class="n">Rotation Explorer</div><div class="d">Sliders + rule-trace cards</div></div>
+            <div class="arch-node"><div class="n">Notebook</div><div class="d">Shareable, printable summary</div></div>
+        </div>
+    </div>
+    <div class="arch-conn">&#9650;&#9660; REST / SSE</div>
+    <div class="arch-layer">
+        <div class="arch-ltitle">LAYER 3 // SERVICES &mdash; FASTAPI + HF</div>
+        <div class="arch-nodes">
+            <div class="arch-node"><div class="n">/score</div><div class="d">12-rule engine, weights from sliders</div></div>
+            <div class="arch-node"><div class="n">/ask</div><div class="d">Grounded LLM advisory w/ citations</div></div>
+            <div class="arch-node"><div class="n">/outlook</div><div class="d">Chronos-Bolt projection + SMAP state</div></div>
+        </div>
+    </div>
+    <div class="arch-conn">&#9650;&#9660; cached cubes / vector index</div>
+    <div class="arch-layer">
+        <div class="arch-ltitle">LAYER 2 // FIELD CONTEXT ENGINE (PRE-COMPUTED)</div>
+        <div class="arch-nodes">
+            <div class="arch-node"><div class="n">Water Balance</div><div class="d">POWER + GPM demand/supply</div></div>
+            <div class="arch-node"><div class="n">Soil Profile</div><div class="d">SoilGrids texture &amp; OM</div></div>
+            <div class="arch-node"><div class="n">Rotation History</div><div class="d">CDL where available</div></div>
+        </div>
+    </div>
+    <div class="arch-conn">&#9650;&#9660; ingest (pre-event)</div>
+    <div class="arch-layer">
+        <div class="arch-ltitle">LAYER 1 // NASA &amp; SOIL DATA</div>
+        <div class="arch-nodes">
+            <div class="arch-node"><div class="n">POWER &middot; GPM &middot; SMAP</div><div class="d">Weather &amp; moisture</div></div>
+            <div class="arch-node"><div class="n">MODIS NDVI &middot; GIBS</div><div class="d">Cover context</div></div>
+            <div class="arch-node"><div class="n">SoilGrids &middot; USDA/FAO</div><div class="d">Soil truth &amp; guidance</div></div>
+        </div>
+    </div>
+</div>
+
+<!-- ============ S6 LANES + TIMELINE ============ -->
+<div class="chapter-header">
+    <div class="sec-tag">SECTION 06 // LANES &amp; PREP TIMELINE</div>
+    <div class="sec-title">Trophy Targets and the Weekend-Slot Schedule</div>
+    <p class="sec-lede">ROOTLOGIC prep shares the flagship&rsquo;s ten weeks and consumes its own weekend slots.</p>
+</div>
+
+<p class="body-text"><b>Award lanes.</b> Primary: <b>Global Connection</b> &mdash; a tool conceived for the Sahel and the Midwest on the same screen, in the farmer&rsquo;s language, on NASA&rsquo;s free data. Secondary: <b>Most Inspirational</b> &mdash; the pitch closes on stewardship across generations, which this brief uniquely licenses. Tertiary: <b>Best Use of Data</b> in any timeline where the provenance-dense dossier shines. Criteria mapping: impact = farmer-facing utility; creativity = priorities-as-visible-physics sliders; validity = cited rule set and USDA/FAO grounding; relevance = every brief keyword made operational; presentation = the slider drag that reorders a farmer&rsquo;s future.</p>
+
+<p class="body-text"><b>Prep timeline.</b> Shared weeks carry the shell and services (W1&ndash;2, W6&ndash;8 per SP-2026-003). ROOTLOGIC-specific slots: <b>W4</b> &mdash; POWER/SoilGrids connectors and the two worked-region dossiers; <b>W5</b> &mdash; rule engine v1 with ten rules and trace output; crop catalog v1 (12 crops with cited traits); <b>W9</b> &mdash; sliders UI, notebook screen, grounded chat, multilingual sample (English + French + Hausa strings for the Sahel demo), offline bundle. The degraded mode mirrors the portfolio: if only one region is ready, the demo deepens rather than widens &mdash; a single-region tool with impeccable sourcing still clears every criterion.</p>
+
+<div class="callout">
+    <div class="co-tag">RESOURCE LAW</div>
+    ROOTLOGIC may not consume flagship harmonization hours (W3&ndash;5) or PULSE connector hours (W4&ndash;5 shared slots). Its natural owners are the second squad or weekend slots. The impact lane must never tax the data lane.
+</div>
+
+<!-- ============ S7 BATTLE PLAN + PITCH ============ -->
+<div class="chapter-header">
+    <div class="sec-tag">SECTION 07 // BATTLE PLAN &amp; PITCH</div>
+    <div class="sec-title">48 Hours on the Impact Track</div>
+    <p class="sec-lede">Same gates, content-specific lines, and the gentlest critical path of the three.</p>
+</div>
+
+<div class="phase">
+    <div class="phase-head"><span class="ph-time">H 0&ndash;2</span><span class="ph-name">Lock &amp; data check (IMPACT TRACK)</span></div>
+    <div class="phase-body">Gate A variant: ping POWER (two points), SoilGrids (one profile), SMAP granule list, GPM subsetter. Four greens commit the full demo; three greens commit the single-region deep mode.</div>
+    <div class="phase-gate">GATE A &mdash; DATA GREEN. CACHED FIRST, LIVE SECOND &mdash; ALWAYS.</div>
+</div>
+<div class="phase">
+    <div class="phase-head"><span class="ph-time">H 2&ndash;22</span><span class="ph-name">Dossiers &rarr; engine &rarr; sliders</span></div>
+    <div class="phase-body">Region dossiers live; rule engine serving scored, traced options for the 12-crop catalog; slider reordering wired end-to-end; outlook screen against cached series.</div>
+    <div class="phase-gate">GATE B &mdash; SCREENS 1&ndash;3 FUNCTIONAL BY H22; NOTEBOOK BY H30.</div>
+</div>
+<div class="phase">
+    <div class="phase-head"><span class="ph-time">H 22&ndash;34</span><span class="ph-name">Story &amp; video</span></div>
+    <div class="phase-body">Video: Amara&rsquo;s field, the slider drag, the trace list; project page with rule table and citations; the grounded chat answers three planted questions on camera &mdash; including one it politely refuses without a source.</div>
+    <div class="phase-gate">EXIT: VIDEO V1 + PAGE 90% BY H34.</div>
+</div>
+<div class="phase">
+    <div class="phase-head"><span class="ph-time">H 34&ndash;46</span><span class="ph-name">Polish, rehearse, freeze</span></div>
+    <div class="phase-body">Cold-user test with a non-coder reading only the farmer-facing words; multilingual pass spot-checked; submit by H44; incognito verification; buffer only.</div>
+    <div class="phase-gate">GATE C &mdash; SUBMITTED &amp; VERIFIED. FREEZE HOLDS.</div>
+</div>
+
+<div class="sub-title"><span class="num">07.1</span> 30-Second Video Script</div>
+<table>
+    <colgroup><col style="width:12%"><col style="width:40%"><col style="width:48%"></colgroup>
+    <thead><tr><th>TIME</th><th>SHOT</th><th>VOICEOVER</th></tr></thead>
+    <tbody>
+        <tr><td class="mono">0&ndash;6s</td><td>Hands in soil; rainfall trace drawing on screen</td><td>&ldquo;Amara&rsquo;s rains have shifted. Her soil is tired. What should she plant next year?&rdquo;</td></tr>
+        <tr><td class="mono">6&ndash;14s</td><td>Field dossier: NASA rainfall, soil texture, crop history &mdash; each badge on screen</td><td>&ldquo;ROOTLOGIC reads her field through NASA&rsquo;s eyes &mdash; twenty years of weather, satellite soil moisture, and the ground&rsquo;s own history.&rdquo;</td></tr>
+        <tr><td class="mono">14&ndash;22s</td><td>The slider drag reorders rotation cards; trace lines highlight</td><td>&ldquo;She sets her priorities. It explores rotations &mdash; and shows its reasoning, rule by rule, in her language.&rdquo;</td></tr>
+        <tr><td class="mono">22&ndash;30s</td><td>Notebook page; logo card</td><td>&ldquo;ROOTLOGIC. Ancient wisdom, NASA data, her decision.&rdquo;</td></tr>
+    </tbody>
+</table>
+
+<div class="sub-title"><span class="num">07.2</span> 2-Minute Local Pitch Script</div>
+<table>
+    <colgroup><col style="width:14%"><col style="width:24%"><col style="width:62%"></colgroup>
+    <thead><tr><th>TIME</th><th>BEAT</th><th>SCRIPT</th></tr></thead>
+    <tbody>
+        <tr><td class="mono">0:00&ndash;0:20</td><td>Hook</td><td>&ldquo;Crop rotation is the oldest climate technology we have &mdash; older than the wheel. But the climate it was designed against has moved. The farmer&rsquo;s question &mdash; what do I plant next? &mdash; just got harder.&rdquo;</td></tr>
+        <tr><td class="mono">0:20&ndash;0:50</td><td>The method</td><td>&ldquo;We built a rule engine, not a black box. Twelve rules from USDA and FAO agronomy &mdash; nitrogen, disease breaks, water balance, soil cover &mdash; each one visible, each one traceable, each one fed by NASA observations: POWER weather, GPM rain, SMAP moisture, SoilGrids ground truth.&rdquo;</td></tr>
+        <tr><td class="mono">0:50&ndash;1:20</td><td>Live demo</td><td>Run the choreography: dossier &rarr; slider drag &rarr; trace list &rarr; multilingual chat. &ldquo;Her priorities change the answer &mdash; and you can watch why, in plain words, in her language.&rdquo;</td></tr>
+        <tr><td class="mono">1:20&ndash;1:45</td><td>Why it matters</td><td>&ldquo;This tool doesn&rsquo;t tell a farmer what to do. It shows her options with their reasons, honors what she cares about, and admits what it doesn&rsquo;t know. That honesty is the feature &mdash; it&rsquo;s how software earns a place on a farm.&rdquo;</td></tr>
+        <tr><td class="mono">1:45&ndash;2:00</td><td>Close</td><td>&ldquo;ROOTLOGIC is live on free NASA data, from the Sahel to the Midwest. Ancient wisdom, NASA data, her decision. Thank you.&rdquo;</td></tr>
+    </tbody>
+</table>
+
+<!-- ============ S8 RISKS ============ -->
+<div class="chapter-header">
+    <div class="sec-tag">SECTION 08 // RISK REGISTER</div>
+    <div class="sec-title">Rootlogic-Specific Risks</div>
+    <p class="sec-lede">Shared risks inherit the flagship register; these are the impact lane&rsquo;s own.</p>
+</div>
+
+<table>
+    <colgroup><col style="width:26%"><col style="width:12%"><col style="width:62%"></colgroup>
+    <thead><tr><th>RISK</th><th>LEVEL</th><th>MITIGATION / FALLBACK</th></tr></thead>
+    <tbody>
+        <tr><td>Agronomic credibility challenged</td><td class="mono">MEDIUM</td><td>Every rule cites USDA/FAO guidance on the methodology note; a &ldquo;simplify deliberately&rdquo; statement owns the model&rsquo;s scope; refuse to bluff on pest economics</td></tr>
+        <tr><td>Judges expect yield predictions</td><td class="mono">MEDIUM</td><td>Positioning is decision support on rotation choice, not yield forecasting; the notebook states exactly what the tool does not model (prices, seed access, markets)</td></tr>
+        <tr><td>Soil data gaps in preset regions</td><td class="mono">LOW</td><td>Regions chosen where SoilGrids and NCSS coverage is strong; missing attributes degrade to declared assumptions, visibly</td></tr>
+        <tr><td>Scope creep toward full crop models (DSSAT-class)</td><td class="mono">HIGH</td><td>Locked at twelve rules; the callout &ldquo;explainable beats exhaustive&rdquo; is the rehearsed answer; any extra rule ships after Gate B, which means never</td></tr>
+        <tr><td>Multilingual claims overreach</td><td class="mono">LOW</td><td>Demo languages limited to strings we verify pre-event (EN/FR/Hausa sample lines); claim &ldquo;multilingual-ready&rdquo; only for what is shown</td></tr>
+    </tbody>
+</table>
+
+</div><!-- /main-content -->
+
+<!-- ==================== PDF4 ENDING ==================== -->
+<div class="ending">
+    <div class="stars"></div>
+    <div class="end-tag">END OF IMPACT PLAN // SP-2026-005</div>
+    <div class="end-big"><div>ANCIENT WISDOM.</div><div class="hl">NASA DATA. HER DECISION.</div></div>
+    <div class="end-text">Three plans, one engine, three trophies in range. Whatever the room does on November 14, the portfolio holds the data lane, the science lane, and the human one &mdash; and the farm that inspired this plan never has to know how hard that was to build.</div>
+    <div class="end-final">
+        <span>IMPACT: ROOTLOGIC &#9670; CHALLENGE #07</span>
+        <span>MISSION COMMAND OUT</span>
+    </div>
+</div>

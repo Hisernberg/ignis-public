@@ -1,0 +1,70 @@
+<!-- ============ S7 AWARD LANES ============ -->
+<div class="chapter-header">
+    <div class="sec-tag">SECTION 07 // AWARD-LANE MAP</div>
+    <div class="sec-title">Which Trophies PYROCHRON Attacks</div>
+    <p class="sec-lede">Aligned to the five judging criteria and the three Global Award categories in range.</p>
+</div>
+
+<p class="body-text">Space Apps judges score Impact, Creativity, Validity, Relevance, and Presentation, and global awards are category prizes. PYROCHRON is engineered so that each criterion has a named, demonstrable feature &mdash; there is no criterion where we improvise on stage. The primary lane is <b>Best Use of Data</b>: fusing two decades of two sensors with a published transfer function and third-party validation is precisely what that category exists to reward. The secondary lane is <b>Global Connection</b>: fire is a planetary phenomenon with regional faces, and the app is built for every continent by default, not as an afterthought. The tertiary lane is <b>Best Use of Science</b>, contested with #02&rsquo;s PULSE in our own portfolio &mdash; PYROCHRON claims it whenever the validation panel lands strongly.</p>
+
+<table>
+    <colgroup><col style="width:26%"><col style="width:40%"><col style="width:34%"></colgroup>
+    <thead><tr><th>CRITERION / LANE</th><th>OUR EVIDENCE ON STAGE</th><th>WHERE IT LIVES</th></tr></thead>
+    <tbody>
+        <tr><td><b>Impact</b></td><td>Anomaly Spotlight + outlook feed the early-warning use case named in the brief</td><td>Screens 3&ndash;4; pitch act 2</td></tr>
+        <tr><td><b>Creativity</b></td><td>The 25&times;52 Fire Calendar as a never-seen artifact; sensor-seam toggle</td><td>Screen 2; video open</td></tr>
+        <tr><td><b>Validity</b></td><td>Transfer functions from the overlap period; correlation vs MCD64A1 published in-app</td><td>Methodology page; Layer 2</td></tr>
+        <tr><td><b>Relevance</b></td><td>NASA mission data (MODIS, VIIRS, burned area) is the spine, not garnish; live NRT freshness</td><td>Data pipeline; demo beat 3</td></tr>
+        <tr><td><b>Presentation</b></td><td>90-second choreographed demo; briefing narrated in plain language</td><td>Pitch kit, Section 10</td></tr>
+        <tr><td><b>Best Use of Data</b></td><td>25-year two-sensor fusion &mdash; the exact problem statement, solved</td><td>The whole app</td></tr>
+        <tr><td><b>Global Connection</b></td><td>Preset AOIs on six continents; the top-5 global anomaly board</td><td>Screen 1 &amp; 3</td></tr>
+    </tbody>
+</table>
+
+<!-- ============ S8 TEN-WEEK TIMELINE ============ -->
+<div class="chapter-header">
+    <div class="sec-tag">SECTION 08 // PREP TIMELINE</div>
+    <div class="sec-title">Ten Weeks to Locked and Loaded</div>
+    <p class="sec-lede">Assumes evenings-and-weekends pace for a 2&ndash;4 person team; each week has a hard exit artifact.</p>
+</div>
+
+<div class="phase">
+    <div class="phase-head"><span class="ph-time">W1&ndash;2</span><span class="ph-name">Chassis &amp; shell</span></div>
+    <div class="phase-body">Next.js 15 mission-control shell restored from playbook build; MapLibre globe with preset AOIs; repo, CI, deploy pipeline (Vercel + Fly/Railway for services). <b>Exit: live shell URL with a map.</b></div>
+    <div class="phase-gate">EXIT ARTIFACT: DEPLOYED SHELL &#9670; OWNER: ALL &#9670; RISK: LOW</div>
+</div>
+<div class="phase">
+    <div class="phase-head"><span class="ph-time">W3</span><span class="ph-name">Archive ingestion</span></div>
+    <div class="phase-body">Earthdata + FIRMS key pipeline; download MCD14ML and VNP14IMGML 2000&rarr;present; reduce to H3&times;day Parquet aggregates. <b>Exit: events.parquet, QA-counted.</b></div>
+    <div class="phase-gate">EXIT ARTIFACT: PARQUET LAKE &#9670; OWNER: DATA ENG &#9670; RISK: DOWNLOAD TIME (START EARLY)</div>
+</div>
+<div class="phase">
+    <div class="phase-head"><span class="ph-time">W4&ndash;5</span><span class="ph-name">Harmonization engine</span></div>
+    <div class="phase-body">Event clustering; stratified quantile mapping from the 2012&ndash;present overlap; uncertainty ribbons; MCD64A1 validation panel data. <b>Exit: one continuous series + validation stats.</b></div>
+    <div class="phase-gate">EXIT ARTIFACT: HARMONIZED SERIES &#9670; OWNER: DATA ENG + SCIENCE &#9670; RISK: MEDIUM (THE CORE IP)</div>
+</div>
+<div class="phase">
+    <div class="phase-head"><span class="ph-time">W6</span><span class="ph-name">Trend &amp; anomaly engine</span></div>
+    <div class="phase-body">Weekly climatology per cell; z-scores and percentile ranks; global top-5 anomaly board; calendar grid API. <b>Exit: anomaly endpoints live.</b></div>
+    <div class="phase-gate">EXIT ARTIFACT: STATS API &#9670; OWNER: BACKEND &#9670; RISK: LOW</div>
+</div>
+<div class="phase">
+    <div class="phase-head"><span class="ph-time">W7</span><span class="ph-name">Calendar UI + AI services</span></div>
+    <div class="phase-body">The 25&times;52 grid component with sweep animation and sensor toggle; FastAI services deploy Chronos-Bolt + MiniLM + briefing endpoint with stat-pack prompts. <b>Exit: screens 2&ndash;5 clickable on dev data.</b></div>
+    <div class="phase-gate">EXIT ARTIFACT: ALL 5 SCREENS IN DEV &#9670; OWNER: FRONTEND + AI &#9670; RISK: MEDIUM</div>
+</div>
+<div class="phase">
+    <div class="phase-head"><span class="ph-time">W8</span><span class="ph-name">Outlook + polish</span></div>
+    <div class="phase-body">Forecast screen wired to /forecast with bands; POWER fire-weather context; loading/empty states; mobile-responsiveness pass. <b>Exit: full demo choreography runs end-to-end.</b></div>
+    <div class="phase-gate">EXIT ARTIFACT: E2E DEMO &#9670; OWNER: ALL &#9670; RISK: LOW</div>
+</div>
+<div class="phase">
+    <div class="phase-head"><span class="ph-time">W9</span><span class="ph-name">Hardening &amp; fallbacks</span></div>
+    <div class="phase-body">Offline demo bundle (cached tiles, local model weights); latency pass (all screens &lt; 1&nbsp;s); methodology page written; backup laptop with warm container. <b>Exit: demo survives airplane mode.</b></div>
+    <div class="phase-gate">EXIT ARTIFACT: OFFLINE-PROOF DEMO &#9670; OWNER: OPS &#9670; RISK: LOW</div>
+</div>
+<div class="phase">
+    <div class="phase-head"><span class="ph-time">W10</span><span class="ph-name">Pitch kit &amp; dry runs</span></div>
+    <div class="phase-body">30-second video shot and cut; 2-minute local pitch rehearsed; project page draft; submission checklist executed twice. <b>Exit: submission-ready package.</b></div>
+    <div class="phase-gate">EXIT ARTIFACT: PITCH PACKAGE &#9670; OWNER: ALL &#9670; RISK: NONE (BUFFER WEEK)</div>
+</div>

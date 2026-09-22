@@ -1,0 +1,64 @@
+<!-- ============ S2 THE SCIENCE ============ -->
+<div class="chapter-header">
+    <div class="sec-tag">SECTION 02 // THE SCIENCE</div>
+    <div class="sec-title">Why the Records Clash &mdash; and How to Fuse Them</div>
+    <p class="sec-lede">The harmonization method is the intellectual core of the submission. Here it is, end to end.</p>
+</div>
+
+<p class="body-text">MODIS (Terra since November 2000, Aqua since 2002) and VIIRS (Suomi NPP since 20 January 2012, NOAA-20 since 2018) both detect <b>thermal anomalies</b> &mdash; hot pixels &mdash; but they were never designed to be one dataset. MODIS burns 1&nbsp;km pixels through a contextual algorithm tuned over two decades; VIIRS reads 375&nbsp;m I-bands that resolve fires up to four times smaller. Their overpass times differ by hours (burns that peak mid-afternoon are caught differently by a 10:30 platform than a 13:30 one), their detection sensitivities differ by land cover, and their Fire Radiative Power retrievals are not interchangeable. Naively stacking &ldquo;MODIS 2000&ndash;2011, VIIRS 2012&ndash;now&rdquo; produces a calendar whose step-change in 2012 is an artifact of the sensors, not of fire on the ground &mdash; precisely the illusion the challenge asks us to remove.</p>
+
+<div class="sub-title"><span class="num">02.1</span> The PYROCHRON Harmonization Method</div>
+<div class="phase">
+    <div class="phase-head"><span class="ph-time">STEP 1</span><span class="ph-name">Unify detections into fire events</span></div>
+    <div class="phase-body">Cluster raw hotspot pixels into <b>fire events</b> &mdash; spatio-temporal clusters (same fire within a radius and a time window) using H&#8323; hexagonal binning and temporal linking. Working on events rather than pixels removes per-pixel noise and gives the calendar a stable unit: event-days per cell.</div>
+    <div class="phase-gate">OUTPUT: EVENT TABLE &mdash; EVENT_ID, SENSOR, TIME, H3 CELL, FRP, CONFIDENCE</div>
+</div>
+<div class="phase">
+    <div class="phase-head"><span class="ph-time">STEP 2</span><span class="ph-name">Exploit the overlap period</span></div>
+    <div class="phase-body">Both sensors observe 2012&ndash;present. In every H&#8323; cell and land-cover class, compute the <b>sensor transfer function</b>: how VIIRS event-day counts map to MODIS-equivalent counts (a quantile-mapping / scaling fit per stratum). This overlap is our calibration laboratory &mdash; no invented coefficients, everything derived from the data itself.</div>
+    <div class="phase-gate">OUTPUT: STRATIFIED TRANSFER FUNCTIONS (CELL &#9670; LAND COVER &#9670; MONTH)</div>
+</div>
+<div class="phase">
+    <div class="phase-head"><span class="ph-time">STEP 3</span><span class="ph-name">Back-extend VIIRS, forward-project MODIS</span></div>
+    <div class="phase-body">Apply the transfer function backward: pre-2012 MODIS-only years are expressed on the VIIRS-equivalent scale (and vice versa where useful). Uncertainty bands ride along from the transfer-function residuals, so every historical week in the calendar carries an honest confidence ribbon.</div>
+    <div class="phase-gate">OUTPUT: ONE CONTINUOUS 2000&ndash;2026 WEEKLY SERIES PER CELL, WITH CI</div>
+</div>
+<div class="phase">
+    <div class="phase-head"><span class="ph-time">STEP 4</span><span class="ph-name">Validate against burned area truth</span></div>
+    <div class="phase-body">Active fire counts are detections; <b>MCD64A1 monthly burned area</b> is ground truth for extent. Correlate our harmonized calendar against MCD64A1 per region and per year; publish the correlation map in-app. This validation page is what separates a science submission from a visualization toy &mdash; judges can verify us in one click.</div>
+    <div class="phase-gate">OUTPUT: VALIDATION PANEL &mdash; r, BIAS, AND KNOWN LIMITATIONS, IN-APP</div>
+</div>
+
+<div class="callout">
+    <div class="co-tag">WHAT WE DO NOT CLAIM</div>
+    The calendar measures fire <b>activity</b> (detection density), not hectares burned. The methodology page says this in plain language, including limitations (small burns under the MODIS floor pre-2012, persistent clouds, latency at the near-real-time edge). Judges reward honesty more than heroics.
+</div>
+
+<!-- ============ S3 DATA ARSENAL ============ -->
+<div class="chapter-header">
+    <div class="sec-tag">SECTION 03 // DATA ARSENAL</div>
+    <div class="sec-title">Sources, Access Routes, and Volumes</div>
+    <p class="sec-lede">Every input verified public. The entire app runs on free, keyed, quota-tolerant NASA infrastructure.</p>
+</div>
+
+<table>
+    <colgroup><col style="width:24%"><col style="width:30%"><col style="width:23%"><col style="width:23%"></colgroup>
+    <thead><tr><th>SOURCE</th><th>WHAT IT GIVES US</th><th>ACCESS</th><th>ROLE</th></tr></thead>
+    <tbody>
+        <tr><td><b>FIRMS MODIS archive</b><br><span class="mono">MCD14ML</span></td><td>Monthly global thermal anomalies, 1&nbsp;km, Nov 2000 &rarr; present, with FRP &amp; confidence</td><td>Earthdata Login + FIRMS archive download; free</td><td>Backbone 2000&ndash;2011; overlap input</td></tr>
+        <tr><td><b>FIRMS VIIRS archive</b><br><span class="mono">VNP14IMGML + J1/J2</span></td><td>Global 375&nbsp;m active fire, 20 Jan 2012 &rarr; present; S-NPP, NOAA-20, NOAA-21</td><td>FIRMS archive + API (key, free)</td><td>Backbone 2012&ndash;present; the fine sensor</td></tr>
+        <tr><td><b>MCD64A1 burned area</b></td><td>Monthly global burned-area maps, 500&nbsp;m, 2000&rarr;present</td><td>LP DAAC / Earthdata; free</td><td>Independent validation truth</td></tr>
+        <tr><td><b>MCD12Q1 land cover</b></td><td>Annual land-cover classes, 500&nbsp;m</td><td>LP DAAC; free</td><td>Bias stratification for transfer functions</td></tr>
+        <tr><td><b>GIBS imagery</b></td><td>Ready-rendered WMTS tiles (True Color, Thermal Anomalies day/night)</td><td>HTTPS tiles; free, no key</td><td>Map context layers in-app</td></tr>
+        <tr><td><b>NASA POWER</b></td><td>Daily weather: temp, RH, wind, precipitation</td><td>REST API; free</td><td>Fire-weather context in briefings</td></tr>
+        <tr><td><b>EONET v3</b></td><td>Curated wildfire event polygons &amp; narratives</td><td>REST API; free</td><td>Named events for the story layer</td></tr>
+    </tbody>
+</table>
+
+<div class="sub-title"><span class="num">03.1</span> Engineering Reality Check</div>
+<ul class="tick">
+    <li><b>Volume strategy.</b> Global MCD14ML + VNP14IMGML CSVs for 25 years are manageable when reduced on ingest: pre-aggregate to H&#8323; cell &times; day counts and FRP sums in Parquet. Target a static <span class="mono">events.parquet</span> of a few GB &mdash; served from disk, not fetched live. The live FIRMS API is used only for the &ldquo;last 7 days&rdquo; freshness layer.</li>
+    <li><b>Processing stack.</b> Python: <span class="mono">pandas + pyarrow</span> for columnar crunch, <span class="mono">geopandas + h3</span> for spatial semantics, <span class="mono">scipy.stats</span> for the quantile-mapping fit. Everything runs on a laptop; nothing needs a cluster if aggregation is done at ingest.</li>
+    <li><b>Pre-event prefetch.</b> The full archive is downloaded and processed in Weeks 3&ndash;5 of the prep timeline. During the event, zero downloads are required &mdash; the single biggest risk elimination this plan makes.</li>
+    <li><b>Freshness path.</b> FIRMS near-real-time feeds (24/48h/7d CSV) cover the event weekend itself, so the live demo can include &ldquo;fires detected this week&rdquo; without touching the archive.</li>
+</ul>

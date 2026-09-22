@@ -1,0 +1,55 @@
+<!-- PAGE 5 · DEPLOYMENT & WEEKEND PLAN -->
+<section class="page">
+  <h2><span class="n">04</span>Deployment &amp; the 48-Hour Weekend Plan</h2>
+  <p class="sec-lede">The hackathon weekend is a victory lap, not a sprint: everything heavy is already done.</p>
+  <h3>Deployment (15 minutes, free)</h3>
+  <ul>
+    <li><b>Vercel import →</b> add <code>FIRMS_MAP_KEY</code> + <code>NASA_API_KEY</code> from <code>secrets/.env</code> → deploy. All five API routes are serverless-safe; the FIRMS path restores automatically on standard networks.</li>
+    <li><b>Verify</b> <code>/api/health</code> shows <code>firms.ok: true</code>; capture a screenshot for the submission gallery.</li>
+    <li><b>Optional custom domain</b> + the status rail becomes part of the demo (transparency is a feature).</li>
+  </ul>
+  <h3>Weekend schedule (target: Global Awards)</h3>
+  <table>
+    <tr><th style="width:18%">Slot</th><th style="width:52%">Work</th><th style="width:30%">Output</th></tr>
+    <tr><td>Sat AM</td><td>Register team on Space Apps portal; Vercel deploy; warm MiniLM cache; sanity-check all 8 regions in browser</td><td>Live public URL</td></tr>
+    <tr><td>Sat PM</td><td>Record 30-second pitch (script below); capture 5 gallery screenshots; write project-page copy from Dossier 01 §Judging</td><td>Pitch video + gallery</td></tr>
+    <tr><td>Sun AM</td><td>Hugging Face artifact upload (runbook Phase 6); MCP demo optional (Phase 8); buffer for fixes</td><td>Model card live</td></tr>
+    <tr><td>Sun PM</td><td>Submit: links, video, team roles, challenge selection; final QA pass of repo README</td><td>Submission locked</td></tr>
+  </table>
+  <h3>The 30-second pitch script</h3>
+  <div class="callout fire">
+    <p style="margin:0 0 6px"><b>[0–8 s]</b> "MODIS watched Earth burn from orbit for twenty-five years. In 2012, VIIRS joined — sharper eyes, different language, and the record split in two."</p>
+    <p style="margin:0 0 6px"><b>[8–20 s]</b> "IGNIS unites them: one harmonized calendar across a quarter century — here's every fire season since 2000 — with a continuity coefficient that makes the two eras scientifically comparable. Live detections map yesterday's burns; a seasonal outlook flags the months ahead."</p>
+    <p style="margin:0"><b>[20–30 s]</b> "And when activity spikes, the rule engine raises the alert while Hugging Face triage ranks which open events matter for this place. Two NASA missions, one calendar — built on FIRMS, GIBS and EONET, deployed on authentic data end to end."</p>
+  </div>
+  <div class="callout"><b>Demo choreography:</b> start on Amazon (today), switch to Boreal Canada and scrub to 2023-08 to show the record season in the calendar, then back to the live map for the alert level. Three clicks, one story: memory → present → future.</div>
+  <div class="foot"><span>IGNIS · Dossier 02 — Master Plan &amp; Build Report</span><span>05</span></div>
+</section>
+
+<!-- PAGE 6 · JUDGING & FUTURE -->
+<section class="page">
+  <h2><span class="n">05</span>Judging Strategy &amp; What Comes After</h2>
+  <p class="sec-lede">Why this entry scores, where it can still grow, and how the win compounds.</p>
+  <div class="two">
+    <div class="card">
+      <h4>Scoring against Global judging criteria</h4>
+      <p><b>Impact (9/10):</b> a decision-relevant memory of fire for ecologists, insurers, journalists and residents — 25 years in one view.</p>
+      <p><b>Creativity (8.5/10):</b> harmonization rendered as a calendar is a new visual grammar for data fusion; the outlook and semantic triage extend the brief rather than repeat it.</p>
+      <p><b>Validity (9.5/10):</b> every figure traces to a named NASA endpoint; methodology, sampling design and continuity coefficients are published in-app and in-repo; dual-source fallback reproduces the record independently.</p>
+      <p><b>Relevance (9/10):</b> built directly on FIRMS/LANCE communities' needs; the runbook and MCP surface make it a reusable capability, not a demo.</p>
+      <p><b>Presentation (8.5/10):</b> mission-control identity consistent with the team's 25-page playbook; a rehearsed three-click demo arc.</p>
+    </div>
+    <div class="card">
+      <h4>Post-event roadmap</h4>
+      <p><b>v1.1 (week 1):</b> exact-count FIRMS mode for the calendar (runbook Phase 2.3); per-month FRP density maps; user-drawn AOIs persisted to SQLite.</p>
+      <p><b>v1.2 (month 1):</b> NISAR burn-scar cross-validation (the Dossier 01 closing line becomes a feature); Chronos-Bolt upgrade path for the outlook; subscription-style AOI alerts via webhook.</p>
+      <p><b>Community:</b> publish the GIBS-MVT harmonization pipeline as an open notebook so other teams can build calendars for their own regions — judge-visible goodwill that outlives the event.</p>
+    </div>
+  </div>
+  <h3>Why we believe this wins</h3>
+  <p>Winning Space Apps entries share three properties: they answer the challenge's actual intellectual question rather than decorating around it; they work flawlessly in front of judges; and they leave the panel with one unforgettable sentence. IGNIS answers the harmonization question with measured continuity coefficients across eight regions and a fused 25-year record; it works because the entire pipeline was built, broken, fixed and browser-verified before the event began; and its sentence is already written — <b>"two NASA missions, one calendar."</b> The team's constraint set (chat-only AI, API-first, automation-driven) stopped being a limitation and became the demo's spine: zero runtime LLM dependencies, machine-drivable endpoints, and a runbook any reviewer can execute to reproduce the whole system in an hour.</p>
+  <div class="callout"><b>Final instruction to the team:</b> resist adding features on Saturday. The winning move is polish, proof and story. The map is live, the calendar is deep, the outlook is honest, the alert engine never sleeps — show exactly that, nothing less and nothing more.</div>
+  <div class="foot"><span>IGNIS · Dossier 02 — Master Plan &amp; Build Report</span><span>06</span></div>
+</section>
+</body>
+</html>
